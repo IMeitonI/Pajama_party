@@ -98,6 +98,12 @@ public class Test_boomerang : MonoBehaviour {
         transform.position = spawn.position;
         gameObject.SetActive(false);
     }
+
+    private void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.CompareTag("Obstacles")) {
+            PickUp();
+        }
+    }
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject == target.gameObject && back) {
             if (back) { PickUp(); }

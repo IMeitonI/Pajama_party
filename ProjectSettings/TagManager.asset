@@ -9,6 +9,7 @@ TagManager:
   - ShieldCollider
   - Obstacles
   - Manager
+  - MyJoy
   layers:
   - Default
   - TransparentFX
