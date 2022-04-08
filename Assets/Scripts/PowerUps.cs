@@ -10,6 +10,17 @@ public class PowerUps : MonoBehaviour
     [SerializeField] int powerUpID;
     private Movement _player;
 
+    [SerializeField]
+    private ParticleSystem teleportPickupVFX;
+
+    [SerializeField]
+    private ParticleSystem speedPickupVFX;
+
+    [SerializeField]
+    private ParticleSystem shieldPickupVFX;
+
+
+
     private void Awake()
     {
 
@@ -17,13 +28,13 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        powerUpID = Random.Range(0, 3);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,15 +47,18 @@ public class PowerUps : MonoBehaviour
                 {
                     case 0:
                         StartCoroutine(_player.SpeedPowerUp());
+                        Instantiate(speedPickupVFX);
                         Destroy(this.gameObject);
                         break;
                     case 1:
                         _player.shieldActive = true;
                         _player.ShieldPowerUp();
+                        Instantiate(shieldPickupVFX);
                         Destroy(this.gameObject);
                         break;
                     case 2:
                         _player.teleportPU = true;
+                        Instantiate(teleportPickupVFX);
                         Destroy(this.gameObject);
                         //_player.TeleportButton.gameObject.SetActive(true);
                         //_player.TeleportPowerUp();

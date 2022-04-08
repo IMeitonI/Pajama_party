@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     [Header("VFX")]
     [SerializeField] ParticleSystem ShieldPS;
     [SerializeField] ParticleSystem teleportPS;
+    [SerializeField] ParticleSystem movement_trail;
     public Button TeleportButton;
 
     public float shieldtime = 5f;
@@ -41,9 +42,14 @@ public class Movement : MonoBehaviour
         z_axis = manager_Joystick.InputVertical();
         if (x_axis != 0 || z_axis != 0)
         {
-            if(die == false) Change_Pos(x_axis, z_axis);
+            if (die == false) Change_Pos(x_axis, z_axis);
+            movement_trail.Play();
+
         }
-        else running = false;
+        else {
+            running = false;
+            movement_trail.Stop();
+        }
     }
     private void Update()
     {
