@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Customise_Manager : MonoBehaviour
-{
+public class Customise_Manager : MonoBehaviour {
+    public delegate void SaveTransformation(int a, Online_skin skin);
+    public event SaveTransformation SaveT;
     [SerializeField]
     GameObject[] buttonsCharacters, buttonsPijamas, buttonsBoomerangs;
     [SerializeField]
@@ -53,6 +54,9 @@ public class Customise_Manager : MonoBehaviour
     {
         skin.face = face;
         faceImage.sprite = faces[skin.face];
+        if (SaveT != null) SaveT(skin.player, skin);
+       
+       
         UpdateButtons();
     }
 
@@ -60,6 +64,7 @@ public class Customise_Manager : MonoBehaviour
     {
         skin.pijama = pijama;
         pijamaImage.color = pijamas[skin.pijama];
+        if (SaveT != null) SaveT(skin.player, skin);
         UpdateButtons();
     }
 
@@ -67,6 +72,7 @@ public class Customise_Manager : MonoBehaviour
     {
         skin.boomerang = boomerang;
         boomerangImg.sprite = boomerangs[skin.boomerang];
+        if (SaveT != null) SaveT(skin.player, skin);
         UpdateButtons();
     }
 

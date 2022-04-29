@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class managerSound : MonoBehaviour
 {
@@ -12,11 +13,19 @@ public class managerSound : MonoBehaviour
     public AudioSource soundRebote;
     public AudioSource soundButtonSettings;
     public AudioSource soundPrincipalMenu;
+    public Button boton;
   
     // Start is called before the first frame update
     void Start()
     {
-        
+        dieSound = GetComponent<AudioSource>();
+        soundMovement = GetComponent<AudioSource>();
+        soundShooting = GetComponent<AudioSource>();
+        soundRebote = GetComponent<AudioSource>();
+        soundButtonSettings = GetComponent<AudioSource>();
+        soundPrincipalMenu = GetComponent<AudioSource>();
+        Button btn = boton.GetComponent<Button>();
+        btn.onClick.AddListener(muteSettings);
     }
 
     // Update is called once per frame
@@ -25,10 +34,7 @@ public class managerSound : MonoBehaviour
         
     }
 
-    public void soundBoton()
-    {
-        
-    }
+  
 
     public void soundDie ()
     {
@@ -66,6 +72,14 @@ public class managerSound : MonoBehaviour
     {
         soundButtonSettings.Play();
     }
+
+    public void muteSettings()
+    {
+       
+        
+        
+    }
+    
 
     public void soundMainMenu()
     {

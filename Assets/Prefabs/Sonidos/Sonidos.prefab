@@ -168,7 +168,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c47c2288032436e42b4690a68ed651fd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 381c4a578cdea714997f7e5b406d8f43, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -270,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5354030582325799522
 Transform:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c04ede52b9126eb41af03b309db08c35, type: 3}
+  m_audioClip: {fileID: 8300000, guid: af9837520a3c5894d8fe9607fa417d9a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 0.5
@@ -587,7 +587,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -717,11 +717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 5354030583022164053}
   soundtrackArray:
-  - {fileID: 8300000, guid: 2a6be9df5c3ee994ab6f98f4d16f6f94, type: 3}
-  - {fileID: 8300000, guid: f25ca76f0547b6747a4e307753284cf9, type: 3}
-  - {fileID: 8300000, guid: 3ddd49bc44bfb514ebc0d722c400763b, type: 3}
-  - {fileID: 8300000, guid: d08ed06a21e994643ba3f33cb5759984, type: 3}
-  - {fileID: 8300000, guid: d1b3da49b71fd6746a066e83895a090a, type: 3}
+  - {fileID: 8300000, guid: d458524d666c09e4f8ed6a07b5b52cab, type: 3}
+  - {fileID: 8300000, guid: cdbe9b6ccffa39e4e9e0bf2f23a63df0, type: 3}
 --- !u!1 &5354030583149019808
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,8 +760,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 11316db8e5d5f38419fd639ce736e0e1, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: f1cc0de108fed384eac33dc5248cd299, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

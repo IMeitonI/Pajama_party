@@ -8,7 +8,9 @@ using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-
+    public delegate void GameStops();
+    public event GameStops GameStart;
+    
     public static Launcher Instance;
 
     [SerializeField] TMP_InputField roomNameInpuField;
@@ -110,7 +112,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public void StartGame()
-    {
+    {   if (GameStart !=null) GameStart();
         PhotonNetwork.LoadLevel(1);
     }
 

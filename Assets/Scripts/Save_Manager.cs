@@ -64,10 +64,7 @@ public class Save_Manager : MonoBehaviour {
     //}
     public void Save() {
 
-        // SaveData saveData = new SaveData {
-        //     guardados = guard
-        //};
-
+       
         string json = JsonUtility.ToJson(activeSave);
         File.WriteAllText(Application.dataPath + "/save.txt", json);
         Debug.Log("Guardado: " + json);
@@ -79,19 +76,14 @@ public class Save_Manager : MonoBehaviour {
 
             string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
             SaveData saveData = JsonUtility.FromJson<SaveData>(saveString);
-
-            for (int i = 0; i < activeSave.character_1.Length; i++) {
-                activeSave.character_1[i] = saveData.character_1[i];
-                
-            }
-            for (int i = 0; i < activeSave.character_2.Length; i++) {
-                activeSave.character_2[i] = saveData.character_2[i];
-            }
-            for (int i = 0; i < activeSave.onlineCharacter.Length; i++) {
-                activeSave.onlineCharacter[i] = saveData.onlineCharacter[i];
-            }
-            //activeSave.character_1 = saveData.character_1;
-            //activeSave.character_2 = saveData.character_2;
+     
+                activeSave.character_1 = saveData.character_1;
+  
+                activeSave.character_2 = saveData.character_2;
+  
+                activeSave.onlineCharacter = saveData.onlineCharacter;
+            
+           
             loaded = true;
 
             Debug.Log("Cargado: " + saveString);
@@ -100,18 +92,19 @@ public class Save_Manager : MonoBehaviour {
     public void DeleteData() {
         if (File.Exists(Application.dataPath + "/save.txt")) {
             File.Delete(Application.dataPath + "/save.txt");
-
+            File.Delete(Application.dataPath + "/save.txt.meta");
             Debug.Log("Lo borré");
         }
     }
 }
 [System.Serializable]
 public class SaveData {
-   // public Online_skin skin;
+    // public Online_skin skin;
     //public int guardados;
-    public int[] character_1 = new int[3];
-    public int[] character_2 = new int[3];
-    public int[] onlineCharacter = new int[3];
+    public bool online;
+    public int[] character_1 = new int[4];
+    public int[] character_2 = new int[4];
+    public int[] onlineCharacter = new int[4];
     //public ScriptableObject onlineCharacter;
 
 }

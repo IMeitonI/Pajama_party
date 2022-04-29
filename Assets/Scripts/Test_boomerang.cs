@@ -88,7 +88,7 @@ public class Test_boomerang : MonoBehaviour {
         back = true;
         print("Estoy devuelta");
     }
-    void PickUp() { // Recoger boomerang
+    public void PickUp() { // Recoger boomerang
         timeBack = 0;
         shooted = false;
         back = false;

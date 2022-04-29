@@ -1,1 +1,1 @@
-{"character_1":[0,2,0],"character_2":[0,5,0],"onlineCharacter":[0,0,0]}
+{"online":false,"character_1":[],"character_2":[],"onlineCharacter":[1,0,1]}
