@@ -398,7 +398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7889973903535772891
 Transform:
   m_ObjectHideFlags: 0
@@ -426,6 +426,7 @@ Transform:
   - {fileID: 559456066175727680}
   - {fileID: 1896170675484538412}
   - {fileID: 8618110745430609082}
+  - {fileID: 8125112185896235179}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -459,6 +460,87 @@ Transform:
   m_Father: {fileID: 809311006166780426}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7538541812855347327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8125112185896235179}
+  - component: {fileID: 1887192528118098754}
+  - component: {fileID: 7237469612053889993}
+  m_Layer: 0
+  m_Name: Awita
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8125112185896235179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538541812855347327}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.9, y: -4.5, z: -2}
+  m_LocalScale: {x: 20, y: 1, z: 20}
+  m_Children: []
+  m_Father: {fileID: 7889973903535772891}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1887192528118098754
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538541812855347327}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7237469612053889993
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538541812855347327}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5a395214761494a5e8baa67defe922e4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7959961314004056326
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +670,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7889973903535772891}
     m_Modifications:
+    - target: {fileID: 4626150200965180278, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1a243f60bf7874eb488027ba66d128, type: 2}
     - target: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
       propertyPath: m_Name
       value: Edificio (3)
@@ -662,6 +748,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7889973903535772891}
     m_Modifications:
+    - target: {fileID: 4626150200965180278, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1a243f60bf7874eb488027ba66d128, type: 2}
     - target: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
       propertyPath: m_Name
       value: Edificio (5)
@@ -724,6 +814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7889973903535772891}
     m_Modifications:
+    - target: {fileID: 4626150200965180278, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1a243f60bf7874eb488027ba66d128, type: 2}
     - target: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
       propertyPath: m_Name
       value: Edificio (4)
@@ -816,6 +910,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7889973903535772891}
     m_Modifications:
+    - target: {fileID: 4626150200965180278, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1a243f60bf7874eb488027ba66d128, type: 2}
     - target: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
       propertyPath: m_Name
       value: Edificio (2)
@@ -894,6 +992,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7889973903535772891}
     m_Modifications:
+    - target: {fileID: 4626150200965180278, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1a243f60bf7874eb488027ba66d128, type: 2}
     - target: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
       propertyPath: m_Name
       value: Edificio (1)
@@ -1056,6 +1158,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7889973903535772891}
     m_Modifications:
+    - target: {fileID: 4626150200965180278, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1a243f60bf7874eb488027ba66d128, type: 2}
     - target: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
       propertyPath: m_Name
       value: Edificio
@@ -1487,6 +1593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975453604973196285, guid: 1e94f82de1f817d4bb045f9982cd55a5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5dd0dafe3f35a8f438ef57fd3dbc9017, type: 2}
     - target: {fileID: 9099347420906581426, guid: 1e94f82de1f817d4bb045f9982cd55a5, type: 3}
       propertyPath: m_Size.x
       value: 7.509705
