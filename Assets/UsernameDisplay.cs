@@ -12,7 +12,11 @@ public class UsernameDisplay : MonoBehaviour
 
     private void Start()
     {
-        text.text = playerPV.Owner.NickName +" ("+m_skin.face.ToString()+m_skin.pijama.ToString()+m_skin.boomerang.ToString()+")";
+        if (playerPV.IsMine)
+        {
+
+            text.text = playerPV.Owner.NickName + " (" + m_skin.face.ToString() + m_skin.pijama.ToString() + m_skin.boomerang.ToString() + ")";
+        }
     }
 
 }
