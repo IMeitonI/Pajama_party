@@ -7,9 +7,9 @@ public class Player2_Boomerang : MonoBehaviour {
     int score;
     bool alive;
     Text myText;
-    CapsuleCollider myCollider;
-    Movement mov;
-    Rigidbody rb;
+    protected CapsuleCollider myCollider;
+    protected Movement mov;
+    protected Rigidbody rb;
    
   
     void Start() {
@@ -57,13 +57,13 @@ public class Player2_Boomerang : MonoBehaviour {
         }
     }
 
-    void Activatecollider() {
+    protected void Activatecollider() {
         //rb.useGravity = true;
         myCollider.enabled = true;
         rb.isKinematic = false;
 
     }
-    void DeactivateCol() {
+    protected void DeactivateCol() {
         //rb.useGravity = false;
         rb.isKinematic = true;
         myCollider.enabled = false;
