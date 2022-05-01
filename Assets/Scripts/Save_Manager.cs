@@ -20,11 +20,8 @@ public class Save_Manager : MonoBehaviour {
         }
         DontDestroyOnLoad(this.gameObject);
         Load();
-
-
     }
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) {
             Save();
@@ -39,36 +36,6 @@ public class Save_Manager : MonoBehaviour {
         }
     }
 
-    //public bool IsSavefile() {
-    //    return Directory.Exists(Application.persistentDataPath + "/save");
-    //}
-    //public void Save() {
-    //    if (!IsSavefile()) {
-    //        Directory.CreateDirectory(Application.persistentDataPath + "/save");
-    //    }
-    //    if(!Directory.Exists(Application.persistentDataPath + "/save/character_data")){
-    //        Directory.CreateDirectory(Application.persistentDataPath + "/save/character_data");
-    //    }
-
-    //    BinaryFormatter bf = new BinaryFormatter();
-    //    FileStream file = File.Create(Application.persistentDataPath + "/save/character_data/character_save.txt");
-    //    var json = JsonUtility.ToJson(prueba);
-    //    print(json.ToString());
-    //    bf.Serialize(file, json);
-    //    file.Close();
-
-    //}
-    //public void Load() {
-    //    if (!Directory.Exists(Application.persistentDataPath + "/save/character_data")) {
-    //        Directory.CreateDirectory(Application.persistentDataPath + "/save/character_data");
-    //    }
-    //    BinaryFormatter bf = new BinaryFormatter();
-    //    if(File.Exists(Application.persistentDataPath + "/save/character_data/character_save.txt")) {
-    //        FileStream file = File.Open(Application.persistentDataPath + "/save/character_data/character_save.txt", FileMode.Open);
-    //        JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), prueba);
-    //        file.Close();
-    //    }
-    //}
     public void Save() {
         
         //if (activeSave.online) {
@@ -83,7 +50,6 @@ public class Save_Manager : MonoBehaviour {
         Debug.Log("Guardado: " + json);
     }
     public void Load() {
-
 
         if (File.Exists(Application.dataPath + "/save.txt")) {
 
