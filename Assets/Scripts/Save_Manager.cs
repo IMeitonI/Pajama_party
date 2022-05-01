@@ -39,6 +39,7 @@ public class Save_Manager : MonoBehaviour {
     public void Save() {
         
         //if (activeSave.online) {
+        
             activeSave.onlineCharacter =skinOnline.SaveCharacter();
         //} else {
             activeSave.character_1 = skinPlayer1.SaveCharacter();
@@ -55,6 +56,7 @@ public class Save_Manager : MonoBehaviour {
 
             string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
             SaveData saveData = JsonUtility.FromJson<SaveData>(saveString);
+            activeSave.nickname = saveData.nickname;
             //activeSave.online = saveData.online;
             activeSave.muted = saveData.muted;
             activeSave.character_1 = saveData.character_1;
@@ -88,6 +90,7 @@ public class SaveData {
     // public Online_skin skin;
     //public int guardados;
     //public bool online;
+    public string nickname;
     public bool muted;
     public int[] character_1 = new int[4];
     public int[] character_2 = new int[4];
