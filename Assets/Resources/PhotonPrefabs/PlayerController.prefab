@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPV: {fileID: 3848423779058142612}
+  m_skin: {fileID: 0}
   text: {fileID: 1139434735015724564}
 --- !u!114 &6083011798686441926
 MonoBehaviour:
