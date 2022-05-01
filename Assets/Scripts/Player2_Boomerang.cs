@@ -33,7 +33,7 @@ public class Player2_Boomerang : MonoBehaviour {
         manager.soundShoot();
 
     }
-    private void OnCollisionEnter(Collision other) {
+    protected void OnCollisionEnter(Collision other) {
         if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang")) {
             if (mov.shieldActive)
             {

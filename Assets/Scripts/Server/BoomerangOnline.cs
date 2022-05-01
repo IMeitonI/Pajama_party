@@ -51,4 +51,5 @@ public class BoomerangOnline : Player2_Boomerang,IPunObservable
             Shoot();
         }
     }
+
 }
