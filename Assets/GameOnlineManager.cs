@@ -43,7 +43,7 @@ public class GameOnlineManager : MonoBehaviourPunCallbacks
         Debug.Log(playersArray.Length);
         for (int i = 0; i < playersArrayOBJS.Length; i++)
         {
-            playersArrayOBJS[i].LoadMesh();
+            playersArrayOBJS[i].LoadMesh(1);
         }
         yield return new WaitForSeconds(1f);
     }
