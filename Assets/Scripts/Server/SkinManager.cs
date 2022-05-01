@@ -30,7 +30,7 @@ public class BoomerangOBJ
     public Material m_material;
 }
 
-public class SkinManager : MonoBehaviour
+public class SkinManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] SkinData m_skin;
 
@@ -45,7 +45,7 @@ public class SkinManager : MonoBehaviour
     [SerializeField] BoomerangOBJ[] m_BoomerangList;
 
     [Header("skin Vars")]
-    [SerializeField]int faceVar,bodyVar;
+    [SerializeField] int faceVar, bodyVar;
 
     PhotonView pv;
 
@@ -60,8 +60,8 @@ public class SkinManager : MonoBehaviour
         if (pv.IsMine)
         {
             Save_Manager.saveM_instance.Load();
-            faceVar=m_skin.face;
-            bodyVar=m_skin.pijama;
+            faceVar = 1;
+            bodyVar = 1;
             //pv.RPC("LoadMesh", RpcTarget.All, m_meshRend_body);
             LoadMesh(1);
         }
@@ -90,31 +90,26 @@ public class SkinManager : MonoBehaviour
 
         if (typeText == 1)
         {
-            if (pv.IsMine)
-            {
-                m_meshRend_face.sharedMesh = (m_faceList[faceVar].m_mesh);
-                m_meshRend_body.sharedMesh = (m_bodyList[bodyVar].m_mesh);
-                m_meshRend_tail.sharedMesh = (m_tailList[faceVar].m_mesh);
-                m_meshRend_Boomerang.mesh = (m_BoomerangList[m_skin.boomerang].m_mesh);
 
-                m_meshRend_face.materials = (m_faceList[faceVar].m_material);
-                m_meshRend_body.materials = (m_bodyList[bodyVar].m_material);
-                m_meshRend_tail.materials = (m_tailList[faceVar].m_material);
-            }
+            m_meshRend_face.sharedMesh = (m_faceList[faceVar].m_mesh);
+            m_meshRend_body.sharedMesh = (m_bodyList[bodyVar].m_mesh);
+            m_meshRend_tail.sharedMesh = (m_tailList[faceVar].m_mesh);
+            m_meshRend_Boomerang.mesh = (m_BoomerangList[m_skin.boomerang].m_mesh);
+
+            m_meshRend_face.materials = (m_faceList[faceVar].m_material);
+            m_meshRend_body.materials = (m_bodyList[bodyVar].m_material);
+            m_meshRend_tail.materials = (m_tailList[faceVar].m_material);
         }
         else
         {
-            if (pv.IsMine)
-            {
-                m_meshRend_face.sharedMesh = (m_faceList[0].m_mesh);
-                m_meshRend_body.sharedMesh = (m_bodyList[0].m_mesh);
-                m_meshRend_tail.sharedMesh = (m_tailList[0].m_mesh);
-                m_meshRend_Boomerang.mesh = (m_BoomerangList[0].m_mesh);
+            m_meshRend_face.sharedMesh = (m_faceList[3].m_mesh);
+            m_meshRend_body.sharedMesh = (m_bodyList[3].m_mesh);
+            m_meshRend_tail.sharedMesh = (m_tailList[3].m_mesh);
+            m_meshRend_Boomerang.mesh = (m_BoomerangList[3].m_mesh);
 
-                m_meshRend_face.materials = (m_faceList[0].m_material);
-                m_meshRend_body.materials = (m_bodyList[0].m_material);
-                m_meshRend_tail.materials = (m_tailList[0].m_material);
-            }
+            m_meshRend_face.materials = (m_faceList[3].m_material);
+            m_meshRend_body.materials = (m_bodyList[3].m_material);
+            m_meshRend_tail.materials = (m_tailList[3].m_material);
         }
 
 
