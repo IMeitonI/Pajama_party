@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class BoomerangOnline : Player2_Boomerang,IPunObservable
 {
     bool m_isFiring;
+    Button btn;
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -32,7 +34,8 @@ public class BoomerangOnline : Player2_Boomerang,IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        
+        btn = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Button>();
+
     }
 
     // Update is called once per frame
