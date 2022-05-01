@@ -16,10 +16,10 @@ public class Billboard : MonoBehaviour
         {
             return;
         }
-        transform.LookAt(cam.transform);
+       // transform.LookAt(cam.transform);
       
 
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, 0f);
+        transform.eulerAngles = new Vector3(90, 0, 0f);
         transform.Rotate(Vector3.right * 180);
 
     }
