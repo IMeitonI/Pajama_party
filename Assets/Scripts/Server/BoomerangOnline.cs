@@ -35,7 +35,7 @@ public class BoomerangOnline : Player2_Boomerang,IPunObservable
     void Start()
     {
         btn = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Button>();
-        btn.onClick.AddListener(ChangeState);
+        btn.OnPointerDown()
     }
     void ChangeState()
     {
