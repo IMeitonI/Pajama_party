@@ -1558,6 +1558,7 @@ GameObject:
   - component: {fileID: 2504748594716313741}
   - component: {fileID: 2144836590023342499}
   - component: {fileID: 3366102027005858063}
+  - component: {fileID: -6764077055601155039}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -1666,6 +1667,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 6515570242825022061}
+  - {fileID: -6764077055601155039}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1805,6 +1807,19 @@ MonoBehaviour:
     m_material: {fileID: 0}
   - m_mesh: {fileID: -7151485785541977250, guid: a436f35ab50f627488f4dcc42e4c2e2f, type: 3}
     m_material: {fileID: 0}
+--- !u!114 &-6764077055601155039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868247215397516777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85d77ddda67fd14cb897f2cc420fea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBoomerang: {fileID: 8343552412477474730}
 --- !u!1 &4107817372275269970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3078,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6276767002846996733, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
   m_PrefabInstance: {fileID: 2653129133266389011}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8343552412477474730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6276767002552405945, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
+  m_PrefabInstance: {fileID: 2653129133266389011}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf643c92760228e49a9c99d419d8ad4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &8343552413035615207 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 6276767003076336628, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
