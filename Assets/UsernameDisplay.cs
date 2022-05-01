@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using Photon.Pun;
+
+public class UsernameDisplay : MonoBehaviour
+{
+    [SerializeField] PhotonView playerPV;
+    [SerializeField] TMP_Text text;
+
+    private void Start()
+    {
+        text.text = playerPV.Owner.NickName;
+    }
+
+}
