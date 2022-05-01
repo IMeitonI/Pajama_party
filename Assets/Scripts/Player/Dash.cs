@@ -8,7 +8,7 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dash_time, dash_speed, initial_speed, cooldown, current_time;
     Transform player;
     Movement mov;
-    private bool dash_enable;
+    protected bool dash_enable;
 
     private void Start()
     {
