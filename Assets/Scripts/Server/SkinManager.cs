@@ -30,7 +30,7 @@ public class BoomerangOBJ
     public Material m_material;
 }
 
-public class SkinManager : MonoBehaviourPunCallbacks
+public class SkinManager : MonoBehaviour
 {
     [SerializeField] SkinData m_skin;
 
@@ -60,8 +60,8 @@ public class SkinManager : MonoBehaviourPunCallbacks
         if (pv.IsMine)
         {
             Save_Manager.saveM_instance.Load();
-            faceVar = 1;
-            bodyVar = 1;
+            faceVar = m_skin.face;
+            bodyVar = m_skin.pijama;
             //pv.RPC("LoadMesh", RpcTarget.All, m_meshRend_body);
             LoadMesh(1);
         }
