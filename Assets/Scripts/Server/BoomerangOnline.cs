@@ -6,17 +6,16 @@ using UnityEngine.UI;
 
 public class BoomerangOnline : Player2_Boomerang,IPunObservable
 {
-    bool m_isFiring;
     Button btn;
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(m_isFiring);
+            stream.SendNext(myBoomerang.shooted);
         }
         else
         {
-            this.m_isFiring = (bool)stream.ReceiveNext();
+            this.myBoomerang.shooted = (bool)stream.ReceiveNext();
         }
     }
     private void Awake()
@@ -35,21 +34,8 @@ public class BoomerangOnline : Player2_Boomerang,IPunObservable
     void Start()
     {
         btn = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Button>();
-        btn.OnPointerDown()
-    }
-    void ChangeState()
-    {
-        m_isFiring = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!m_isFiring)
-        {
-            // ... launch the shell.
-            Shoot();
-        }
+        //btn.OnPointerDown()
+        btn.onClick.AddListener(Shoot);
     }
 
 }

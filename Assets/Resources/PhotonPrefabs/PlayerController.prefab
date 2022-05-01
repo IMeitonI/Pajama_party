@@ -1561,7 +1561,7 @@ GameObject:
   - component: {fileID: -6764077055601155039}
   m_Layer: 0
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1807,6 +1807,8 @@ MonoBehaviour:
     m_material: {fileID: 0}
   - m_mesh: {fileID: -7151485785541977250, guid: a436f35ab50f627488f4dcc42e4c2e2f, type: 3}
     m_material: {fileID: 0}
+  faceVar: 0
+  bodyVar: 0
 --- !u!114 &-6764077055601155039
 MonoBehaviour:
   m_ObjectHideFlags: 0
