@@ -24,7 +24,7 @@ public class Test_boomerang : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         inicialSpeed = speed;
         gameObject.SetActive(false);
-       // map_Manager.Mapchanger += PickUp;
+        map_Manager.Mapchanger += PickUp;
 
     }
 
