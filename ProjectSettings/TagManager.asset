@@ -10,6 +10,8 @@ TagManager:
   - Obstacles
   - Manager
   - MyJoy
+  - Shoot
+  - Dash
   layers:
   - Default
   - TransparentFX
