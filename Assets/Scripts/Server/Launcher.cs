@@ -44,9 +44,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+      
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
         PhotonNetwork.NickName = "Player_" + Random.Range(0, 1000).ToString("0000");
+        Save_Manager.saveM_instance.Load();
+        PhotonNetwork.NickName = Save_Manager.saveM_instance.activeSave.nickname;
+
         nickNameInpuField.text = PhotonNetwork.NickName.ToString();
     }
 
@@ -64,7 +68,8 @@ public class Launcher : MonoBehaviourPunCallbacks
             Debug.Log("the new name is: " + PhotonNetwork.NickName.ToString());
 
         }
-
+        Save_Manager.saveM_instance.activeSave.nickname = PhotonNetwork.NickName;
+        Save_Manager.saveM_instance.Save();
     }
     
 
