@@ -1,1 +1,1 @@
-{"online":false,"character_1":[],"character_2":[],"onlineCharacter":[0,1,2]}
+{"muted":true,"character_1":[0,0,0],"character_2":[0,0,0],"onlineCharacter":[0,1,0]}

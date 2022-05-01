@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 4938323320695688870}
   - component: {fileID: 4938323320695688864}
   - component: {fileID: 4938323320695688871}
+  - component: {fileID: 1808558573682391090}
   m_Layer: 5
   m_Name: Score_background
   m_TagString: Untagged
@@ -467,6 +468,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1808558573682391090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938323320695688869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32e9c3135df6ae4ca01e6bc324b9367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - {fileID: 21300000, guid: 2700080ee29554e4bb0ba64c886d2ae0, type: 3}
+  - {fileID: 21300000, guid: d01b17a2dd9b8774eb4fcdf735bb4130, type: 3}
+  - {fileID: 21300000, guid: 2dde5f1fa186a4641b34170e32d08847, type: 3}
+  - {fileID: 21300000, guid: c073c3710a4cad6409864b73e046bcf6, type: 3}
 --- !u!1 &4938323321420340874
 GameObject:
   m_ObjectHideFlags: 0
