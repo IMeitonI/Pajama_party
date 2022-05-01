@@ -44,12 +44,13 @@ public class SkinManager : MonoBehaviour
     [SerializeField] tailOBJ[] m_tailList;
     [SerializeField] BoomerangOBJ[] m_BoomerangList;
 
+    [Header("skin Vars")]
+    [SerializeField]int faceVar,bodyVar;
 
     PhotonView pv;
 
     private void Awake()
     {
-
         pv = GetComponent<PhotonView>();
     }
 
@@ -59,6 +60,8 @@ public class SkinManager : MonoBehaviour
         if (pv.IsMine)
         {
             Save_Manager.saveM_instance.Load();
+            faceVar=m_skin.face;
+            bodyVar=m_skin.pijama;
             //pv.RPC("LoadMesh", RpcTarget.All, m_meshRend_body);
             LoadMesh(1);
         }
@@ -89,14 +92,14 @@ public class SkinManager : MonoBehaviour
         {
             if (pv.IsMine)
             {
-                m_meshRend_face.sharedMesh = (m_faceList[m_skin.face].m_mesh);
-                m_meshRend_body.sharedMesh = (m_bodyList[m_skin.pijama].m_mesh);
-                m_meshRend_tail.sharedMesh = (m_tailList[m_skin.face].m_mesh);
+                m_meshRend_face.sharedMesh = (m_faceList[faceVar].m_mesh);
+                m_meshRend_body.sharedMesh = (m_bodyList[bodyVar].m_mesh);
+                m_meshRend_tail.sharedMesh = (m_tailList[faceVar].m_mesh);
                 m_meshRend_Boomerang.mesh = (m_BoomerangList[m_skin.boomerang].m_mesh);
 
-                m_meshRend_face.materials = (m_faceList[m_skin.face].m_material);
-                m_meshRend_body.materials = (m_bodyList[m_skin.pijama].m_material);
-                m_meshRend_tail.materials = (m_tailList[m_skin.face].m_material);
+                m_meshRend_face.materials = (m_faceList[faceVar].m_material);
+                m_meshRend_body.materials = (m_bodyList[bodyVar].m_material);
+                m_meshRend_tail.materials = (m_tailList[faceVar].m_material);
             }
         }
         else
