@@ -5,7 +5,7 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     Camera cam;
-    Transform poder;
+  
     private void Update()
     {
         if(cam == null)
@@ -16,9 +16,9 @@ public class Billboard : MonoBehaviour
         {
             return;
         }
-       
 
-        transform.eulerAngles = new Vector3(90, 0, 0f);
+       
+        transform.eulerAngles = new Vector3(90f, 0, 0f);
        
 
     }
