@@ -2092,7 +2092,7 @@ GameObject:
   - component: {fileID: 5550604417893917085}
   m_Layer: 5
   m_Name: Shoot
-  m_TagString: Untagged
+  m_TagString: Shoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3386,7 +3386,7 @@ GameObject:
   - component: {fileID: 5902068262517023666}
   m_Layer: 5
   m_Name: Dash (1)
-  m_TagString: Untagged
+  m_TagString: Dash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
