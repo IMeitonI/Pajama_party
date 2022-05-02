@@ -42,11 +42,11 @@ public class LookAtOnline : LookAt, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(transform.rotation);
+            stream.SendNext(player.rotation);
         }
         else
         {
-            this.transform.rotation = (Quaternion)stream.ReceiveNext();
+            this.player.rotation = (Quaternion)stream.ReceiveNext();
         }
     }
 }
