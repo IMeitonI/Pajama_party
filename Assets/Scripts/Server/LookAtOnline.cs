@@ -10,7 +10,7 @@ public class LookAtOnline : LookAt, IPunObservable
     // Start is called before the first frame update
     private void Awake()
     {
-        pv = GetComponent<PhotonView>();
+        pv = GetComponentInParent<PhotonView>();
     }
     // Start is called before the first frame update
     void Start()
