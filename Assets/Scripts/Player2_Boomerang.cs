@@ -45,7 +45,12 @@ public class Player2_Boomerang : MonoBehaviour {
                   DeactivateCol();
                 
                 AnimatorController anim = GetComponent<AnimatorController>();
-                anim.Die();
+                if (anim == null)
+                {
+                    AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
+                    animOn.Die();
+                }
+                else anim.Die();
                 alive = false;
                 // Modificaci n Jose
                 managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
