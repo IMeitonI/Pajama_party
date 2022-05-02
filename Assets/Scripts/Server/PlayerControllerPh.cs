@@ -40,7 +40,7 @@ public class PlayerControllerPh : MonoBehaviour
     {
         if (!pv.IsMine) return;
 
-        Move();
+        //Move();
 
     }
 
@@ -53,7 +53,7 @@ public class PlayerControllerPh : MonoBehaviour
     private void FixedUpdate()
     {
         if (!pv.IsMine) return;
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        //rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 
 }

@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class MovementOnline :Movement,IPunObservable
 {
     PhotonView pv;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        pv = GetComponent<PhotonView>();
+    }
     void Start()
     {
         {
@@ -16,7 +21,8 @@ public class MovementOnline :Movement,IPunObservable
                 return;
             }
             manager_Joystick = GameObject.FindGameObjectWithTag("MyJoy").GetComponent<ManagerJoystick>();
-
+            TeleportButton = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Button>();
+            TeleportButton.onClick.AddListener(TeleportPowerUp);
 
         }
 
@@ -76,6 +82,7 @@ public class MovementOnline :Movement,IPunObservable
             stream.SendNext(firsttime);
             stream.SendNext(running);
             stream.SendNext(die);
+            stream.SendNext(teleportPU);
         }
         else
         {
@@ -85,6 +92,7 @@ public class MovementOnline :Movement,IPunObservable
             this.firsttime = (bool)stream.ReceiveNext();
             this.running = (bool)stream.ReceiveNext();
             this.die = (bool)stream.ReceiveNext();
+            this.teleportPU = (bool)stream.ReceiveNext();
         }
     }
 }
