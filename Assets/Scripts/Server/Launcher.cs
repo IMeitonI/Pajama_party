@@ -12,6 +12,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public static Launcher Instance;
 
+    [SerializeField] SkinData m_Skin;
     [SerializeField] TMP_InputField roomNameInpuField;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
@@ -44,7 +45,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-      
+
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
         PhotonNetwork.NickName = "Player_" + Random.Range(0, 1000).ToString("0000");
@@ -71,7 +72,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         Save_Manager.saveM_instance.activeSave.nickname = PhotonNetwork.NickName;
         Save_Manager.saveM_instance.Save();
     }
-    
+
 
     public void CreateRoom()
     {
@@ -102,6 +103,14 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+    }
+
+    public void OnEditSkin()
+    {
+        Player player = PhotonNetwork.LocalPlayer;
+        player.playerFace = m_Skin.face;
+        player.playerBody = m_Skin.pijama;
+        print("my name is: " + player.NickName + " face: " + player.playerFace + " body: " + player.playerBody);
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)

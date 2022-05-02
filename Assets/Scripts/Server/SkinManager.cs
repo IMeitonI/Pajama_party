@@ -52,6 +52,20 @@ public class SkinManager : MonoBehaviour
         LoadMesh();
     }
 
+    public void LoadMeshOnline(int face,int body)
+    {
+
+        m_meshRend_face.sharedMesh = (m_faceList[face].m_mesh);
+        m_meshRend_body.sharedMesh = (m_bodyList[body].m_mesh);
+        m_meshRend_tail.sharedMesh = (m_tailList[face].m_mesh);
+        m_meshRend_Boomerang.mesh = (m_BoomerangList[m_skin.boomerang].m_mesh);
+
+        m_meshRend_face.materials = (m_faceList[face].m_material);
+        m_meshRend_body.materials = (m_bodyList[body].m_material);
+        m_meshRend_tail.materials = (m_tailList[face].m_material);
+
+    }
+
 
     public void LoadMesh()
     {

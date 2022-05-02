@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerControllerPh : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerControllerPh : MonoBehaviour
 
     private void Start()
     {
+        
         if (!pv.IsMine)
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);

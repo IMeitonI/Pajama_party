@@ -14,8 +14,7 @@ public class UsernameDisplay : MonoBehaviour
     {
         if (playerPV.IsMine)
         {
-
-            text.text = playerPV.Owner.NickName + " (" + m_skin.face.ToString() + m_skin.pijama.ToString() + m_skin.boomerang.ToString() + ")";
+            text.text = playerPV.Owner.NickName;
         }
     }
 

@@ -27,6 +27,12 @@ public class GameOnlineManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
+        Player[] players = PhotonNetwork.PlayerList;
+        for (int i = 0; i < players.Length; i++)
+        {
+            print("my name is: " + players[i].NickName + " face: " + players[i].playerFace + " body: " + players[i].playerBody);
+
+        }
     }
 
     void Update()
