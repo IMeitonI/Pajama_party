@@ -546,6 +546,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 253380631082226424}
+    - target: {fileID: 1500234788063227745, guid: b6b9257ffd342d240aaeb96588765798, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 49.273315
+      objectReference: {fileID: 0}
     - target: {fileID: 1600311819729262953, guid: b6b9257ffd342d240aaeb96588765798, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1277,6 +1281,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670444, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670444, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670444, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670449, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5193822253444921104, guid: 904b327f3afb4a5429cc66f4e92e34af, type: 3}
     - target: {fileID: 3691941065342230552, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -4234,6 +4254,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2771440225635670444, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670444, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670444, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2771440225635670449, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3216447080179446721, guid: 100600b8bf6b9894bbd6f429dec3b123, type: 3}
     - target: {fileID: 8280321128165171634, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: TeleportButton
       value: 

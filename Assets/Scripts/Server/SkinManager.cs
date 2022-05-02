@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 [System.Serializable]
 public class faceOBJ
@@ -47,93 +46,25 @@ public class SkinManager : MonoBehaviour
     [Header("skin Vars")]
     [SerializeField] int faceVar, bodyVar;
 
-    PhotonView pv;
-
-    private void Awake()
-    {
-        pv = GetComponent<PhotonView>();
-    }
-
-
     void Start()
     {
-        if (pv.IsMine)
-        {
-            Save_Manager.saveM_instance.Load();
-            faceVar = m_skin.face;
-            bodyVar = m_skin.pijama;
-            //pv.RPC("LoadMesh", RpcTarget.All, m_meshRend_body);
-            LoadMesh(1);
-        }
-
+        Save_Manager.saveM_instance.Load();
+        LoadMesh();
     }
 
-    [PunRPC]
-    void LoadDefault()
+
+    public void LoadMesh()
     {
 
-    }
+        m_meshRend_face.sharedMesh = (m_faceList[m_skin.face].m_mesh);
+        m_meshRend_body.sharedMesh = (m_bodyList[m_skin.pijama].m_mesh);
+        m_meshRend_tail.sharedMesh = (m_tailList[m_skin.face].m_mesh);
+        m_meshRend_Boomerang.mesh = (m_BoomerangList[m_skin.boomerang].m_mesh);
 
-    [PunRPC]
-    public void LoadMesh(int typeText)
-    {
-        //if (!pv.IsMine)
-        //    return;
+        m_meshRend_face.materials = (m_faceList[m_skin.face].m_material);
+        m_meshRend_body.materials = (m_bodyList[m_skin.pijama].m_material);
+        m_meshRend_tail.materials = (m_tailList[m_skin.face].m_material);
 
-        ////PhotonView targetPV = PhotonView.Find(targetPropID);
-
-        ////if (targetPV.gameObject == null)
-        ////    return;
-
-        //meshS.sharedMesh = (m_bodyList[m_skin.pijama].m_mesh);
-        //meshS.materials = (m_bodyList[m_skin.pijama].m_material);
-
-        if (typeText == 1)
-        {
-
-            m_meshRend_face.sharedMesh = (m_faceList[faceVar].m_mesh);
-            m_meshRend_body.sharedMesh = (m_bodyList[bodyVar].m_mesh);
-            m_meshRend_tail.sharedMesh = (m_tailList[faceVar].m_mesh);
-            m_meshRend_Boomerang.mesh = (m_BoomerangList[m_skin.boomerang].m_mesh);
-
-            m_meshRend_face.materials = (m_faceList[faceVar].m_material);
-            m_meshRend_body.materials = (m_bodyList[bodyVar].m_material);
-            m_meshRend_tail.materials = (m_tailList[faceVar].m_material);
-        }
-        else
-        {
-            m_meshRend_face.sharedMesh = (m_faceList[3].m_mesh);
-            m_meshRend_body.sharedMesh = (m_bodyList[3].m_mesh);
-            m_meshRend_tail.sharedMesh = (m_tailList[3].m_mesh);
-            m_meshRend_Boomerang.mesh = (m_BoomerangList[3].m_mesh);
-
-            m_meshRend_face.materials = (m_faceList[3].m_material);
-            m_meshRend_body.materials = (m_bodyList[3].m_material);
-            m_meshRend_tail.materials = (m_tailList[3].m_material);
-        }
-
-
-
-    }
-
-    void Update()
-    {
-
-        if (pv.IsMine)
-        {
-
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                Debug.Log("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
-                pv.RPC("LoadMesh", RpcTarget.All, 2);
-            }
-            else if (Input.GetKeyDown(KeyCode.M))
-            {
-                Debug.Log("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-
-                pv.RPC("LoadMesh", RpcTarget.All, 1);
-            }
-        }
     }
 
 }

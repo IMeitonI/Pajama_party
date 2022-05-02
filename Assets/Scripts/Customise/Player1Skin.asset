@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c0f32dde07a6348abf465d37f91872, type: 3}
   m_Name: Player1Skin
   m_EditorClassIdentifier: 
-  face: 0
-  pijama: 0
-  boomerang: 0
+  face: 1
+  pijama: 2
+  boomerang: 3

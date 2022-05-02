@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Test.unity
     guid: 18dbd6520c6cd5c4a829068e33b21365
   - enabled: 1
-    path: Assets/Scenes/Copy of Test - Frodo.unity
+    path: Assets/Scenes/LocalGame.unity
     guid: b567be9491344794c95a5ae857c145aa
+  - enabled: 1
+    path: Assets/Scenes/LocalCustomise.unity
+    guid: a9f1a31be78335940a85fe95cf65c2c8
   m_configObjects: {}

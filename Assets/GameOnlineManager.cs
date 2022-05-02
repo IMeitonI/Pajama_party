@@ -11,7 +11,6 @@ public class GameOnlineManager : MonoBehaviourPunCallbacks
 
 
     [SerializeField] public Player[] playersArray;
-    public SkinManager[] playersArrayOBJS;
 
     void Awake()
     {
@@ -28,24 +27,11 @@ public class GameOnlineManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        StartCoroutine(UpdateSkin());
     }
 
     void Update()
     {
 
-    }
-
-    IEnumerator UpdateSkin()
-    {
-        playersArrayOBJS = GameObject.FindObjectsOfType<SkinManager>();
-        playersArray = PhotonNetwork.PlayerList;
-        Debug.Log(playersArray.Length);
-        for (int i = 0; i < playersArrayOBJS.Length; i++)
-        {
-            playersArrayOBJS[i].LoadMesh(1);
-        }
-        yield return new WaitForSeconds(1f);
     }
 
 }
