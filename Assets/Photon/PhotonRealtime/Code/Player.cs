@@ -68,8 +68,8 @@ namespace Photon.Realtime
 
         /// <summary>Background field for nickName.</summary>
 		private string nickName = string.Empty;
-		private int playerFace = 0;
-		private int playerBody = 0;
+		public int playerFace = 0;
+		public int playerBody = 0;
 
         /// <summary>Non-unique nickname of this player. Synced automatically in a room.</summary>
         /// <remarks>
