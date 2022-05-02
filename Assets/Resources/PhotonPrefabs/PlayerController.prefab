@@ -1095,6 +1095,7 @@ GameObject:
   - component: {fileID: 2834451593114102763}
   - component: {fileID: 2834451593114102762}
   - component: {fileID: 2834451593114102760}
+  - component: {fileID: 1947636838428438481}
   m_Layer: 0
   m_Name: Player_Master
   m_TagString: Player
@@ -1218,6 +1219,39 @@ CapsuleCollider:
   m_Height: 4.62256
   m_Direction: 1
   m_Center: {x: 0, y: 1.8387196, z: -0.0014915466}
+--- !u!114 &1947636838428438481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834451593114102766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 2
+    Name: Running
+  - Type: 9
+    SynchronizeType: 1
+    Name: Throw
+  - Type: 3
+    SynchronizeType: 1
+    Name: Animation_type
+  - Type: 9
+    SynchronizeType: 2
+    Name: Die
+  - Type: 4
+    SynchronizeType: 2
+    Name: Falling
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
 --- !u!1 &2993685520188396793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1594,8 @@ GameObject:
   - component: {fileID: 2144836590023342499}
   - component: {fileID: 3366102027005858063}
   - component: {fileID: -6764077055601155039}
+  - component: {fileID: 9008173659660774107}
+  - component: {fileID: 2147404328774463635}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -1669,6 +1705,9 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 6515570242825022061}
   - {fileID: -6764077055601155039}
+  - {fileID: 9008173659660774107}
+  - {fileID: 2147404328774463635}
+  - {fileID: 1947636838428438481}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1823,6 +1862,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myBoomerang: {fileID: 8343552412477474730}
+--- !u!114 &9008173659660774107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868247215397516777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a877d1fb50e7fef478187b94454492f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dash_time: 0.4
+  dash_speed: 30
+  initial_speed: 0
+  cooldown: 0.4
+  current_time: 0
+--- !u!114 &2147404328774463635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868247215397516777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d202f2d724b11d74589774728abaae72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 17
+  x_axis: 0
+  z_axis: 0
+  manager_Joystick: {fileID: 0}
+  running: 0
+  die: 0
+  layermask_check:
+    serializedVersion: 2
+    m_Bits: 0
+  Shield: {fileID: 0}
+  ShieldPS: {fileID: 0}
+  teleportPS: {fileID: 0}
+  movement_trail: {fileID: 0}
+  TeleportButton: {fileID: 0}
+  shieldtime: 5
+  shieldActive: 0
+  teleportPU: 0
+  playerBoomerang: {fileID: 0}
+  myBoomerang: {fileID: 0}
 --- !u!1 &4107817372275269970
 GameObject:
   m_ObjectHideFlags: 0
