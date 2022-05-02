@@ -68,6 +68,8 @@ namespace Photon.Realtime
 
         /// <summary>Background field for nickName.</summary>
 		private string nickName = string.Empty;
+		private int playerFace = 0;
+		private int playerBody = 0;
 
         /// <summary>Non-unique nickname of this player. Synced automatically in a room.</summary>
         /// <remarks>
@@ -146,7 +148,7 @@ namespace Photon.Realtime
         /// <param name="nickName">NickName of the player (a "well known property").</param>
         /// <param name="actorNumber">ID or ActorNumber of this player in the current room (a shortcut to identify each player in room)</param>
         /// <param name="isLocal">If this is the local peer's player (or a remote one).</param>
-        protected internal Player(string nickName, int actorNumber, bool isLocal) : this(nickName, actorNumber, isLocal, null)
+        protected internal Player(string nickName, int actorNumber, bool isLocal,int playerFace,int playerBody) : this(nickName, actorNumber, isLocal, null,playerFace,playerBody)
         {
         }
 
@@ -158,12 +160,13 @@ namespace Photon.Realtime
         /// <param name="actorNumber">ID or ActorNumber of this player in the current room (a shortcut to identify each player in room)</param>
         /// <param name="isLocal">If this is the local peer's player (or a remote one).</param>
         /// <param name="playerProperties">A Hashtable of custom properties to be synced. Must use String-typed keys and serializable datatypes as values.</param>
-        protected internal Player(string nickName, int actorNumber, bool isLocal, Hashtable playerProperties)
+        protected internal Player(string nickName, int actorNumber, bool isLocal, Hashtable playerProperties,int playerFace,int playerBody)
         {
             this.IsLocal = isLocal;
             this.actorNumber = actorNumber;
             this.NickName = nickName;
-
+            this.playerFace = playerFace;
+            this.playerBody = playerBody;
             this.CustomProperties = new Hashtable();
             this.InternalCacheProperties(playerProperties);
         }
