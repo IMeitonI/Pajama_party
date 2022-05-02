@@ -27,6 +27,16 @@ public class ChangeLang : MonoBehaviour
     void Start()
     {
         langData = GameObject.FindGameObjectWithTag("Manager").GetComponent<Localization_base>();
+
+        if (langData.language == null)
+        {
+            langData.language = "SP";
+        }
+        else
+        {
+            langData.language = Save_Manager.saveM_instance.activeSave.language;
+
+        }
         SetLang();
     }
 
@@ -75,5 +85,7 @@ public class ChangeLang : MonoBehaviour
         {
             lang_Event.Invoke();
         }
+        Save_Manager.saveM_instance.activeSave.language = langData.language;
+        Save_Manager.saveM_instance.Save();
     }
 }

@@ -56,6 +56,7 @@ public class Save_Manager : MonoBehaviour {
 
             string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
             SaveData saveData = JsonUtility.FromJson<SaveData>(saveString);
+            activeSave.language = saveData.language;
             activeSave.nickname = saveData.nickname;
             //activeSave.online = saveData.online;
             activeSave.muted = saveData.muted;
@@ -90,6 +91,7 @@ public class SaveData {
     // public Online_skin skin;
     //public int guardados;
     //public bool online;
+    public string language;
     public string nickname;
     public bool muted;
     public int[] character_1 = new int[4];
