@@ -12,22 +12,22 @@ public class Movement : MonoBehaviour
     [Header("Variables Movimiento")]
     [SerializeField] public float speed;
     [Range(-1,1)]
-    [SerializeField]private float x_axis, z_axis;
-    [SerializeField] ManagerJoystick manager_Joystick;
+    [SerializeField]protected float x_axis, z_axis;
+    [SerializeField] protected ManagerJoystick manager_Joystick;
     public bool running, die;
-    [SerializeField] private LayerMask layermask_check;
+    [SerializeField] protected LayerMask layermask_check;
     public static bool tpactive = false;
     //Modificaciones Chelo
-    [SerializeField] private GameObject Shield;
+    [SerializeField] protected GameObject Shield;
     [Header("VFX")]
-    [SerializeField] ParticleSystem ShieldPS;
-    [SerializeField] ParticleSystem teleportPS;
-    [SerializeField] ParticleSystem movement_trail;
+    [SerializeField] protected ParticleSystem ShieldPS;
+    [SerializeField] protected ParticleSystem teleportPS;
+    [SerializeField] protected ParticleSystem movement_trail;
     public Button TeleportButton;
 
     public float shieldtime = 5f;
     public bool shieldActive = false;
-    private bool firsttime = true;
+    protected bool firsttime = true;
     [HideInInspector] public bool teleportPU = false;
 
     public GameObject playerBoomerang;
