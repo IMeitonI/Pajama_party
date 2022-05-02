@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LookAt : MonoBehaviour
 {
-    [SerializeField] private ManagerJoystick managerJoystick;
-    private Transform player;
-    private Vector2 direction;
+    [SerializeField] protected ManagerJoystick managerJoystick;
+    protected Transform player;
+    protected Vector2 direction;
     public bool death;
     // Start is called before the first frame update
     void Start()
