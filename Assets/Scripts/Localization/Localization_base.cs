@@ -119,12 +119,17 @@ public class Localization_base : MonoBehaviour
         else
         {  
             language = Save_Manager.saveM_instance.activeSave.language;
-            if (TranslateLoad != null) TranslateLoad();
+            SetUpTranslation();
         }
+        
 
         
     }
+    public void SetUpTranslation()
+    {
+        if (TranslateLoad != null) TranslateLoad();
 
+    }
 
     public string GetTraslation(string key)
     {

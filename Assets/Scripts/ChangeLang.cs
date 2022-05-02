@@ -6,7 +6,6 @@ using TMPro;
 
 public class ChangeLang : MonoBehaviour
 {
-    Localization_base langData;
     [SerializeField] TMP_Text langLabel;
 
     [SerializeField] UnityEvent lang_Event;
@@ -26,17 +25,16 @@ public class ChangeLang : MonoBehaviour
 
     void Start()
     {
-        langData = GameObject.FindGameObjectWithTag("Manager").GetComponent<Localization_base>();
 
-        if (langData.language == null)
-        {
-            langData.language = "SP";
-        }
-        else
-        {
-            langData.language = Save_Manager.saveM_instance.activeSave.language;
+        //if (Localization_base.instance.language == null)
+        //{
+        //    Localization_base.instance.language = "SP";
+        //}
+        //else
+        //{
+        //    Localization_base.instance.language = Save_Manager.saveM_instance.activeSave.language;
 
-        }
+        //}
         SetLang();
     }
 
@@ -75,17 +73,28 @@ public class ChangeLang : MonoBehaviour
 
     public void SetLang()
     {
-        if (langData != null)
+        if (Localization_base.instance.language != null)
         {
-            langData.language = langsArray[curLang];
+            for (int i = 0; i < langsArray.Length; i++)
+            {
+                if(langsArray[i]== Localization_base.instance.language)
+                {
+                    curLang = i;
+                    break;
+                }
+            }
+            //Localization_base.instance.language = langsArray[curLang];
             langLabel.text = langsText[curLang];
         }
 
-        if (lang_Event != null)
-        {
-            lang_Event.Invoke();
-        }
-        Save_Manager.saveM_instance.activeSave.language = langData.language;
+        //if (lang_Event != null)
+        //{
+        //    lang_Event.Invoke();
+        //}
+
+        Localization_base.instance.SetUpTranslation();
+
+        Save_Manager.saveM_instance.activeSave.language = Localization_base.instance.language;
         Save_Manager.saveM_instance.Save();
     }
 }
