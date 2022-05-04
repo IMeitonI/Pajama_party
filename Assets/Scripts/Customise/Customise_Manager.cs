@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Customise_Manager : MonoBehaviour {
-    public delegate void SaveTransformation(int a, Online_skin skin);
+    public delegate void SaveTransformation(int a, SkinData skin);
     public event SaveTransformation SaveT;
     [SerializeField]
     GameObject[] buttonsCharacters, buttonsPijamas, buttonsBoomerangs;
     [SerializeField]
-    Online_skin skin;
+    SkinData skin;
 
     [SerializeField]
     Image faceImage, pijamaImage,boomerangImg;
@@ -20,14 +20,22 @@ public class Customise_Manager : MonoBehaviour {
     [SerializeField]
     Sprite[] boomerangs;
     [SerializeField]
-    Color[] pijamas;
+    Sprite[] pijamas;
 
-
-    void Start()
+    private void OnEnable()
     {
+        Save_Manager.saveM_instance.Load();
         faceImage.sprite = faces[skin.face];
         boomerangImg.sprite = boomerangs[skin.boomerang];
-        pijamaImage.color = pijamas[skin.pijama];
+        pijamaImage.sprite = pijamas[skin.pijama];
+        UpdateButtons();
+    }
+    void Start()
+    {
+        Save_Manager.saveM_instance.Load();
+        faceImage.sprite = faces[skin.face];
+        boomerangImg.sprite = boomerangs[skin.boomerang];
+        pijamaImage.sprite = pijamas[skin.pijama];
         UpdateButtons();
     }
 
@@ -54,17 +62,17 @@ public class Customise_Manager : MonoBehaviour {
     {
         skin.face = face;
         faceImage.sprite = faces[skin.face];
-        if (SaveT != null) SaveT(skin.player, skin);
-       
-       
+
+        Save_Manager.saveM_instance.Save();
         UpdateButtons();
     }
 
     public void selectPijama(int pijama)
     {
         skin.pijama = pijama;
-        pijamaImage.color = pijamas[skin.pijama];
-        if (SaveT != null) SaveT(skin.player, skin);
+        pijamaImage.sprite = pijamas[skin.pijama];
+        Save_Manager.saveM_instance.Save();
+
         UpdateButtons();
     }
 
@@ -72,7 +80,8 @@ public class Customise_Manager : MonoBehaviour {
     {
         skin.boomerang = boomerang;
         boomerangImg.sprite = boomerangs[skin.boomerang];
-        if (SaveT != null) SaveT(skin.player, skin);
+        Save_Manager.saveM_instance.Save();
+
         UpdateButtons();
     }
 

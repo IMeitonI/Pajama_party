@@ -24,8 +24,7 @@ public class managerSound : MonoBehaviour
         soundRebote = GetComponent<AudioSource>();
         soundButtonSettings = GetComponent<AudioSource>();
         soundPrincipalMenu = GetComponent<AudioSource>();
-        Button btn = boton.GetComponent<Button>();
-        btn.onClick.AddListener(muteSettings);
+      
     }
 
     // Update is called once per frame
@@ -68,10 +67,10 @@ public class managerSound : MonoBehaviour
         soundRebote.Play();
     }
 
-    public void buttonSettings()
-    {
-        soundButtonSettings.Play();
-    }
+    /* public void buttonSettings()
+     {
+         soundButtonSettings.Play();
+     }*/
 
     public void muteSettings()
     {

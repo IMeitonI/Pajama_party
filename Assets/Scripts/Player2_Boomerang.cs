@@ -7,9 +7,9 @@ public class Player2_Boomerang : MonoBehaviour {
     int score;
     bool alive;
     Text myText;
-    CapsuleCollider myCollider;
-    Movement mov;
-    Rigidbody rb;
+    protected CapsuleCollider myCollider;
+    protected Movement mov;
+    protected Rigidbody rb;
    
   
     void Start() {
@@ -33,7 +33,7 @@ public class Player2_Boomerang : MonoBehaviour {
         manager.soundShoot();
 
     }
-    private void OnCollisionEnter(Collision other) {
+    protected void OnCollisionEnter(Collision other) {
         if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang")) {
             if (mov.shieldActive)
             {
@@ -45,7 +45,12 @@ public class Player2_Boomerang : MonoBehaviour {
                   DeactivateCol();
                 
                 AnimatorController anim = GetComponent<AnimatorController>();
-                anim.Die();
+                if (anim == null)
+                {
+                    AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
+                    animOn.Die();
+                }
+                else anim.Die();
                 alive = false;
                 // Modificaci n Jose
                 managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
@@ -57,13 +62,13 @@ public class Player2_Boomerang : MonoBehaviour {
         }
     }
 
-    void Activatecollider() {
+    protected void Activatecollider() {
         //rb.useGravity = true;
         myCollider.enabled = true;
         rb.isKinematic = false;
 
     }
-    void DeactivateCol() {
+    protected void DeactivateCol() {
         //rb.useGravity = false;
         rb.isKinematic = true;
         myCollider.enabled = false;

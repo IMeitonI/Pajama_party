@@ -24,7 +24,7 @@ public class Test_boomerang : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         inicialSpeed = speed;
         gameObject.SetActive(false);
-        map_Manager.Mapchanger += PickUp;
+       // map_Manager.Mapchanger += PickUp;
 
     }
 
@@ -118,8 +118,8 @@ public class Test_boomerang : MonoBehaviour {
             Return();
             reflect = true;
             print("Estoy rebotando");
-            managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-            manager.soundReboting();
+            //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+            //manager.soundReboting();
             dirVelocity = Vector3.Reflect(dirVelocity, collision.GetContact(0).normal);
 
         }

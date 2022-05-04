@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerControllerPh : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class PlayerControllerPh : MonoBehaviour
 
     private void Start()
     {
+        
         if (!pv.IsMine)
         {
             Destroy(GetComponentInChildren<Camera>().gameObject);
@@ -40,7 +42,7 @@ public class PlayerControllerPh : MonoBehaviour
     {
         if (!pv.IsMine) return;
 
-        Move();
+        //Move();
 
     }
 
@@ -53,7 +55,7 @@ public class PlayerControllerPh : MonoBehaviour
     private void FixedUpdate()
     {
         if (!pv.IsMine) return;
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        //rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 
 }

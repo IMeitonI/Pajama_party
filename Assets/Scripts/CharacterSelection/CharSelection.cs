@@ -61,10 +61,10 @@ public class CharSelection : MonoBehaviour
 
     //public void SavePlayer(bool firstPlayer) { //REVISAR    
     //    if (firstPlayer) {
-    //        Save_Manager.saveManager.activeSave.character_1 = playerModels[currentPlayer].playerObject;
-    //    } else { Save_Manager.saveManager.activeSave.character_2 = playerModels[currentPlayer].playerObject; }
+    //        Save_Manager.saveManagerInstance.activeSave.character_1 = playerModels[currentPlayer].playerObject;
+    //    } else { Save_Manager.saveManagerInstance.activeSave.character_2 = playerModels[currentPlayer].playerObject; }
 
-    //    Save_Manager.saveManager.Save();
+    //    Save_Manager.saveManagerInstance.Save();
     //}
 
 }

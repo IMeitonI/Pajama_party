@@ -1895,7 +1895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135.58957, y: -50}
+  m_AnchoredPosition: {x: 181, y: -140}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!114 &333623732
@@ -2282,6 +2282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4233300f083d2194cbcfb9c11c42d6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Skin: {fileID: 11400000, guid: bec629cda33aeaa4ea5ab91c35a02ad5, type: 2}
   roomNameInpuField: {fileID: 1228033816}
   errorText: {fileID: 944896010}
   roomNameText: {fileID: 1055172032}
@@ -2897,8 +2898,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 139}
-  m_SizeDelta: {x: 120, y: 120}
+  m_AnchoredPosition: {x: 0, y: 112.1}
+  m_SizeDelta: {x: 149.0961, y: 149.0961}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507309962
 MonoBehaviour:
@@ -2920,7 +2921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2700080ee29554e4bb0ba64c886d2ae0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7141ba335586de47b1ac01621ed83c8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3159,7 +3160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 534.9995, y: -540}
+  m_AnchoredPosition: {x: 354.9995, y: -540}
   m_SizeDelta: {x: 690.52, y: 896.9982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &534427739
@@ -4310,8 +4311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 268.4861, y: 455.187}
+  m_AnchoredPosition: {x: 0, y: 41.8}
+  m_SizeDelta: {x: 423.3671, y: 498.9683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &862187303
 MonoBehaviour:
@@ -4333,7 +4334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6fc31bb9a4c75a14886f194de99d5bb0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7966,6 +7967,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 446591041}
+        m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
+        m_MethodName: OnEditSkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1499555644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8231,8 +8244,6 @@ GameObject:
   - component: {fileID: 1635247175}
   - component: {fileID: 1635247174}
   - component: {fileID: 1635247173}
-  - component: {fileID: 1635247177}
-  - component: {fileID: 1635247176}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -8288,39 +8299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1635247176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635247172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa9fff34402d712469a54bab3582b555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customise_Manager: {fileID: 1764334931}
-  launcher: {fileID: 446591041}
-  skin: {fileID: 0}
---- !u!114 &1635247177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635247172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f0d1006d681c442b7f2874341bc728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeSave:
-    online: 0
-    character_1: 
-    character_2: 
-    onlineCharacter: 
-  loaded: 0
 --- !u!1 &1636667689
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,20 +9271,20 @@ MonoBehaviour:
   pijamaImage: {fileID: 862187303}
   boomerangImg: {fileID: 333623732}
   faces:
-  - {fileID: 21300000, guid: 2700080ee29554e4bb0ba64c886d2ae0, type: 3}
-  - {fileID: 21300000, guid: d01b17a2dd9b8774eb4fcdf735bb4130, type: 3}
-  - {fileID: 21300000, guid: 2dde5f1fa186a4641b34170e32d08847, type: 3}
-  - {fileID: 21300000, guid: c073c3710a4cad6409864b73e046bcf6, type: 3}
+  - {fileID: 21300000, guid: 06d4d5f3ef87f9141abb947a185b8b4e, type: 3}
+  - {fileID: 21300000, guid: 00ee3cdab4d7d414fbba4f90589aacff, type: 3}
+  - {fileID: 21300000, guid: d7141ba335586de47b1ac01621ed83c8, type: 3}
+  - {fileID: 21300000, guid: 988a27b08a4e86e40bac682bc8ff7552, type: 3}
   boomerangs:
   - {fileID: 21300000, guid: 22b7f8bf5e91823409fcd15152c6a9eb, type: 3}
   - {fileID: 21300000, guid: f79e0b301161e5749b884a93ee635716, type: 3}
   - {fileID: 21300000, guid: d2fca13dac454a54d889bfe25bce084b, type: 3}
   - {fileID: 21300000, guid: 12e552c5d75d0d245bb103c33023dd10, type: 3}
   pijamas:
-  - {r: 0.52156866, g: 0.86666673, b: 0.9803922, a: 1}
-  - {r: 0.9294118, g: 0.10980393, b: 0.14117648, a: 1}
-  - {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
-  - {r: 0.25490198, g: 0.21960786, b: 0.20392159, a: 1}
+  - {fileID: 21300000, guid: 2e2b79aad94d33e4fb5d6e8668685837, type: 3}
+  - {fileID: 21300000, guid: 020ada3e366e9e545a34c792d4a2a3df, type: 3}
+  - {fileID: 21300000, guid: 6fc31bb9a4c75a14886f194de99d5bb0, type: 3}
+  - {fileID: 21300000, guid: ab55309d680d02149b27b3e81db4c989, type: 3}
 --- !u!1 &1785363045
 GameObject:
   m_ObjectHideFlags: 0
@@ -9557,7 +9535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1604.9995, y: -540}
+  m_AnchoredPosition: {x: 1064.9995, y: -540}
   m_SizeDelta: {x: 730.5219, y: 896.99817}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858726543

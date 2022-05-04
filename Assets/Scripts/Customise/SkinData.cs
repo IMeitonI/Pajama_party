@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName ="new skin",menuName ="skin")] 
-public class Online_skin : ScriptableObject
+public class SkinData : ScriptableObject
 {
     public int face;
     public int pijama;
     public int boomerang;
-    public int player;
+   
 
     public void LoadCharacter(int[] data) {
-        if(data.Length>= 4) {
+        if(data.Length>= 3) {
             face = data[0];
             pijama = data[1];
             boomerang = data[2];
-            player = data[3];
+          
         }
     }
     public int[] SaveCharacter() {
@@ -24,8 +24,5 @@ public class Online_skin : ScriptableObject
         return data;
     }
 
-    public void SetPlayer(int p) {
-        player = p;
-    }
     
 }
