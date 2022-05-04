@@ -12,10 +12,7 @@ public class UsernameDisplay : MonoBehaviour
 
     private void Start()
     {
-        if (playerPV.IsMine)
-        {
-            text.text = playerPV.Owner.NickName;
-        }
+        text.text = playerPV.Owner.NickName;
     }
 
 }
