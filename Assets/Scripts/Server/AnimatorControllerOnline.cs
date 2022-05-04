@@ -36,7 +36,6 @@ public class AnimatorControllerOnline : MonoBehaviour
     {
         if (pv.IsMine)
         {
-            Debug.Log(mov.running);
             if (mov.running) anim.SetBool("Running", true);
             else anim.SetBool("Running", false);
         }
