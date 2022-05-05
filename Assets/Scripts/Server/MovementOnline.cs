@@ -68,7 +68,7 @@ public class MovementOnline :Movement,IPunObservable
 
         if (running == true)
         {
-            manager.soundMove();
+            //manager.soundMove();
         }
     }
 
