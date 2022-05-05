@@ -32,6 +32,9 @@ public class Movement : MonoBehaviour
 
     public GameObject playerBoomerang;
     [SerializeField] public Test_boomerang myBoomerang;
+
+    //[Header("Sounds")]
+    //public AudioClip moveSound;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -70,11 +73,11 @@ public class Movement : MonoBehaviour
         }
 
         //Modificaci n Jose 
-        managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+        //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
 
         if (running == true)
         {
-            manager.soundMove();
+            //managerSound.Instance.Play(moveSound);
         }
     }
     public void Change_Pos(float x, float z)

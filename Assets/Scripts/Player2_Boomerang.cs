@@ -10,8 +10,11 @@ public class Player2_Boomerang : MonoBehaviour {
     protected CapsuleCollider myCollider;
     protected Movement mov;
     protected Rigidbody rb;
-   
-  
+
+    [Header("Sounds")]
+    [SerializeField] AudioClip DieSound;
+    [SerializeField] AudioClip ShootSound;
+
     void Start() {
         rb = GetComponent<Rigidbody>();
         myBoomerang.DeactiveColider += DeactivateCol;
@@ -29,8 +32,8 @@ public class Player2_Boomerang : MonoBehaviour {
         myBoomerang.gameObject.SetActive(true);
         
         myBoomerang.Throw();
-        managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-        manager.soundShoot();
+        //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+        managerSound.Instance.Play(ShootSound);
 
     }
     protected void OnCollisionEnter(Collision other) {
@@ -53,8 +56,8 @@ public class Player2_Boomerang : MonoBehaviour {
                 else anim.Die();
                 alive = false;
                 // Modificaci n Jose
-                managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-                manager.soundDie();
+                //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+                managerSound.Instance.Play(DieSound);
                 //Hasta ac  
 
             }
