@@ -33,6 +33,8 @@ public class Movement : MonoBehaviour
     public GameObject playerBoomerang;
     [SerializeField] public Test_boomerang myBoomerang;
 
+    private float teleportTimer = 0f;
+
     //[Header("Sounds")]
     //public AudioClip moveSound;
     // Start is called before the first frame update
@@ -63,14 +65,17 @@ public class Movement : MonoBehaviour
                 ShieldPowerUp();
                 firsttime = false;
             }
-            shieldtime -= Time.deltaTime;
         }
-        if (shieldtime <= 0)
+        if (!shieldActive)
         {
             StopShield();
-            shieldActive = false;
-            shieldtime = 5f;
         }
+
+        if (myBoomerang.shooted)
+        {
+            teleportTimer += Time.deltaTime;
+        }
+
 
         //Modificaci n Jose 
         //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
@@ -134,13 +139,18 @@ public class Movement : MonoBehaviour
         {
             if (myBoomerang.shooted)
             {
+                
                 if(playerBoomerang.transform.position.z > this.transform.position.z + 2 || playerBoomerang.transform.position.z < this.transform.position.z - 2 || playerBoomerang.transform.position.x > this.transform.position.x + 5 || playerBoomerang.transform.position.x < this.transform.position.x - 5)
                 {
-                    tpactive = true;
-                    transform.position = playerBoomerang.transform.position;
-                    Instantiate(teleportPS, transform.position, Quaternion.identity);
-                    teleportPS.gameObject.SetActive(true);
-                    teleportPS.Play();
+                    if(teleportTimer >= 1)
+                    {
+                        tpactive = true;
+                        transform.position = playerBoomerang.transform.position;
+                        Instantiate(teleportPS, transform.position, Quaternion.identity);
+                        teleportPS.gameObject.SetActive(true);
+                        teleportPS.Play();
+                        teleportTimer = 0f;
+                    }
                 }
             }
         }

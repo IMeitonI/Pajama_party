@@ -40,6 +40,7 @@ public class Player2_Boomerang : MonoBehaviour {
         if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang")) {
             if (mov.shieldActive)
             {
+                mov.shieldActive = false;
                 return;
             }
             else

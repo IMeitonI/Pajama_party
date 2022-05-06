@@ -1215,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -5193822253444921104, guid: 904b327f3afb4a5429cc66f4e92e34af, type: 3}
+    - target: {fileID: 2771440226159791612, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: collisionPS
+      value: 
+      objectReference: {fileID: 2148377087172367046, guid: c78db3248942a394aa068e46e6b26cbb, type: 3}
     - target: {fileID: 3691941065342230552, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -4393,6 +4397,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 3216447080179446721, guid: 100600b8bf6b9894bbd6f429dec3b123, type: 3}
+    - target: {fileID: 2771440226159791612, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: collisionPS
+      value: 
+      objectReference: {fileID: 2148377087172367046, guid: c78db3248942a394aa068e46e6b26cbb, type: 3}
     - target: {fileID: 7677118858114899748, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_SortingOrder
       value: 641
