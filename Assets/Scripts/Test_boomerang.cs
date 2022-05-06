@@ -17,7 +17,11 @@ public class Test_boomerang : MonoBehaviour {
     public bool shooted;
     float distance;
 
-   
+    [Header("VFX")]
+    [SerializeField] ParticleSystem collisionPS;
+
+    protected Movement mov;
+
 
     private void Awake() {
         map_Manager = FindObjectOfType<Map_Manager>();
@@ -118,6 +122,7 @@ public class Test_boomerang : MonoBehaviour {
             Return();
             reflect = true;
             print("Estoy rebotando");
+            Instantiate(collisionPS, this.transform.position, Quaternion.identity);
             //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
             //manager.soundReboting();
             dirVelocity = Vector3.Reflect(dirVelocity, collision.GetContact(0).normal);
@@ -126,6 +131,7 @@ public class Test_boomerang : MonoBehaviour {
         else if(collision.gameObject.CompareTag("Player")) {
                   
             print("Matando a alguien");
+            mov.shieldActive = false;
             //if (DeactiveColider != null) DeactiveColider();
             if (Score != null) Score();
         }
