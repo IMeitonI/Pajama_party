@@ -64,7 +64,7 @@ public class MovementOnline :Movement,IPunObservable
         }
 
         //Modificaci n Jose 
-        managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+        //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
 
         if (running == true)
         {
