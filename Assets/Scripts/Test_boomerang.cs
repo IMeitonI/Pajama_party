@@ -131,7 +131,6 @@ public class Test_boomerang : MonoBehaviour {
         else if(collision.gameObject.CompareTag("Player")) {
                   
             print("Matando a alguien");
-            mov.shieldActive = false;
             //if (DeactiveColider != null) DeactiveColider();
             if (Score != null) Score();
         }

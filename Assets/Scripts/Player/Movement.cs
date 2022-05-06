@@ -51,13 +51,13 @@ public class Movement : MonoBehaviour
             if (die == false) Change_Pos(x_axis, z_axis);
             
             movement_trail.Play();
+            //managerSound.Instance.Play(MovimientoSound);
 
         }
         else {
             running = false;
             
             movement_trail.Stop();
-            managerSound.Instance.Play(MovimientoSound);
         }
     }
     private void Update()

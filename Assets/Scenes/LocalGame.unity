@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66621685, g: 0.8827709, b: 0.8857476, a: 1}
+  m_IndirectSpecularColor: {r: 0.66621673, g: 0.8827709, b: 0.8857476, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1027,6 +1027,10 @@ PrefabInstance:
       propertyPath: TeleportButton
       value: 
       objectReference: {fileID: 1606023569}
+    - target: {fileID: 8280321128165171634, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: MovimientoSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 114566827dacf1e4387b63fb37e5390f, type: 3}
     - target: {fileID: 8280321128165171634, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: manager_Joystick
       value: 
@@ -3950,6 +3954,10 @@ PrefabInstance:
       propertyPath: TeleportButton
       value: 
       objectReference: {fileID: 997577762}
+    - target: {fileID: 8280321128165171634, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: MovimientoSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 114566827dacf1e4387b63fb37e5390f, type: 3}
     - target: {fileID: 8280321128165171634, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: manager_Joystick
       value: 
