@@ -68,6 +68,8 @@ MonoBehaviour:
   target: {fileID: 0}
   spawn: {fileID: 6276767002846996733}
   shooted: 0
+  ReboteSound: {fileID: 8300000, guid: f1cc0de108fed384eac33dc5248cd299, type: 3}
+  collisionPS: {fileID: 0}
 --- !u!135 &2875237678450887418
 SphereCollider:
   m_ObjectHideFlags: 0

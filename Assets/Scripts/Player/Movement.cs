@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
 
     public GameObject playerBoomerang;
     [SerializeField] public Test_boomerang myBoomerang;
+    [SerializeField] AudioClip MovimientoSound;
 
     private float teleportTimer = 0f;
 
@@ -48,12 +49,15 @@ public class Movement : MonoBehaviour
         if (x_axis != 0 || z_axis != 0)
         {
             if (die == false) Change_Pos(x_axis, z_axis);
+            
             movement_trail.Play();
 
         }
         else {
             running = false;
+            
             movement_trail.Stop();
+            managerSound.Instance.Play(MovimientoSound);
         }
     }
     private void Update()

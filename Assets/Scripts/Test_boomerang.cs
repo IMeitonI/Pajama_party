@@ -16,7 +16,7 @@ public class Test_boomerang : MonoBehaviour {
     bool back, reflect = false;
     public bool shooted;
     float distance;
-
+    [SerializeField] AudioClip ReboteSound;
     [Header("VFX")]
     [SerializeField] ParticleSystem collisionPS;
 
@@ -123,8 +123,8 @@ public class Test_boomerang : MonoBehaviour {
             reflect = true;
             print("Estoy rebotando");
             Instantiate(collisionPS, this.transform.position, Quaternion.identity);
-            //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-            //manager.soundReboting();
+
+            managerSound.Instance.Play(ReboteSound);
             dirVelocity = Vector3.Reflect(dirVelocity, collision.GetContact(0).normal);
 
         }
