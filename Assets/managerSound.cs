@@ -35,6 +35,10 @@ public class managerSound : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+    private void Start()
+    {
+        
+    }
 
     public void Play(AudioClip clip)
     {
