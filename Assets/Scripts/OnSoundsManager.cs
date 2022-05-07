@@ -13,13 +13,20 @@ public class OnSoundsManager : MonoBehaviour
     [SerializeField]  Sprite onSprite,offSprite;
     [Header("colors")]
     [SerializeField]  Color onColor,offColor;
-
+    [SerializeField] Button button;
     
    
+    public void ChargeMute()
+    {
+        managerSound.Instance.ChargeMute();
+    }
 
     private void Start()
     {
-        if (!Save_Manager.saveM_instance.activeSave.muted)
+
+        //button.onClick += managerSound.Instance.ChargeMute();
+        
+        if (Save_Manager.saveM_instance.activeSave.muted)
         {
             togglImage.sprite = offSprite;
            if(offText!= null|| onText !=null )
@@ -44,11 +51,12 @@ public class OnSoundsManager : MonoBehaviour
     {
         if(Save_Manager.saveM_instance.activeSave.muted)
         {
-            togglImage.sprite = offSprite;
+            togglImage.sprite = onSprite;
             if (offText != null || onText != null)
             {
-                offText.color = offColor;
-                onText.color = onColor;
+               
+                offText.color = onColor;
+                onText.color = offColor;
             }
 
             Save_Manager.saveM_instance.activeSave.muted = false;
@@ -57,11 +65,11 @@ public class OnSoundsManager : MonoBehaviour
         }
         else
         {
-            togglImage.sprite = onSprite;
+            togglImage.sprite = offSprite;
             if (offText != null || onText != null)
             {
-                offText.color = onColor;
-                onText.color = offColor;
+                offText.color = offColor;
+                onText.color = onColor;
             }
 
             Save_Manager.saveM_instance.activeSave.muted = true;

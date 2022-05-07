@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class managerSound : MonoBehaviour
 {
@@ -35,9 +36,26 @@ public class managerSound : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+    private void OnLevelWasLoaded(int level)
+    {
+        ChargeMute();
+    }
     private void Start()
     {
-        
+        ChargeMute();
+    }
+    public void ChargeMute()
+    {
+
+        if (Save_Manager.saveM_instance.activeSave.muted)
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
+
     }
 
     public void Play(AudioClip clip)
