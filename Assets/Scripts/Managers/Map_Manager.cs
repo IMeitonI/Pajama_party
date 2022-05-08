@@ -35,7 +35,8 @@ public class Map_Manager : MonoBehaviour
                 players[0] = players[1];
                 players[1] = temp;
             }
-        } 
+        }
+        else Teleport_players(current_map);
     }
     private void FixedUpdate()
     {
@@ -48,7 +49,7 @@ public class Map_Manager : MonoBehaviour
                 players[1] = temp;
             }
         }
-        if (Mov_Camera.local == false)
+        if (Mov_Camera.local == false || Mov_Camera.local == null)
         {
             if (players_deaths == players.Length - 1 && counter == 0)
             {
@@ -75,7 +76,7 @@ public class Map_Manager : MonoBehaviour
     {
         if (winner == false)
         {
-            if (Mov_Camera.local == false)
+            if (Mov_Camera.local == false|| Mov_Camera.local == null)
             {
                 players_deaths = 0;
                 counter = 0;
@@ -117,13 +118,13 @@ public class Map_Manager : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             players[i].transform.position = spawnpoints[i].position;
-            if (Mov_Camera.local == false)
+            if (Mov_Camera.local == false || Mov_Camera.local == null)
             {
                 players[i].gameObject.SetActive(true);
                 Debug.Log(players[i].activeSelf);
-                if (players[i].activeSelf == false) players[i].gameObject.SetActive(true);
+                if (players[i].activeSelf == false || Mov_Camera.local == null) players[i].gameObject.SetActive(true);
             }
-            if (Mov_Camera.local == false) Invoke("DisableCanvas", 5f);
+            if (Mov_Camera.local == false || Mov_Camera.local == null) Invoke("DisableCanvas", 5f);
         }
     }
 }
