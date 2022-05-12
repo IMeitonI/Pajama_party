@@ -6,7 +6,8 @@ public class Score : MonoBehaviour {
     public delegate void ScoreEvents();
     public event ScoreEvents Substraction;
     [SerializeField] AnimatorController animatorController;
-   [SerializeField] Test_boomerang test_Boomerang;
+    [SerializeField] AnimatorController animatorControllerOnline;
+    [SerializeField] Test_boomerang test_Boomerang;
     public int myScore =0;
     // Start is called before the first frame update
   
