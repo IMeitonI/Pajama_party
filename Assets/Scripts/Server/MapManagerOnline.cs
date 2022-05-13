@@ -12,6 +12,7 @@ public class MapManagerOnline : MonoBehaviour
     int counter;
     public int current_map;
     public static int players_deaths;
+    [SerializeField] GameObject scoreBoard;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class MapManagerOnline : MonoBehaviour
     void Update()
     {
         if (players.Length == 0 || players == null) FillPlayers();
-        if (players_deaths == players.Length - 1) ChangeMap();
+        if (players_deaths >= players.Length-1) ActiveScoreBoard();
     }
     public void FillPlayers()
     {
@@ -32,6 +33,7 @@ public class MapManagerOnline : MonoBehaviour
     }
     public void ChangeMap()
     {
+        changing_mp = true;
         current_map++;
         for (int i = 0; i < maps.Length; i++)
         {
@@ -54,5 +56,21 @@ public class MapManagerOnline : MonoBehaviour
         {
             players[i].transform.position = spawnpoints[i].position;
         }
+        Invoke("DisableScoreBoard", 3f);
+    }
+    public void ActiveScoreBoard()
+    {
+        scoreBoard.SetActive(true);
+        if (counter == 0)
+        {
+            counter = 1;
+            ChangeMap();
+        }
+    }
+    public void DisableScoreBoard()
+    {
+        counter = 0;
+        scoreBoard.SetActive(false);
+        changing_mp = false;
     }
 }
