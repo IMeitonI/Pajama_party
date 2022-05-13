@@ -7,7 +7,7 @@ public class MapManagerOnline : MonoBehaviour
     [SerializeField] public GameObject[] maps;
     GameObject[] players;
     public static bool winner;
-    public static bool change_mp;
+    public static bool changing_mp;
     [Range(0, 1)]
     int counter;
     public int current_map;
@@ -22,7 +22,8 @@ public class MapManagerOnline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (players.Length == 0 || players == null) FillPlayers();  
+        if (players.Length == 0 || players == null) FillPlayers();
+        if (players_deaths == players.Length - 1) ChangeMap();
     }
     public void FillPlayers()
     {
@@ -38,6 +39,7 @@ public class MapManagerOnline : MonoBehaviour
         }
         if (current_map >= maps.Length) current_map = 0;
         maps[current_map].SetActive(true);
+        players_deaths = 0;
         Teleport_players(current_map);
     }
     private void Teleport_players(int map)
