@@ -24,7 +24,7 @@ public class MapManagerOnline : MonoBehaviour
     void Update()
     {
         if (players.Length == 0 || players == null) FillPlayers();
-        if (players_deaths >= players.Length-1) ActiveScoreBoard();
+        if (players_deaths >= players.Length) ActiveScoreBoard();
     }
     public void FillPlayers()
     {
