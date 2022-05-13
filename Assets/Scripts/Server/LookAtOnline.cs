@@ -25,7 +25,6 @@ public class LookAtOnline : LookAt, IPunObservable
     void FixedUpdate()
     {
         if (managerJoystick == null) return;
-        transform.position = new Vector3(0, -1, 0);
         direction.x = managerJoystick.InputHorizontal();
         direction.y = managerJoystick.InputVertical();
         if (direction != Vector2.zero && death == false)

@@ -13,6 +13,8 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
     float cooldown = 10;
     int current_pos, counter;
     Transform[] spawns;
+    MapManagerOnline map_manager;
+    int current_map;
 
     private void OnEnable()
     {
@@ -27,6 +29,8 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
     private void Start()
     {
         counter = 1;
+        map_manager = GetComponent<MapManagerOnline>();
+        current_map = 99;
     }
 
     private void GenerateCure()
@@ -53,7 +57,16 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
         if (photonEvent.Code == CureEventCode)
         {
             time = 0;
-            spawns = GameObject.Find("Spawnpoints_PowerUps").GetComponentsInChildren<Transform>();
+            if(current_map != map_manager.current_map)
+            {
+                int length_spawns = map_manager.maps[map_manager.current_map].transform.GetChild(1).transform.childCount;
+                spawns = new Transform[length_spawns];
+                for (int i = 0; i < spawns.Length; i++)
+                {
+                    spawns[i] = map_manager.maps[map_manager.current_map].transform.GetChild(1).GetChild(i).transform;
+                }
+                current_map = map_manager.current_map;
+            }         
             Instantiate(prefab, spawns[current_pos].position, Quaternion.identity);
             current_pos++;
             if (current_pos >= spawns.Length - 1) current_pos = 0;
