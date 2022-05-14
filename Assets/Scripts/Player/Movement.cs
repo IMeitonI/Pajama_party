@@ -35,6 +35,13 @@ public class Movement : MonoBehaviour
     [SerializeField] AudioClip MovimientoSound;
 
     private float teleportTimer = 0f;
+    
+    public bool firstTimeSpeed = true;
+
+    private bool firstTimeShield = true;
+    private bool isShieldActive = false;
+
+    Test_boomerang tb;
 
     //[Header("Sounds")]
     //public AudioClip moveSound;
@@ -64,6 +71,7 @@ public class Movement : MonoBehaviour
     {
         if (shieldActive)
         {
+            isShieldActive = true;
             if (firsttime)
             {
                 ShieldPowerUp();
@@ -73,6 +81,7 @@ public class Movement : MonoBehaviour
         if (!shieldActive)
         {
             StopShield();
+            isShieldActive = false;
         }
 
         if (myBoomerang.shooted)
@@ -132,9 +141,12 @@ public class Movement : MonoBehaviour
     }
     public IEnumerator SpeedPowerUp()
     {
-        speed = speed * 1.4f;
-        yield return new WaitForSeconds(5f);
-        speed = speed / 1.4f;
+        if (firstTimeSpeed)
+        {
+            speed = speed * 1.4f;
+            yield return new WaitForSeconds(5f);
+            speed = speed / 1.4f;
+        }
     }
 
     public void TeleportPowerUp()
@@ -150,6 +162,7 @@ public class Movement : MonoBehaviour
                     {
                         tpactive = true;
                         transform.position = playerBoomerang.transform.position;
+                        myBoomerang.PickUp();
                         Instantiate(teleportPS, transform.position, Quaternion.identity);
                         teleportPS.gameObject.SetActive(true);
                         teleportPS.Play();
@@ -162,13 +175,21 @@ public class Movement : MonoBehaviour
 
     public void ShieldPowerUp()
     {
-        Shield.SetActive(true);
-        ShieldPS.gameObject.SetActive(true);
-        ShieldPS.Play();
+        if(isShieldActive)
+        {
+            if (firstTimeShield)
+            {
+                firstTimeShield = false;
+                ShieldPS.gameObject.SetActive(true);
+                ShieldPS.Play();
+            }
+            Shield.SetActive(true);
+        }
     }
     public void StopShield()
     {
         Shield.SetActive(false);
+        ShieldPS.gameObject.SetActive(false);
         ShieldPS.Stop();
     }
 }
