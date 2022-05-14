@@ -103,6 +103,12 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+        Player player = PhotonNetwork.LocalPlayer;
+        player.playerFace = m_Skin.face;
+        player.playerBody = m_Skin.pijama;
+        var skinset = new ExitGames.Client.Photon.Hashtable() { { "Body", m_Skin.pijama }, { "Face", m_Skin.face }, { "Boomerang", m_Skin.boomerang } };
+        player.SetCustomProperties(skinset);
+        print("my name is: " + player.NickName + " face: " + player.playerFace + " body: " + player.playerBody);
     }
 
     public void OnEditSkin()

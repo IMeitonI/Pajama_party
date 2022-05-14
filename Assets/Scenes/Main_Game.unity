@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1066,7 +1066,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.010009766}
-  m_SizeDelta: {x: 16889, y: 947.34}
+  m_SizeDelta: {x: 17314.97, y: 947.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &717056599
 MonoBehaviour:
@@ -4000,7 +4000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conteiner: {fileID: 7938093269441477295}
-  scoreBoardPrefab: {fileID: 3997476681231020188, guid: 424a89fb58d89524089f406cecbe2568, type: 3}
+  scoreBoardPrefab: {fileID: 4224095077583667709, guid: 4fc77f56003c54477808e72f1f8507bc, type: 3}
 --- !u!114 &7938093269441477294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4044,7 +4044,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 241, y: -89}
-  m_SizeDelta: {x: 4688.77, y: 685.486}
+  m_SizeDelta: {x: 8480.7, y: 685.486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8566253179322415682
 GameObject:
