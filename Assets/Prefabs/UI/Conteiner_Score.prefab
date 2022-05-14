@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Spacing: 0.2
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
+  m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -70,6 +70,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7938093268973325921}
     m_Modifications:
+    - target: {fileID: 3997476680602499401, guid: 424a89fb58d89524089f406cecbe2568, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5225983
+      objectReference: {fileID: 0}
     - target: {fileID: 3997476681231020188, guid: 424a89fb58d89524089f406cecbe2568, type: 3}
       propertyPath: m_Name
       value: Player_score
@@ -108,11 +112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3997476681231020189, guid: 424a89fb58d89524089f406cecbe2568, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3997476681231020189, guid: 424a89fb58d89524089f406cecbe2568, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 95.3232
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3997476681231020189, guid: 424a89fb58d89524089f406cecbe2568, type: 3}
       propertyPath: m_LocalPosition.x
@@ -188,4 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reference: {fileID: 1877361207636988951, guid: a13622dc9689cf64184dba7381e99469, type: 3}
   paw: {fileID: 21300000, guid: 539b95222d8cb0849bfda5e16d60737f, type: 3}
+  circle: {fileID: 0}
   scoreScript: {fileID: 0}
+  winner: {fileID: 0}
+  buttoms: {fileID: 0}

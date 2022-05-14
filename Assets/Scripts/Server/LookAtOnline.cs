@@ -15,11 +15,7 @@ public class LookAtOnline : LookAt, IPunObservable
     // Start is called before the first frame update
     void Start()
     {
-        if (!pv.IsMine)
-        {
-            Destroy(GetComponentInChildren<Camera>().gameObject);
-            return;
-        }
+
         managerJoystick = GameObject.FindGameObjectWithTag("MyJoy").GetComponent<ManagerJoystick>();
         player = GetComponent<Transform>();
     }
@@ -29,6 +25,7 @@ public class LookAtOnline : LookAt, IPunObservable
     void FixedUpdate()
     {
         if (managerJoystick == null) return;
+        player.localPosition = new Vector3(0, -1, 0);
         direction.x = managerJoystick.InputHorizontal();
         direction.y = managerJoystick.InputVertical();
         if (direction != Vector2.zero && death == false)
@@ -36,6 +33,7 @@ public class LookAtOnline : LookAt, IPunObservable
             float angle = Mathf.Atan2(direction.y - Vector2.zero.y, direction.x - Vector2.zero.x);
             player.rotation = Quaternion.Euler(0f, 90 - angle * Mathf.Rad2Deg, 0f);
         }
+        
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

@@ -4,16 +4,16 @@ using UnityEngine.UI;
 public class Player2_Boomerang : MonoBehaviour {
     Map_Manager map_Manager;
     [SerializeField] public Test_boomerang myBoomerang;
-    int score;
-    bool alive;
+    protected int score;
+    protected bool alive;
     Text myText;
     protected CapsuleCollider myCollider;
     protected Movement mov;
     protected Rigidbody rb;
 
     [Header("Sounds")]
-    [SerializeField] AudioClip DieSound;
-    [SerializeField] AudioClip ShootSound;
+    [SerializeField] protected AudioClip DieSound;
+    [SerializeField] protected AudioClip ShootSound;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
