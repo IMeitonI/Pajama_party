@@ -40,15 +40,15 @@ public class Movement : MonoBehaviour
     private bool isShieldActive = false;
 
     public bool falling;
+    GroundCheckl check;
 
     //[Header("Sounds")]
     //public AudioClip moveSound;
     // Update is called once per frame
     private void Start()
     {
-        
+        check = GetComponent<GroundCheckl>();
     }
-
     void FixedUpdate()
     {
         if (manager_Joystick == null) return;
@@ -99,7 +99,8 @@ public class Movement : MonoBehaviour
     }
     public void Change_Pos(float x, float z)
     {
-        if (GroundCheckl.grounded == false)
+        Debug.Log(gameObject.name + check.grounded);
+        if (check.grounded == false)
         {
             if (!die)
             {
@@ -111,7 +112,6 @@ public class Movement : MonoBehaviour
         }
         else
         {
-
             running = true;
             Vector3 force = new Vector3(x, 0, z);
             Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
