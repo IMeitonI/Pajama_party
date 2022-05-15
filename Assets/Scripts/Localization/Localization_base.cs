@@ -107,8 +107,6 @@ public class Localization_base : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        Save_Manager.saveM_instance.Load();
-        language = Save_Manager.saveM_instance.activeSave.language;
 
     }
 
