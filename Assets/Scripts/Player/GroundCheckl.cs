@@ -11,10 +11,10 @@ public class GroundCheckl : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        array[0] = new Vector3(-0.3f,0,0);
-        array[1] = new Vector3(0.3f, 0, 0);
-        array[2] = new Vector3(0, 0, -0.3f);
-        array[3] = new Vector3(0, 0, 0.3f);
+        array[0] = new Vector3(-1.5f,0,0);
+        array[1] = new Vector3(1.5f, 0, 0);
+        array[2] = new Vector3(0, 0, -1.5f);
+        array[3] = new Vector3(0, 0, 1.5f);
         grounded = true;
     }
     // Update is called once per frame

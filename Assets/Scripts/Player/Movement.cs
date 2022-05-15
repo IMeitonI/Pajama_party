@@ -64,7 +64,7 @@ public class Movement : MonoBehaviour
             //managerSound.Instance.Play(MovimientoSound);
 
         }
-        if (check.grounded == false)
+        else if (check.grounded == false)
         {
             if (!die)
             {
@@ -76,7 +76,7 @@ public class Movement : MonoBehaviour
         else
         {
             running = false;
-
+            Debug.Log(1);
             movement_trail.Stop();
         }
     }

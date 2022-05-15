@@ -10,11 +10,13 @@ public class AnimatorController : MonoBehaviour
     Movement mov;
     [Range(0, 1)]
     [SerializeField] int animation_type;
+    Dash dash;
     LookAt look;
     // Start is called before the first frame update
     void Start()
     {
         mov = GetComponent<Movement>();
+        dash = GetComponent<Dash>();
         anim = GetComponent<Animator>();
         look = GetComponent<LookAt>();
         anim.SetInteger("Animation_type", animation_type);
@@ -26,6 +28,7 @@ public class AnimatorController : MonoBehaviour
         if (mov.running) anim.SetBool("Running", true);
         else anim.SetBool("Running", false);
         if (mov.falling) Falling();
+        //if(dash)
     }
     public void Throw_Anim()
     {
@@ -68,6 +71,10 @@ public class AnimatorController : MonoBehaviour
         mov.die = true;
         Invoke("Disable", 2f);
 
+    }
+    public void Dash()
+    {
+        anim.SetTrigger("Dash");
     }
 
 }
