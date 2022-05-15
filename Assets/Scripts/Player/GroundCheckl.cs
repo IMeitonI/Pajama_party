@@ -11,13 +11,14 @@ public class GroundCheckl : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        array[0] = new Vector3(-1,0,0);
-        array[1] = new Vector3(1, 0, 0);
-        array[2] = new Vector3(0, 0, -1);
-        array[3] = new Vector3(0, 0, 1);
+        array[0] = new Vector3(-0.5f,0,0);
+        array[1] = new Vector3(0.5f, 0, 0);
+        array[2] = new Vector3(0, 0, -0.5f);
+        array[3] = new Vector3(0, 0, 0.5f);
+        grounded = true;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         grounded = CheckGround();
     }
@@ -25,7 +26,7 @@ public class GroundCheckl : MonoBehaviour
     {
         for (int i = 0; i < hits.Length; i++)
         {
-            Physics.Raycast(transform.position + array[i], Vector3.down, out hits[i], 6f);
+            Physics.Raycast(transform.position + array[i], Vector3.down, out hits[i], 10f);
             if (hits[i].collider != null && hits[i].collider.CompareTag("Ground")) return true;
         }
         return  false;

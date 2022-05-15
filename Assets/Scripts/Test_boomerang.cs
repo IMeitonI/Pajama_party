@@ -28,11 +28,13 @@ public class Test_boomerang : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         inicialSpeed = speed;
         gameObject.SetActive(false);
+        mov = GetComponentInParent<Movement>();
        // map_Manager.Mapchanger += PickUp;
 
     }
 
     private void Update() {
+        if (mov.IsGrounded() == false && speed == 0) Return();
        
         if (shooted) { //movimiento y distancia
             distance = Vector3.Distance(target.position, transform.position);
