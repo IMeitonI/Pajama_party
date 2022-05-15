@@ -42,6 +42,8 @@ public class Movement : MonoBehaviour
     public bool falling, aiming;
     GroundCheckl check;
 
+    public bool firstTimeFalling = true;
+
     //[Header("Sounds")]
     //public AudioClip moveSound;
     // Update is called once per frame
@@ -62,21 +64,20 @@ public class Movement : MonoBehaviour
             //managerSound.Instance.Play(MovimientoSound);
 
         }
-        else
-        {
-            running = false;
-
-            movement_trail.Stop();
-        }
         if (check.grounded == false)
         {
             if (!die)
             {
                 Debug.Log(check.grounded);
                 die = true;
-                transform.position += transform.forward;
                 falling = true;
             }
+        }
+        else
+        {
+            running = false;
+
+            movement_trail.Stop();
         }
     }
     private void Update()
@@ -109,14 +110,12 @@ public class Movement : MonoBehaviour
     }
     public void Change_Pos(float x, float z)
     {
-        Debug.Log(gameObject.name + check.grounded);
+        //Debug.Log(gameObject.name + check.grounded);
         if (check.grounded == false)
-        {
+        { 
             if (!die)
             {
-
                 die = true;
-                transform.position += transform.forward;
                 falling = true;
             }
         }

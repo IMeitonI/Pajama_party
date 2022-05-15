@@ -1255,6 +1255,7 @@ MonoBehaviour:
   firstTimeSpeed: 1
   falling: 0
   aiming: 0
+  firstTimeFalling: 1
 --- !u!114 &8280321128165171645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,6 +1411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim_arrow: {fileID: 4049188811195845122}
+  boomerang: {fileID: 2771440226159791612}
 --- !u!114 &243839124
 MonoBehaviour:
   m_ObjectHideFlags: 0
