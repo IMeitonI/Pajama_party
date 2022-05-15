@@ -49,7 +49,7 @@ public class Dash : MonoBehaviour
     }
     public void Star_Dash()
     {
-        if (dash_enable)
+        if (dash_enable && mov.die == false)
         {
             current_time = 0;
             dash_enable = false;
