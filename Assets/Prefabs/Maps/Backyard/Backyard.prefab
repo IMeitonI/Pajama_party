@@ -90,7 +90,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7341787643936569962}
-  - component: {fileID: 5191551982565933324}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -112,19 +111,6 @@ Transform:
   m_Father: {fileID: 8538301851130307435}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5191551982565933324
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23546094641255005}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 100, y: 3, z: 100}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &408585658976982685
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +162,7 @@ GameObject:
   - component: {fileID: 636552378399849902}
   m_Layer: 0
   m_Name: Backyard Base - Ground.
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2377,14 +2363,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f5402f3cfdb4044e89793dbcc7aade6, type: 3}
---- !u!4 &721464464250342724 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 944110724372606215, guid: 6f5402f3cfdb4044e89793dbcc7aade6, type: 3}
-  m_PrefabInstance: {fileID: 511457247841755203}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8702330896632837977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9213780446177711898, guid: 6f5402f3cfdb4044e89793dbcc7aade6, type: 3}
+  m_PrefabInstance: {fileID: 511457247841755203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &721464464250342724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 944110724372606215, guid: 6f5402f3cfdb4044e89793dbcc7aade6, type: 3}
   m_PrefabInstance: {fileID: 511457247841755203}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &6189677475403829553
@@ -2612,14 +2598,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ea8bae61fb29f54693c7dfbbff661fb, type: 3}
---- !u!4 &8176281605808836510 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7665774476111053056, guid: 5ea8bae61fb29f54693c7dfbbff661fb, type: 3}
-  m_PrefabInstance: {fileID: 1951661218071629470}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &300014280823812582 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2250793689764659064, guid: 5ea8bae61fb29f54693c7dfbbff661fb, type: 3}
+  m_PrefabInstance: {fileID: 1951661218071629470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8176281605808836510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7665774476111053056, guid: 5ea8bae61fb29f54693c7dfbbff661fb, type: 3}
   m_PrefabInstance: {fileID: 1951661218071629470}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &6189677475403829554
