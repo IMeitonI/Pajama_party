@@ -153,7 +153,7 @@ public class Movement : MonoBehaviour
     {
         if (teleportPU)
         {
-            if (myBoomerang.shooted)
+            if (myBoomerang.shooted && IsGrounded())
             {
                 
                 if(playerBoomerang.transform.position.z > this.transform.position.z + 2 || playerBoomerang.transform.position.z < this.transform.position.z - 2 || playerBoomerang.transform.position.x > this.transform.position.x + 5 || playerBoomerang.transform.position.x < this.transform.position.x - 5)
@@ -171,6 +171,23 @@ public class Movement : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsGrounded()
+    {
+        RaycastHit rhit;
+        Physics.Raycast(playerBoomerang.transform.position, Vector3.down, out rhit, 1);
+        Color rayColor;
+        if(rhit.collider != null && rhit.collider.CompareTag("Ground"))
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(playerBoomerang.transform.position, Vector3.down * 3);
+        return rhit.collider != null;
     }
 
     public void ShieldPowerUp()
