@@ -31,7 +31,7 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerUpID = Random.Range(index, 3);
+        powerUpID = Random.Range(1, 2);
     }
 
     // Update is called once per frame
@@ -65,7 +65,6 @@ public class PowerUps : MonoBehaviour
                         break;
                     case 1:
                         _player.shieldActive = true;
-                        _player.ShieldPowerUp();
                         Instantiate(shieldPickupVFX);
                         Destroy(this.gameObject);
                         break;

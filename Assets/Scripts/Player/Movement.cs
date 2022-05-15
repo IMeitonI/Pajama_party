@@ -9,8 +9,8 @@ public class Movement : MonoBehaviour
     public static Action A_Move;
     [Header("Variables Movimiento")]
     [SerializeField] public float speed;
-    [Range(-1,1)]
-    [SerializeField]protected float x_axis, z_axis;
+    [Range(-1, 1)]
+    [SerializeField] protected float x_axis, z_axis;
     [SerializeField] protected ManagerJoystick manager_Joystick;
     public bool running, die;
     [SerializeField] protected LayerMask layermask_check;
@@ -33,17 +33,22 @@ public class Movement : MonoBehaviour
     [SerializeField] AudioClip MovimientoSound;
 
     private float teleportTimer = 0f;
-    
+
     public bool firstTimeSpeed = true;
 
     private bool firstTimeShield = true;
     private bool isShieldActive = false;
 
     public bool falling;
+    GroundCheckl check;
 
     //[Header("Sounds")]
     //public AudioClip moveSound;
     // Update is called once per frame
+    private void Start()
+    {
+        check = GetComponent<GroundCheckl>();
+    }
     void FixedUpdate()
     {
         if (manager_Joystick == null) return;
@@ -52,27 +57,25 @@ public class Movement : MonoBehaviour
         if (x_axis != 0 || z_axis != 0)
         {
             if (die == false) Change_Pos(x_axis, z_axis);
-            
+
             movement_trail.Play();
             //managerSound.Instance.Play(MovimientoSound);
 
         }
-        else {
+        else
+        {
             running = false;
-            
+
             movement_trail.Stop();
         }
     }
     private void Update()
     {
+
         if (shieldActive)
         {
+            ShieldPowerUp();
             isShieldActive = true;
-            if (firsttime)
-            {
-                ShieldPowerUp();
-                firsttime = false;
-            }
         }
         if (!shieldActive)
         {
@@ -96,18 +99,25 @@ public class Movement : MonoBehaviour
     }
     public void Change_Pos(float x, float z)
     {
-        RaycastHit rhitBox;
-        Physics.Raycast(transform.position, Vector3.down, out rhitBox, 6);
-        if (rhitBox.collider != null && rhitBox.collider.CompareTag("Ground"))
+        Debug.Log(gameObject.name + check.grounded);
+        if (check.grounded == false)
         {
-            die = false;
-            falling = false;
+            if (!die)
+            {
+
+                die = true;
+                transform.position += transform.forward;
+                falling = true;
+            }
+        }
+        else
+        {
             running = true;
             Vector3 force = new Vector3(x, 0, z);
             Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
             target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
             RaycastHit raycastHit;
-            Physics.Raycast(transform.position, force, out raycastHit, 4*speed* Time.deltaTime);
+            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
             if (raycastHit.collider == null && Map_Manager.change_mp == false)
             {
                 transform.position = target_pos;
@@ -140,16 +150,10 @@ public class Movement : MonoBehaviour
             }
 
             A_Move?.Invoke();
+
+
         }
-        else
-        {
-            if (!die)
-            {
-                die = true;
-                transform.position += transform.forward;
-                falling = true;
-            }
-        }
+
     }
     public IEnumerator SpeedPowerUp()
     {
@@ -167,10 +171,10 @@ public class Movement : MonoBehaviour
         {
             if (myBoomerang.shooted && IsGrounded())
             {
-                
-                if(playerBoomerang.transform.position.z > this.transform.position.z + 2 || playerBoomerang.transform.position.z < this.transform.position.z - 2 || playerBoomerang.transform.position.x > this.transform.position.x + 5 || playerBoomerang.transform.position.x < this.transform.position.x - 5)
+
+                if (playerBoomerang.transform.position.z > this.transform.position.z + 2 || playerBoomerang.transform.position.z < this.transform.position.z - 2 || playerBoomerang.transform.position.x > this.transform.position.x + 5 || playerBoomerang.transform.position.x < this.transform.position.x - 5)
                 {
-                    if(teleportTimer >= 1)
+                    if (teleportTimer >= 1)
                     {
                         tpactive = true;
                         transform.position = playerBoomerang.transform.position;
@@ -190,7 +194,7 @@ public class Movement : MonoBehaviour
         RaycastHit rhit;
         Physics.Raycast(playerBoomerang.transform.position, Vector3.down, out rhit, 1);
         Color rayColor;
-        if(rhit.collider != null && rhit.collider.CompareTag("Ground"))
+        if (rhit.collider != null && rhit.collider.CompareTag("Ground"))
         {
             rayColor = Color.green;
         }
@@ -206,15 +210,15 @@ public class Movement : MonoBehaviour
 
     public void ShieldPowerUp()
     {
-        if(isShieldActive)
+        ShieldPS.gameObject.SetActive(true);
+        Shield.SetActive(true);
+        if (ShieldPS.isEmitting)
         {
-            if (firstTimeShield)
-            {
-                firstTimeShield = false;
-                ShieldPS.gameObject.SetActive(true);
-                ShieldPS.Play();
-            }
-            Shield.SetActive(true);
+            return;
+        }
+        else
+        {
+            ShieldPS.Play();
         }
     }
     public void StopShield()
@@ -224,3 +228,4 @@ public class Movement : MonoBehaviour
         ShieldPS.Stop();
     }
 }
+

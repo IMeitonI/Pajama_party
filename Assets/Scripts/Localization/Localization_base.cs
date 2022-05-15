@@ -5,8 +5,7 @@ using UnityEngine;
 public class Localization_base : MonoBehaviour
 {
     public delegate void TranslateEvent();
-    public event TranslateEvent TranslateLoad;
-
+    public static TranslateEvent TranslateLoad;
     public static Localization_base instance;
     public string language;
     public static Dictionary<string, string> dataText_ENG = new Dictionary<string, string>
@@ -108,27 +107,26 @@ public class Localization_base : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+        Save_Manager.saveM_instance.Load();
+        language = Save_Manager.saveM_instance.activeSave.language;
+
     }
 
     private void Start()
     {
-        if(language == null)
+        if (language == null)
         {
-            language = "SP";
+            language = "ENG";
         }
         else
-        {  
-            language = Save_Manager.saveM_instance.activeSave.language;
+        {
             SetUpTranslation();
         }
-        
-
-        
     }
     public void SetUpTranslation()
     {
-        if (TranslateLoad != null) TranslateLoad();
-
+        //if (TranslateLoad != null) TranslateLoad();
+        TranslateLoad?.Invoke();
     }
 
     public string GetTraslation(string key)

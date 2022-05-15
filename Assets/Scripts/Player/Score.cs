@@ -9,6 +9,9 @@ public class Score : MonoBehaviour {
     [SerializeField] AnimatorController animatorControllerOnline;
     [SerializeField] Test_boomerang test_Boomerang;
     public int myScore =0;
+    int previus_score, current_map;
+    Map_Manager map_mg;
+    
     // Start is called before the first frame update
   
     private void Awake() {
@@ -16,9 +19,24 @@ public class Score : MonoBehaviour {
         test_Boomerang.Score += AddScore;
         animatorController.Fall += SubsScore;
     }
+    private void Start()
+    {
+        map_mg = GameObject.Find("Manager").GetComponent<Map_Manager>();
+    }
 
     public void AddScore() {
-        myScore += 1;
+        if (current_map == map_mg.current_map)
+        {
+            if (previus_score == myScore - 1) return;
+            myScore += 1;
+        }
+        else
+        {
+            current_map = map_mg.current_map;
+            previus_score = myScore;
+            AddScore();
+        }
+
     }
     public void SubsScore() {
         if (myScore == 0) return;
