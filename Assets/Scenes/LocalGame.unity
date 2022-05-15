@@ -1240,7 +1240,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 732236607, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
 --- !u!114 &692080661 stripped
 MonoBehaviour:
@@ -1375,6 +1376,7 @@ MonoBehaviour:
   firstTimeSpeed: 1
   falling: 0
   aiming: 0
+  firstTimeFalling: 1
 --- !u!114 &751192257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2500,6 +2502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aim_arrow: {fileID: 0}
+  boomerang: {fileID: 0}
 --- !u!1 &1391110670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,6 +3428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island
       objectReference: {fileID: 0}
+    - target: {fileID: 1894512596740070117, guid: 526765e35b4389e4fa0a36770c446ecf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526765e35b4389e4fa0a36770c446ecf, type: 3}
 --- !u!1 &1717688671 stripped
@@ -3818,6 +3825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dessert
       objectReference: {fileID: 0}
+    - target: {fileID: 1427912828426010425, guid: 752859a326f043e4b9ddecadc90a08c6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1773054353943192963, guid: 752859a326f043e4b9ddecadc90a08c6, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4202,7 +4213,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 732236607, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
 --- !u!1001 &8224972037908897618
 PrefabInstance:
@@ -4315,6 +4327,10 @@ PrefabInstance:
     - target: {fileID: 5571818295253530682, guid: f690fe979081ff64f9f823319dd12b1a, type: 3}
       propertyPath: m_Name
       value: Test_Dessert
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571818295253530682, guid: f690fe979081ff64f9f823319dd12b1a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f690fe979081ff64f9f823319dd12b1a, type: 3}

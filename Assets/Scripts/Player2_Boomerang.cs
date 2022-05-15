@@ -73,6 +73,7 @@ public class Player2_Boomerang : MonoBehaviour {
         myCollider.enabled = true;
         rb.isKinematic = false;
         alive = true;
+        mov.firstTimeFalling = true;
     }
     protected void DeactivateCol() {
         //rb.useGravity = false;
