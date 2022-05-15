@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
     private bool firstTimeShield = true;
     private bool isShieldActive = false;
 
-    public bool falling;
+    public bool falling, aiming;
     GroundCheckl check;
 
     //[Header("Sounds")]
@@ -67,6 +67,16 @@ public class Movement : MonoBehaviour
             running = false;
 
             movement_trail.Stop();
+        }
+        if (check.grounded == false)
+        {
+            if (!die)
+            {
+                Debug.Log(check.grounded);
+                die = true;
+                transform.position += transform.forward;
+                falling = true;
+            }
         }
     }
     private void Update()
@@ -110,7 +120,7 @@ public class Movement : MonoBehaviour
                 falling = true;
             }
         }
-        else
+        else if (aiming == false)
         {
             running = true;
             Vector3 force = new Vector3(x, 0, z);
@@ -153,6 +163,7 @@ public class Movement : MonoBehaviour
 
 
         }
+        else return;
 
     }
     public IEnumerator SpeedPowerUp()
@@ -189,7 +200,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
         RaycastHit rhit;
         Physics.Raycast(playerBoomerang.transform.position, Vector3.down, out rhit, 1);
@@ -226,6 +237,10 @@ public class Movement : MonoBehaviour
         Shield.SetActive(false);
         ShieldPS.gameObject.SetActive(false);
         ShieldPS.Stop();
+    }
+    public void Aim(bool x)
+    {
+        aiming = x;
     }
 }
 
