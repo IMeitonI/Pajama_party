@@ -9,11 +9,11 @@ public class HoldButton : MonoBehaviour
 {
     Movement mov;
     [SerializeField] GameObject aim_arrow;
+    [SerializeField]Test_boomerang boomerang;
     float time, anim_time;
     float duration = 0.2f;
     bool hold;
     float duration_anim = 0.5f;
-  
 
     public void Aim(bool x)
     {
@@ -30,7 +30,7 @@ public class HoldButton : MonoBehaviour
     }
     private void Update()
     {
-        if (hold == true)
+        if (hold == true && boomerang.shooted == false)
         {
             time += Time.deltaTime;
             anim_time += Time.deltaTime;

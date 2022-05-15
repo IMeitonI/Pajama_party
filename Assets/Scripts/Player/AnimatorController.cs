@@ -56,6 +56,7 @@ public class AnimatorController : MonoBehaviour
         mov.falling = false;
         look.death = false;
         gameObject.SetActive(true);
+        anim.SetBool("Falling", false);
         anim.SetInteger("Animation_type", animation_type);
         Map_Manager.change_mp = false;
     }
