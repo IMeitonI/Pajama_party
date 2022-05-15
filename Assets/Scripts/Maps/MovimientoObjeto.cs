@@ -10,14 +10,13 @@ public class MovimientoObjeto : MonoBehaviour
     Transform pp;
     bool moving = false;
     float tiemporeal, porcentajeTiempo;
-    // Start is called before the first frame update
-    Vector3 primeraPos, segundaPos;
+    
     private void Start()
     {
         transform.position = p1.localPosition;
         pp = p1;
     }
-    // Update is called once per frame
+    
     void Update()
     {
         if (moving == true)
