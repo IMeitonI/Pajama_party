@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 5445710963974364788}
   m_Layer: 0
   m_Name: ShieldCollider
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1254,10 +1254,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5578300607833660305}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.31
+  m_Radius: 3.73
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6085907741459078889
 GameObject:
@@ -1873,6 +1873,7 @@ GameObject:
   - component: {fileID: 8280321128165171647}
   - component: {fileID: 8280321128165171646}
   - component: {fileID: 8439721915449923239}
+  - component: {fileID: 732236607}
   m_Layer: 0
   m_Name: Player_Offline
   m_TagString: Player
@@ -1946,7 +1947,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 126
   m_CollisionDetection: 3
 --- !u!114 &8280321128165171632
 MonoBehaviour:
@@ -2009,7 +2010,7 @@ MonoBehaviour:
   teleportPU: 0
   playerBoomerang: {fileID: 2771440226159791610}
   myBoomerang: {fileID: 2771440226159791612}
-  MovimientoSound: {fileID: 8300000, guid: c6a899243fe72e14ea04d0390529a697, type: 3}
+  MovimientoSound: {fileID: 8300000, guid: 114566827dacf1e4387b63fb37e5390f, type: 3}
   firstTimeSpeed: 1
   falling: 0
 --- !u!114 &8280321128165171645
@@ -2162,6 +2163,18 @@ MonoBehaviour:
     m_material: {fileID: 0}
   faceVar: 0
   bodyVar: 0
+--- !u!114 &732236607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280321128165171640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a27663e6f62174ba16015275b0999b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8461812912083749284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,14 +2603,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e158420bc3bec74aaa65e66b31c8be0, type: 3}
---- !u!198 &8196397050345033488 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8196397050778273348, guid: 1e158420bc3bec74aaa65e66b31c8be0, type: 3}
-  m_PrefabInstance: {fileID: 642959700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8196397050345033495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8196397050778273347, guid: 1e158420bc3bec74aaa65e66b31c8be0, type: 3}
+  m_PrefabInstance: {fileID: 642959700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8196397050345033488 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8196397050778273348, guid: 1e158420bc3bec74aaa65e66b31c8be0, type: 3}
   m_PrefabInstance: {fileID: 642959700}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &830201969
@@ -3007,6 +3020,11 @@ PrefabInstance:
       objectReference: {fileID: -5193822253444921104, guid: 904b327f3afb4a5429cc66f4e92e34af, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
+--- !u!4 &2771440225948969656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6276767002846996733, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
+  m_PrefabInstance: {fileID: 8173378456885396037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2771440226159791610 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6276767002552405951, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
@@ -3026,11 +3044,6 @@ MonoBehaviour:
 --- !u!33 &2771440225635670449 stripped
 MeshFilter:
   m_CorrespondingSourceObject: {fileID: 6276767003076336628, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
-  m_PrefabInstance: {fileID: 8173378456885396037}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2771440225948969656 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6276767002846996733, guid: f6f96d56d88e9564bb9d11b750a7348c, type: 3}
   m_PrefabInstance: {fileID: 8173378456885396037}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8445410856916924053

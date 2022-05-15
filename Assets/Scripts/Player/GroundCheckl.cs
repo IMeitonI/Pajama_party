@@ -5,7 +5,7 @@ using System;
 
 public class GroundCheckl : MonoBehaviour
 {
-    public static bool grounded;
+    public bool grounded;
     RaycastHit[] hits = new RaycastHit[4];
     Vector3[] array = new Vector3[4];
     // Start is called before the first frame update
