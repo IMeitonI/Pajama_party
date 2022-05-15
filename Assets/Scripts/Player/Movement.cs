@@ -44,6 +44,11 @@ public class Movement : MonoBehaviour
     //[Header("Sounds")]
     //public AudioClip moveSound;
     // Update is called once per frame
+    private void Start()
+    {
+        
+    }
+
     void FixedUpdate()
     {
         if (manager_Joystick == null) return;
@@ -66,14 +71,11 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
+
         if (shieldActive)
         {
+            ShieldPowerUp();
             isShieldActive = true;
-            if (firsttime)
-            {
-                ShieldPowerUp();
-                firsttime = false;
-            }
         }
         if (!shieldActive)
         {
@@ -110,46 +112,46 @@ public class Movement : MonoBehaviour
         else
         {
 
-                running = true;
-                Vector3 force = new Vector3(x, 0, z);
-                Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
-                target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
-                RaycastHit raycastHit;
-                Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
+            running = true;
+            Vector3 force = new Vector3(x, 0, z);
+            Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
+            target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
+            RaycastHit raycastHit;
+            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
+            if (raycastHit.collider == null && Map_Manager.change_mp == false)
+            {
+                transform.position = target_pos;
+            }
+            else
+            {
+                //Cannot move horizontally
+                Vector3 second_move_dir = new Vector3(0, 0, z);
+                target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
+                Physics.Raycast(transform.position, second_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
                 if (raycastHit.collider == null && Map_Manager.change_mp == false)
                 {
                     transform.position = target_pos;
                 }
                 else
                 {
-                    //Cannot move horizontally
-                    Vector3 second_move_dir = new Vector3(0, 0, z);
-                    target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
-                    Physics.Raycast(transform.position, second_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
+                    //Cannot move vertically
+                    Vector3 third_move_dir = new Vector3(x, 0, 0);
+                    target_pos = transform.position + third_move_dir * speed * Time.deltaTime;
+                    Physics.Raycast(transform.position, third_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
                     if (raycastHit.collider == null && Map_Manager.change_mp == false)
                     {
                         transform.position = target_pos;
                     }
                     else
                     {
-                        //Cannot move vertically
-                        Vector3 third_move_dir = new Vector3(x, 0, 0);
-                        target_pos = transform.position + third_move_dir * speed * Time.deltaTime;
-                        Physics.Raycast(transform.position, third_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
-                        if (raycastHit.collider == null && Map_Manager.change_mp == false)
-                        {
-                            transform.position = target_pos;
-                        }
-                        else
-                        {
-                            //Cannot move
-                        }
+                        //Cannot move
                     }
                 }
+            }
 
-                A_Move?.Invoke();
+            A_Move?.Invoke();
 
-            
+
         }
 
     }
@@ -208,15 +210,15 @@ public class Movement : MonoBehaviour
 
     public void ShieldPowerUp()
     {
-        if (isShieldActive)
+        ShieldPS.gameObject.SetActive(true);
+        Shield.SetActive(true);
+        if (ShieldPS.isEmitting)
         {
-            if (firstTimeShield)
-            {
-                firstTimeShield = false;
-                ShieldPS.gameObject.SetActive(true);
-                ShieldPS.Play();
-            }
-            Shield.SetActive(true);
+            return;
+        }
+        else
+        {
+            ShieldPS.Play();
         }
     }
     public void StopShield()
@@ -226,3 +228,4 @@ public class Movement : MonoBehaviour
         ShieldPS.Stop();
     }
 }
+

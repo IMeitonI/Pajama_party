@@ -88,7 +88,7 @@ public class Test_boomerang : MonoBehaviour {
         back = false;
         shooted = true;
     }
-    void Return() {
+    public void Return() {
         back = true;
         print("Estoy devuelta");
     }
@@ -132,7 +132,7 @@ public class Test_boomerang : MonoBehaviour {
                   
             print("Matando a alguien");
             //if (DeactiveColider != null) DeactiveColider();
-            if (Score != null) Score();
+            if (Score != null && collision.gameObject.GetComponent<Movement>().shieldActive == false) Score();
         }
     }
     //void LookAtPlayer() {

@@ -5,7 +5,7 @@ public class Player2_Boomerang : MonoBehaviour {
     Map_Manager map_Manager;
     [SerializeField] public Test_boomerang myBoomerang;
     protected int score;
-    protected bool alive;
+    public bool alive;
     Text myText;
     protected CapsuleCollider myCollider;
     protected Movement mov;
@@ -39,27 +39,30 @@ public class Player2_Boomerang : MonoBehaviour {
         if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang")) {
             if (mov.shieldActive)
             {
+                myBoomerang.Return();
                 mov.shieldActive = false;
                 return;
             }
             else
             { if (other.gameObject.GetComponent<Test_boomerang>().speed == 0) return;
-                 
-                  DeactivateCol();
-                
-                AnimatorController anim = GetComponent<AnimatorController>();
-                if (anim == null)
+                if(alive == true)
                 {
-                    AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
-                    animOn.Die();
-                }
-                else anim.Die();
-                alive = false;
-                // Modificaci n Jose
-                //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-                managerSound.Instance.Play(DieSound);
-                //Hasta ac  
+                    DeactivateCol();
 
+                    AnimatorController anim = GetComponent<AnimatorController>();
+                    if (anim == null)
+                    {
+                        AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
+                        animOn.Die();
+                    }
+                    else anim.Die();
+                    alive = false;
+                    // Modificaci n Jose
+                    //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+                    managerSound.Instance.Play(DieSound);
+                    //Hasta ac  
+
+                }
             }
 
         }
@@ -69,7 +72,7 @@ public class Player2_Boomerang : MonoBehaviour {
         //rb.useGravity = true;
         myCollider.enabled = true;
         rb.isKinematic = false;
-
+        alive = true;
     }
     protected void DeactivateCol() {
         //rb.useGravity = false;
