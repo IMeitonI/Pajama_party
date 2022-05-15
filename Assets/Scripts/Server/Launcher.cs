@@ -48,9 +48,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
-        PhotonNetwork.NickName = "Player_" + Random.Range(0, 1000).ToString("0000");
         Save_Manager.saveM_instance.Load();
         PhotonNetwork.NickName = Save_Manager.saveM_instance.activeSave.nickname;
+        if (string.IsNullOrEmpty(PhotonNetwork.NickName))
+        {
+            PhotonNetwork.NickName = "Player_" + Random.Range(0, 1000).ToString("0000");
+        }
 
         nickNameInpuField.text = PhotonNetwork.NickName.ToString();
     }
@@ -116,7 +119,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         Player player = PhotonNetwork.LocalPlayer;
         player.playerFace = m_Skin.face;
         player.playerBody = m_Skin.pijama;
-        var skinset = new ExitGames.Client.Photon.Hashtable() { { "Body", m_Skin.pijama },{ "Face", m_Skin.face },{ "Boomerang",m_Skin.boomerang } };
+        var skinset = new ExitGames.Client.Photon.Hashtable() { { "Body", m_Skin.pijama }, { "Face", m_Skin.face }, { "Boomerang", m_Skin.boomerang } };
         player.SetCustomProperties(skinset);
         print("my name is: " + player.NickName + " face: " + player.playerFace + " body: " + player.playerBody);
     }
