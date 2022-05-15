@@ -47,14 +47,14 @@ public class Save_Manager : MonoBehaviour {
         //}
 
         string json = JsonUtility.ToJson(activeSave);
-        File.WriteAllText(Application.dataPath + "/save.txt", json);
+        File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
         Debug.Log("Guardado: " + json);
     }
     public void Load() {
 
-        if (File.Exists(Application.dataPath + "/save.txt")) {
+        if (File.Exists(Application.persistentDataPath + "/save.txt")) {
 
-            string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
+            string saveString = File.ReadAllText(Application.persistentDataPath + "/save.txt");
             SaveData saveData = JsonUtility.FromJson<SaveData>(saveString);
             activeSave.language = saveData.language;
             activeSave.nickname = saveData.nickname;
@@ -79,9 +79,9 @@ public class Save_Manager : MonoBehaviour {
         }
     }
     public void DeleteData() {
-        if (File.Exists(Application.dataPath + "/save.txt")) {
-            File.Delete(Application.dataPath + "/save.txt");
-            File.Delete(Application.dataPath + "/save.txt.meta");
+        if (File.Exists(Application.persistentDataPath + "/save.txt")) {
+            File.Delete(Application.persistentDataPath + "/save.txt");
+            File.Delete(Application.persistentDataPath + "/save.txt.meta");
             Debug.Log("Lo borré");
         }
     }
