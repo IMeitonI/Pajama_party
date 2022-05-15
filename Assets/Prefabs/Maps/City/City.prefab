@@ -129,7 +129,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896170675484538412}
-  - component: {fileID: 1960971056750551756}
   - component: {fileID: 7870051746672398589}
   - component: {fileID: 660532693022733088}
   m_Layer: 0
@@ -153,19 +152,6 @@ Transform:
   m_Father: {fileID: 7889973903535772891}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1960971056750551756
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4029377967328425063}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 105.63852, y: 5.735838, z: 84.7023}
-  m_Center: {x: 3.350357, y: -1.1554728, z: 7.9831085}
 --- !u!65 &7870051746672398589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1065,14 +1051,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
---- !u!4 &5075427746897696894 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5986415376581649053, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
-  m_PrefabInstance: {fileID: 1547988902066420451}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5771300665259132567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5002453365554510964, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
+  m_PrefabInstance: {fileID: 1547988902066420451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5075427746897696894 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5986415376581649053, guid: 3e8feaccaf1537248a07466eff66a73f, type: 3}
   m_PrefabInstance: {fileID: 1547988902066420451}
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &4082570115765029643
@@ -1453,6 +1439,10 @@ PrefabInstance:
     - target: {fileID: 6370088746310443881, guid: 1e94f82de1f817d4bb045f9982cd55a5, type: 3}
       propertyPath: m_Name
       value: Alley Base - Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 6370088746310443881, guid: 1e94f82de1f817d4bb045f9982cd55a5, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8457883006615305681, guid: 1e94f82de1f817d4bb045f9982cd55a5, type: 3}
       propertyPath: m_Size.x
