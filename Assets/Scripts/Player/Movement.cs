@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
+
+[RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     public static Action A_Move;
@@ -39,10 +41,12 @@ public class Movement : MonoBehaviour
     private bool firstTimeShield = true;
     private bool isShieldActive = false;
 
-    public bool falling;
+    Test_boomerang tb;
 
     //[Header("Sounds")]
     //public AudioClip moveSound;
+    // Start is called before the first frame update
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -96,60 +100,44 @@ public class Movement : MonoBehaviour
     }
     public void Change_Pos(float x, float z)
     {
-        RaycastHit rhitBox;
-        Physics.Raycast(transform.position, Vector3.down, out rhitBox, 6);
-        if (rhitBox.collider != null && rhitBox.collider.CompareTag("Ground"))
+        running = true;
+        Vector3 force = new Vector3(x, 0, z);
+        Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
+        target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
+        RaycastHit raycastHit;
+        Physics.Raycast(transform.position, force, out raycastHit, 4*speed* Time.deltaTime);
+        if (raycastHit.collider == null && Map_Manager.change_mp == false)
         {
-            die = false;
-            falling = false;
-            running = true;
-            Vector3 force = new Vector3(x, 0, z);
-            Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
-            target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
-            RaycastHit raycastHit;
-            Physics.Raycast(transform.position, force, out raycastHit, 4*speed* Time.deltaTime);
+            transform.position = target_pos;
+        }
+        else
+        {
+            //Cannot move horizontally
+            Vector3 second_move_dir = new Vector3(0, 0, z);
+            target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
+            Physics.Raycast(transform.position, second_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
             if (raycastHit.collider == null && Map_Manager.change_mp == false)
             {
                 transform.position = target_pos;
             }
             else
             {
-                //Cannot move horizontally
-                Vector3 second_move_dir = new Vector3(0, 0, z);
-                target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
-                Physics.Raycast(transform.position, second_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
+                //Cannot move vertically
+                Vector3 third_move_dir = new Vector3(x, 0, 0);
+                target_pos = transform.position + third_move_dir * speed * Time.deltaTime;
+                Physics.Raycast(transform.position, third_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
                 if (raycastHit.collider == null && Map_Manager.change_mp == false)
                 {
                     transform.position = target_pos;
                 }
                 else
                 {
-                    //Cannot move vertically
-                    Vector3 third_move_dir = new Vector3(x, 0, 0);
-                    target_pos = transform.position + third_move_dir * speed * Time.deltaTime;
-                    Physics.Raycast(transform.position, third_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
-                    if (raycastHit.collider == null && Map_Manager.change_mp == false)
-                    {
-                        transform.position = target_pos;
-                    }
-                    else
-                    {
-                        //Cannot move
-                    }
+                    //Cannot move
                 }
             }
+        }
 
-            A_Move?.Invoke();
-        }
-        else
-        {
-            if (!die)
-            {
-                die = true;
-                transform.position += transform.forward;
-                falling = true;
-            }
-        }
+        A_Move?.Invoke();
     }
     public IEnumerator SpeedPowerUp()
     {
@@ -201,8 +189,6 @@ public class Movement : MonoBehaviour
         Debug.DrawRay(playerBoomerang.transform.position, Vector3.down * 3);
         return rhit.collider != null;
     }
-
-
 
     public void ShieldPowerUp()
     {

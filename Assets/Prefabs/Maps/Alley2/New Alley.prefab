@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1672261072656327551
 Transform:
   m_ObjectHideFlags: 0
@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 857448625315234832}
   - component: {fileID: 2367114638163032694}
   - component: {fileID: 8587800282562927466}
+  - component: {fileID: 3561316761444404456}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -409,6 +410,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3561316761444404456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4123488881820781095}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3587964, y: 1, z: 1.7000209}
+  m_Center: {x: 0.011126923, y: 0, z: 0.014584915}
 --- !u!1 &4125311270993165793
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,10 +1000,6 @@ PrefabInstance:
     - target: {fileID: 3552959490840450876, guid: 1cf7f9a8a26a32d4abf23b1602b82af3, type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3552959490840450876, guid: 1cf7f9a8a26a32d4abf23b1602b82af3, type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8575192746070212491, guid: 1cf7f9a8a26a32d4abf23b1602b82af3, type: 3}
       propertyPath: m_LocalScale.x

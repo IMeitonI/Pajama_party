@@ -12,7 +12,6 @@ TagManager:
   - MyJoy
   - Shoot
   - Dash
-  - Ground
   layers:
   - Default
   - TransparentFX

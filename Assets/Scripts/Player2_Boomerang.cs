@@ -27,6 +27,7 @@ public class Player2_Boomerang : MonoBehaviour {
     }
 
     public void Shoot() {
+        Debug.Log(mov.die);
         if (myBoomerang.shooted || !gameObject.activeSelf || mov.die == true) return;
         myBoomerang.gameObject.SetActive(true);
         

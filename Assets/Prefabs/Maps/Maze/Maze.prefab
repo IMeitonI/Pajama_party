@@ -749,6 +749,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203922569391794934}
+  - component: {fileID: 7263686296535172769}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -770,6 +771,19 @@ Transform:
   m_Father: {fileID: 2850140711044938260}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7263686296535172769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4262986760757652886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 90, y: 3, z: 65}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4294048772595868051
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +899,7 @@ GameObject:
   - component: {fileID: 3805511489837968572}
   m_Layer: 0
   m_Name: Ground_Maz3
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

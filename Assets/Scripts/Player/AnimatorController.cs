@@ -8,7 +8,7 @@ public class AnimatorController : MonoBehaviour
     public event AnimatorEvents Fall;
     Animator anim;
     Movement mov;
-    [Range(0, 1)]
+    [Range(0,1)]
     [SerializeField] int animation_type;
     LookAt look;
     // Start is called before the first frame update
@@ -25,7 +25,6 @@ public class AnimatorController : MonoBehaviour
     {
         if (mov.running) anim.SetBool("Running", true);
         else anim.SetBool("Running", false);
-        if (mov.falling) Falling();
     }
     public void Throw_Anim()
     {
@@ -53,20 +52,18 @@ public class AnimatorController : MonoBehaviour
     void Change_Map()
     {
         mov.die = false;
-        mov.falling = false;
         look.death = false;
         gameObject.SetActive(true);
         anim.SetInteger("Animation_type", animation_type);
         Map_Manager.change_mp = false;
     }
-    public void Falling()
+    private void OnTriggerEnter(Collider other)
     {
-
-        if (Fall != null) Fall();
-        anim.SetBool("Falling", true);
-        mov.die = true;
-        Invoke("Disable", 2f);
-
+        if(other.gameObject.name == "Water")
+        {   if (Fall != null) Fall();
+            anim.SetBool("Falling", true);
+            mov.die = true;
+            Invoke("Disable", 2f);
+        }
     }
-
 }
