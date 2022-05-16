@@ -11,7 +11,7 @@ public class Palanca : MonoBehaviour
     //    if (Input.GetKeyDown(KeyCode.A))
     //    {
     //        MovimientoObjeto.CambiaTranform();
-           
+
     //    }
     //}
     private void OnCollisionEnter(Collision collision)

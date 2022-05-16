@@ -8,36 +8,18 @@ public class Portal : MonoBehaviour
     public Transform miLugar;
     GameObject jugador;
     bool teleporting = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         print("primera fase");
         jugador = other.gameObject;
         if (jugador.CompareTag("Player"))
         {
-
             if (teleporting == false)
             {
-
-
                 Teletransportacion(jugador);
             }
         }
-
-
     }
-    
     private void OnTriggerExit(Collider other)
     {
         if (teleporting == true)
