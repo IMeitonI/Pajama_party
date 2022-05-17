@@ -41,6 +41,7 @@ public class Movement : MonoBehaviour
 
     public bool falling, aiming;
     GroundCheckl check;
+    Dash dash;
 
     public bool firstTimeFalling = true;
 
@@ -50,6 +51,7 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         check = GetComponent<GroundCheckl>();
+        dash = GetComponent<Dash>();
     }
     void FixedUpdate()
     {
@@ -76,7 +78,6 @@ public class Movement : MonoBehaviour
         else
         {
             running = false;
-            Debug.Log(1);
             movement_trail.Stop();
         }
     }
@@ -111,7 +112,7 @@ public class Movement : MonoBehaviour
     public void Change_Pos(float x, float z)
     {
         //Debug.Log(gameObject.name + check.grounded);
-        if (check.grounded == false)
+        if (check.grounded == false && dash.dash_used == false)
         { 
             if (!die)
             {
