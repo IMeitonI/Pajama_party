@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class LookAt : MonoBehaviour
 {
-    [SerializeField] private ManagerJoystick managerJoystick;
-    private Transform player;
-    private Vector2 direction;
+    [SerializeField] protected ManagerJoystick managerJoystick;
+    protected Transform player;
+    protected Vector2 direction;
     public bool death;
+    GroundCheckl check;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Transform>();
+        check = GetComponent<GroundCheckl>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (managerJoystick == null) return;
+        if (managerJoystick == null || check.grounded == false) return;
         direction.x = managerJoystick.InputHorizontal();
         direction.y = managerJoystick.InputVertical();
         if (direction!= Vector2.zero && death == false)

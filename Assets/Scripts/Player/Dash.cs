@@ -8,7 +8,8 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dash_time, dash_speed, initial_speed, cooldown, current_time;
     Transform player;
     Movement mov;
-    private bool dash_enable;
+    public bool dash_used;
+    protected bool dash_enable;
 
     private void Start()
     {
@@ -22,7 +23,10 @@ public class Dash : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (current_time >= cooldown) dash_enable = true;
+        if (current_time >= cooldown)
+        {
+            dash_enable = true;
+        }
         else current_time += Time.deltaTime;
         /*if (Input.GetButtonDown("Fire1"))
         {
@@ -45,12 +49,14 @@ public class Dash : MonoBehaviour
             }
             yield return null;
         }
+        if (Time.time>= start_time+dash_time) dash_used = false;
 
     }
     public void Star_Dash()
     {
-        if (dash_enable)
+        if (dash_enable && mov.die == false)
         {
+            dash_used = true;
             current_time = 0;
             dash_enable = false;
             StartCoroutine(Dash_coroutine());

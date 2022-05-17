@@ -9,21 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Screen.unity
     guid: b6ed337346c05a241be3a814641ffadc
   - enabled: 1
-    path: Assets/Scenes/Main_Game.unity
-    guid: d232dca4f68b2d2428b04f5893e85bb6
-  - enabled: 1
-    path: Assets/Scenes/Settings_Screen.unity
-    guid: 08c2bebccf22ead43913ade35a5699f8
-  - enabled: 1
     path: Assets/Scenes/FindMatch.unity
     guid: 10e240302924e194e819d53c97d33896
   - enabled: 1
-    path: Assets/Scenes/Tincho_Test.unity
-    guid: feb93d2e300ca854788cb79c49708c6a
+    path: Assets/Scenes/Main_Game.unity
+    guid: d232dca4f68b2d2428b04f5893e85bb6
   - enabled: 1
-    path: Assets/Scenes/Test.unity
-    guid: 18dbd6520c6cd5c4a829068e33b21365
-  - enabled: 1
-    path: Assets/Scenes/Copy of Test - Frodo.unity
+    path: Assets/Scenes/LocalGame.unity
     guid: b567be9491344794c95a5ae857c145aa
+  - enabled: 1
+    path: Assets/Scenes/LocalCustomise.unity
+    guid: a9f1a31be78335940a85fe95cf65c2c8
   m_configObjects: {}

@@ -6,7 +6,6 @@ using TMPro;
 
 public class ChangeLang : MonoBehaviour
 {
-    Localization_base langData;
     [SerializeField] TMP_Text langLabel;
 
     [SerializeField] UnityEvent lang_Event;
@@ -26,8 +25,42 @@ public class ChangeLang : MonoBehaviour
 
     void Start()
     {
-        langData = GameObject.FindGameObjectWithTag("Manager").GetComponent<Localization_base>();
+        //Localization_base.instance.language = Save_Manager.saveM_instance.activeSave.language;
+
+        //if (Localization_base.instance.language == null)
+        //{
+        //    Localization_base.instance.language = "SP";
+        //}
+        //else
+        //{
+        //    Localization_base.instance.language = Save_Manager.saveM_instance.activeSave.language;
+
+        //}
+        for (int i = 0; i < langsArray.Length; i++)
+        {
+            if (langsArray[i] == Save_Manager.saveM_instance.activeSave.language)
+            {
+                curLang = i;
+                Localization_base.instance.language = langsArray[curLang];
+                langLabel.text = langsText[curLang];
+                break;
+            }
+        }
+
         SetLang();
+
+    }
+    private void OnEnable()
+    {
+
+        Localization_base.TranslateLoad += SetLang;
+
+    }
+
+    private void OnDisable()
+    {
+        Localization_base.TranslateLoad -= SetLang;
+
     }
 
     public void LeftButton()
@@ -43,14 +76,14 @@ public class ChangeLang : MonoBehaviour
 
         print("lang is: " + curLang);
         SetLang();
-
+        Save_Manager.saveM_instance.activeSave.language = Localization_base.instance.language;
+        Save_Manager.saveM_instance.Save();
     }
 
     public void RightButton()
     {
-        
 
-        if (curLang < langsArray.Length-1)
+        if (curLang < langsArray.Length - 1)
         {
             curLang += 1;
         }
@@ -60,20 +93,27 @@ public class ChangeLang : MonoBehaviour
         }
         Debug.Log("lang is: " + curLang);
         SetLang();
+        Save_Manager.saveM_instance.activeSave.language = Localization_base.instance.language;
+        Save_Manager.saveM_instance.Save();
     }
 
 
     public void SetLang()
     {
-        if (langData != null)
+        Localization_base.instance.language = Save_Manager.saveM_instance.activeSave.language;
+
+        if (Localization_base.instance.language != null)
         {
-            langData.language = langsArray[curLang];
+
+            Localization_base.instance.language = langsArray[curLang];
             langLabel.text = langsText[curLang];
+
         }
 
-        if (lang_Event != null)
-        {
-            lang_Event.Invoke();
-        }
+        lang_Event?.Invoke();
+
+        //Localization_base.instance.SetUpTranslation();
+
+        
     }
 }

@@ -1,1 +1,1 @@
-{"muted":true,"character_1":[0,0,0],"character_2":[0,0,0],"onlineCharacter":[0,1,0]}
+{"language":"ENG","nickname":"Mojitomo","muted":true,"character_1":[0,0,0],"character_2":[0,0,0],"onlineCharacter":[0,1,0]}

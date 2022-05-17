@@ -20,11 +20,8 @@ public class Save_Manager : MonoBehaviour {
         }
         DontDestroyOnLoad(this.gameObject);
         Load();
-
-
     }
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) {
             Save();
@@ -39,39 +36,10 @@ public class Save_Manager : MonoBehaviour {
         }
     }
 
-    //public bool IsSavefile() {
-    //    return Directory.Exists(Application.persistentDataPath + "/save");
-    //}
-    //public void Save() {
-    //    if (!IsSavefile()) {
-    //        Directory.CreateDirectory(Application.persistentDataPath + "/save");
-    //    }
-    //    if(!Directory.Exists(Application.persistentDataPath + "/save/character_data")){
-    //        Directory.CreateDirectory(Application.persistentDataPath + "/save/character_data");
-    //    }
-
-    //    BinaryFormatter bf = new BinaryFormatter();
-    //    FileStream file = File.Create(Application.persistentDataPath + "/save/character_data/character_save.txt");
-    //    var json = JsonUtility.ToJson(prueba);
-    //    print(json.ToString());
-    //    bf.Serialize(file, json);
-    //    file.Close();
-
-    //}
-    //public void Load() {
-    //    if (!Directory.Exists(Application.persistentDataPath + "/save/character_data")) {
-    //        Directory.CreateDirectory(Application.persistentDataPath + "/save/character_data");
-    //    }
-    //    BinaryFormatter bf = new BinaryFormatter();
-    //    if(File.Exists(Application.persistentDataPath + "/save/character_data/character_save.txt")) {
-    //        FileStream file = File.Open(Application.persistentDataPath + "/save/character_data/character_save.txt", FileMode.Open);
-    //        JsonUtility.FromJsonOverwrite((string)bf.Deserialize(file), prueba);
-    //        file.Close();
-    //    }
-    //}
     public void Save() {
         
         //if (activeSave.online) {
+        
             activeSave.onlineCharacter =skinOnline.SaveCharacter();
         //} else {
             activeSave.character_1 = skinPlayer1.SaveCharacter();
@@ -79,16 +47,17 @@ public class Save_Manager : MonoBehaviour {
         //}
 
         string json = JsonUtility.ToJson(activeSave);
-        File.WriteAllText(Application.dataPath + "/save.txt", json);
+        File.WriteAllText(Application.persistentDataPath + "/save.txt", json);
         Debug.Log("Guardado: " + json);
     }
     public void Load() {
 
+        if (File.Exists(Application.persistentDataPath + "/save.txt")) {
 
-        if (File.Exists(Application.dataPath + "/save.txt")) {
-
-            string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
+            string saveString = File.ReadAllText(Application.persistentDataPath + "/save.txt");
             SaveData saveData = JsonUtility.FromJson<SaveData>(saveString);
+            activeSave.language = saveData.language;
+            activeSave.nickname = saveData.nickname;
             //activeSave.online = saveData.online;
             activeSave.muted = saveData.muted;
             activeSave.character_1 = saveData.character_1;
@@ -110,9 +79,9 @@ public class Save_Manager : MonoBehaviour {
         }
     }
     public void DeleteData() {
-        if (File.Exists(Application.dataPath + "/save.txt")) {
-            File.Delete(Application.dataPath + "/save.txt");
-            File.Delete(Application.dataPath + "/save.txt.meta");
+        if (File.Exists(Application.persistentDataPath + "/save.txt")) {
+            File.Delete(Application.persistentDataPath + "/save.txt");
+            File.Delete(Application.persistentDataPath + "/save.txt.meta");
             Debug.Log("Lo borré");
         }
     }
@@ -122,6 +91,8 @@ public class SaveData {
     // public Online_skin skin;
     //public int guardados;
     //public bool online;
+    public string language;
+    public string nickname;
     public bool muted;
     public int[] character_1 = new int[4];
     public int[] character_2 = new int[4];

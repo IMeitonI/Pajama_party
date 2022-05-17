@@ -8,13 +8,15 @@ public class AnimatorController : MonoBehaviour
     public event AnimatorEvents Fall;
     Animator anim;
     Movement mov;
-    [Range(0,1)]
+    [Range(0, 1)]
     [SerializeField] int animation_type;
+    Dash dash;
     LookAt look;
     // Start is called before the first frame update
     void Start()
     {
         mov = GetComponent<Movement>();
+        dash = GetComponent<Dash>();
         anim = GetComponent<Animator>();
         look = GetComponent<LookAt>();
         anim.SetInteger("Animation_type", animation_type);
@@ -25,6 +27,8 @@ public class AnimatorController : MonoBehaviour
     {
         if (mov.running) anim.SetBool("Running", true);
         else anim.SetBool("Running", false);
+        if (mov.falling) Falling();
+        //if(dash)
     }
     public void Throw_Anim()
     {
@@ -52,18 +56,25 @@ public class AnimatorController : MonoBehaviour
     void Change_Map()
     {
         mov.die = false;
+        mov.falling = false;
         look.death = false;
         gameObject.SetActive(true);
+        anim.SetBool("Falling", false);
         anim.SetInteger("Animation_type", animation_type);
         Map_Manager.change_mp = false;
     }
-    private void OnTriggerEnter(Collider other)
+    public void Falling()
     {
-        if(other.gameObject.name == "Water")
-        {   if (Fall != null) Fall();
-            anim.SetBool("Falling", true);
-            mov.die = true;
-            Invoke("Disable", 2f);
-        }
+
+        if (Fall != null) Fall();
+        anim.SetBool("Falling", true);
+        mov.die = true;
+        Invoke("Disable", 2f);
+
     }
+    public void Dash()
+    {
+        anim.SetTrigger("Dash");
+    }
+
 }

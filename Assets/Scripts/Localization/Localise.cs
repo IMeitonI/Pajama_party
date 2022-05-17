@@ -5,36 +5,39 @@ using TMPro;
 
 public class Localise : MonoBehaviour
 {
-    Localization_base dataText;
     [SerializeField] string key;
     TMP_Text text_localized;
-    // Start is called before the first frame update
+
     private void Awake()
     {
         text_localized = GetComponent<TMP_Text>();
     }
+
+    private void OnEnable()
+    {
+        //Localization_base.instance.TranslateLoad += SetLang;
+        //if (text_localized != null)
+        SetLang();
+    }
+
+    private void OnDisable()
+    {
+        //Localization_base.instance.TranslateLoad -= SetLang;
+    }
     void Start()
     {
-        dataText = GameObject.FindGameObjectWithTag("Manager").GetComponent<Localization_base>();
-        if(dataText!=null&&!string.IsNullOrEmpty(key))
-        {
-            string translate = dataText.GetTraslation(key);
-            if (key != null&& translate!=null)
-            {
-                text_localized.text = translate;
-            }
-        }
-        
+        SetLang();
     }
 
     public void SetLang()
     {
-        if (dataText != null && !string.IsNullOrEmpty(key))
+        if (Localization_base.instance != null && !string.IsNullOrEmpty(key))
         {
-            string translate = dataText.GetTraslation(key);
+            string translate = Localization_base.instance.GetTraslation(key);
             if (key != null && translate != null)
             {
-                text_localized.text = translate;
+                if (text_localized != null)
+                    text_localized.text = translate;
             }
         }
     }

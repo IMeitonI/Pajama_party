@@ -16,19 +16,25 @@ public class Test_boomerang : MonoBehaviour {
     bool back, reflect = false;
     public bool shooted;
     float distance;
+    [SerializeField] AudioClip ReboteSound;
+    [Header("VFX")]
+    [SerializeField] ParticleSystem collisionPS;
 
-   
+    protected Movement mov;
+
 
     private void Awake() {
         map_Manager = FindObjectOfType<Map_Manager>();
         rb = GetComponent<Rigidbody>();
         inicialSpeed = speed;
         gameObject.SetActive(false);
-        map_Manager.Mapchanger += PickUp;
+        mov = GetComponentInParent<Movement>();
+       // map_Manager.Mapchanger += PickUp;
 
     }
 
     private void Update() {
+        if (mov.IsGrounded() == false && speed == 0) Return();
        
         if (shooted) { //movimiento y distancia
             distance = Vector3.Distance(target.position, transform.position);
@@ -84,7 +90,7 @@ public class Test_boomerang : MonoBehaviour {
         back = false;
         shooted = true;
     }
-    void Return() {
+    public void Return() {
         back = true;
         print("Estoy devuelta");
     }
@@ -118,8 +124,9 @@ public class Test_boomerang : MonoBehaviour {
             Return();
             reflect = true;
             print("Estoy rebotando");
-            //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-            //manager.soundReboting();
+            Instantiate(collisionPS, this.transform.position, Quaternion.identity);
+
+            managerSound.Instance.Play(ReboteSound);
             dirVelocity = Vector3.Reflect(dirVelocity, collision.GetContact(0).normal);
 
         }
@@ -127,7 +134,7 @@ public class Test_boomerang : MonoBehaviour {
                   
             print("Matando a alguien");
             //if (DeactiveColider != null) DeactiveColider();
-            if (Score != null) Score();
+            if (Score != null && collision.gameObject.GetComponent<Movement>().shieldActive == false) Score();
         }
     }
     //void LookAtPlayer() {

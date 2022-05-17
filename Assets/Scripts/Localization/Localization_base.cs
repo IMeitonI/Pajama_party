@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Localization_base : MonoBehaviour
 {
-    public string language = "SP";
+    public delegate void TranslateEvent();
+    public static TranslateEvent TranslateLoad;
+    public static Localization_base instance;
+    public string language;
     public static Dictionary<string, string> dataText_ENG = new Dictionary<string, string>
     {
             { "play", "Play" },
@@ -93,7 +96,36 @@ public class Localization_base : MonoBehaviour
             { "customise","Personalizar" },
 
     };
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
 
+    }
+
+    private void Start()
+    {
+        if (language == null)
+        {
+            language = "ENG";
+        }
+        else
+        {
+            SetUpTranslation();
+        }
+    }
+    public void SetUpTranslation()
+    {
+        //if (TranslateLoad != null) TranslateLoad();
+        TranslateLoad?.Invoke();
+    }
 
     public string GetTraslation(string key)
     {

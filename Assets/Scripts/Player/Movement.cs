@@ -4,37 +4,55 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-
-[RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     public static Action A_Move;
     [Header("Variables Movimiento")]
     [SerializeField] public float speed;
-    [Range(-1,1)]
-    [SerializeField]private float x_axis, z_axis;
-    [SerializeField] ManagerJoystick manager_Joystick;
+    [Range(-1, 1)]
+    [SerializeField] protected float x_axis, z_axis;
+    [SerializeField] protected ManagerJoystick manager_Joystick;
     public bool running, die;
-    [SerializeField] private LayerMask layermask_check;
+    [SerializeField] protected LayerMask layermask_check;
     public static bool tpactive = false;
     //Modificaciones Chelo
-    [SerializeField] private GameObject Shield;
+    [SerializeField] protected GameObject Shield;
     [Header("VFX")]
-    [SerializeField] ParticleSystem ShieldPS;
-    [SerializeField] ParticleSystem teleportPS;
-    [SerializeField] ParticleSystem movement_trail;
+    [SerializeField] protected ParticleSystem ShieldPS;
+    [SerializeField] protected ParticleSystem teleportPS;
+    [SerializeField] protected ParticleSystem movement_trail;
     public Button TeleportButton;
 
     public float shieldtime = 5f;
     public bool shieldActive = false;
-    private bool firsttime = true;
+    protected bool firsttime = true;
     [HideInInspector] public bool teleportPU = false;
 
     public GameObject playerBoomerang;
     [SerializeField] public Test_boomerang myBoomerang;
-    // Start is called before the first frame update
+    [SerializeField] AudioClip MovimientoSound;
 
+    private float teleportTimer = 0f;
+
+    public bool firstTimeSpeed = true;
+
+    private bool firstTimeShield = true;
+    private bool isShieldActive = false;
+
+    public bool falling, aiming;
+    GroundCheckl check;
+    Dash dash;
+
+    public bool firstTimeFalling = true;
+
+    //[Header("Sounds")]
+    //public AudioClip moveSound;
     // Update is called once per frame
+    private void Start()
+    {
+        check = GetComponent<GroundCheckl>();
+        dash = GetComponent<Dash>();
+    }
     void FixedUpdate()
     {
         if (manager_Joystick == null) return;
@@ -43,115 +61,186 @@ public class Movement : MonoBehaviour
         if (x_axis != 0 || z_axis != 0)
         {
             if (die == false) Change_Pos(x_axis, z_axis);
+
             movement_trail.Play();
+            //managerSound.Instance.Play(MovimientoSound);
 
         }
-        else {
+        else if (check.grounded == false)
+        {
+            if (!die)
+            {
+                Debug.Log(check.grounded);
+                die = true;
+                falling = true;
+            }
+        }
+        else
+        {
             running = false;
             movement_trail.Stop();
         }
     }
     private void Update()
     {
+
         if (shieldActive)
         {
-            if (firsttime)
-            {
-                ShieldPowerUp();
-                firsttime = false;
-            }
-            shieldtime -= Time.deltaTime;
+            ShieldPowerUp();
+            isShieldActive = true;
         }
-        if (shieldtime <= 0)
+        if (!shieldActive)
         {
             StopShield();
-            shieldActive = false;
-            shieldtime = 5f;
+            isShieldActive = false;
         }
 
+        if (myBoomerang.shooted)
+        {
+            teleportTimer += Time.deltaTime;
+        }
+
+
         //Modificaci n Jose 
-        managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+        //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
 
         if (running == true)
         {
-            manager.soundMove();
+            //managerSound.Instance.Play(moveSound);
         }
     }
     public void Change_Pos(float x, float z)
     {
-        running = true;
-        Vector3 force = new Vector3(x, 0, z);
-        Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
-        target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
-        RaycastHit raycastHit;
-        Physics.Raycast(transform.position, force, out raycastHit, 4*speed* Time.deltaTime);
-        if (raycastHit.collider == null && Map_Manager.change_mp == false)
-        {
-            transform.position = target_pos;
+        //Debug.Log(gameObject.name + check.grounded);
+        if (check.grounded == false && dash.dash_used == false)
+        { 
+            if (!die)
+            {
+                die = true;
+                falling = true;
+            }
         }
-        else
+        else if (aiming == false)
         {
-            //Cannot move horizontally
-            Vector3 second_move_dir = new Vector3(0, 0, z);
-            target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
-            Physics.Raycast(transform.position, second_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
+            running = true;
+            Vector3 force = new Vector3(x, 0, z);
+            Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
+            target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
+            RaycastHit raycastHit;
+            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
             if (raycastHit.collider == null && Map_Manager.change_mp == false)
             {
                 transform.position = target_pos;
             }
             else
             {
-                //Cannot move vertically
-                Vector3 third_move_dir = new Vector3(x, 0, 0);
-                target_pos = transform.position + third_move_dir * speed * Time.deltaTime;
-                Physics.Raycast(transform.position, third_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
+                //Cannot move horizontally
+                Vector3 second_move_dir = new Vector3(0, 0, z);
+                target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
+                Physics.Raycast(transform.position, second_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
                 if (raycastHit.collider == null && Map_Manager.change_mp == false)
                 {
                     transform.position = target_pos;
                 }
                 else
                 {
-                    //Cannot move
+                    //Cannot move vertically
+                    Vector3 third_move_dir = new Vector3(x, 0, 0);
+                    target_pos = transform.position + third_move_dir * speed * Time.deltaTime;
+                    Physics.Raycast(transform.position, third_move_dir, out raycastHit, 4 * speed * Time.deltaTime);
+                    if (raycastHit.collider == null && Map_Manager.change_mp == false)
+                    {
+                        transform.position = target_pos;
+                    }
+                    else
+                    {
+                        //Cannot move
+                    }
                 }
             }
-        }
 
-        A_Move?.Invoke();
+            A_Move?.Invoke();
+
+
+        }
+        else return;
+
     }
     public IEnumerator SpeedPowerUp()
     {
-        speed = speed * 1.4f;
-        yield return new WaitForSeconds(5f);
-        speed = speed / 1.4f;
+        if (firstTimeSpeed)
+        {
+            speed = speed * 1.4f;
+            yield return new WaitForSeconds(5f);
+            speed = speed / 1.4f;
+        }
     }
 
     public void TeleportPowerUp()
     {
         if (teleportPU)
         {
-            if (myBoomerang.shooted)
+            if (myBoomerang.shooted && IsGrounded())
             {
-                if(playerBoomerang.transform.position.z > this.transform.position.z + 2 || playerBoomerang.transform.position.z < this.transform.position.z - 2 || playerBoomerang.transform.position.x > this.transform.position.x + 5 || playerBoomerang.transform.position.x < this.transform.position.x - 5)
+
+                if (playerBoomerang.transform.position.z > this.transform.position.z + 2 || playerBoomerang.transform.position.z < this.transform.position.z - 2 || playerBoomerang.transform.position.x > this.transform.position.x + 5 || playerBoomerang.transform.position.x < this.transform.position.x - 5)
                 {
-                    tpactive = true;
-                    transform.position = playerBoomerang.transform.position;
-                    Instantiate(teleportPS, transform.position, Quaternion.identity);
-                    teleportPS.gameObject.SetActive(true);
-                    teleportPS.Play();
+                    if (teleportTimer >= 1)
+                    {
+                        tpactive = true;
+                        transform.position = playerBoomerang.transform.position;
+                        myBoomerang.PickUp();
+                        Instantiate(teleportPS, transform.position, Quaternion.identity);
+                        teleportPS.gameObject.SetActive(true);
+                        teleportPS.Play();
+                        teleportTimer = 0f;
+                    }
                 }
             }
         }
     }
 
+    public bool IsGrounded()
+    {
+        RaycastHit rhit;
+        Physics.Raycast(playerBoomerang.transform.position, Vector3.down, out rhit, 1);
+        Color rayColor;
+        if (rhit.collider != null && rhit.collider.CompareTag("Ground"))
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(playerBoomerang.transform.position, Vector3.down * 3);
+        return rhit.collider != null;
+    }
+
+
+
     public void ShieldPowerUp()
     {
-        Shield.SetActive(true);
         ShieldPS.gameObject.SetActive(true);
-        ShieldPS.Play();
+        Shield.SetActive(true);
+        if (ShieldPS.isEmitting)
+        {
+            return;
+        }
+        else
+        {
+            ShieldPS.Play();
+        }
     }
     public void StopShield()
     {
         Shield.SetActive(false);
+        ShieldPS.gameObject.SetActive(false);
         ShieldPS.Stop();
     }
+    public void Aim(bool x)
+    {
+        aiming = x;
+    }
 }
+

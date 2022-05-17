@@ -8,10 +8,11 @@ using Photon.Realtime;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
-   
-    
+
+
     public static Launcher Instance;
 
+    [SerializeField] SkinData m_Skin;
     [SerializeField] TMP_InputField roomNameInpuField;
     [SerializeField] TMP_Text errorText;
     [SerializeField] TMP_Text roomNameText;
@@ -44,9 +45,16 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
-        PhotonNetwork.NickName = "Player_" + Random.Range(0, 1000).ToString("0000");
+        Save_Manager.saveM_instance.Load();
+        PhotonNetwork.NickName = Save_Manager.saveM_instance.activeSave.nickname;
+        if (string.IsNullOrEmpty(PhotonNetwork.NickName))
+        {
+            PhotonNetwork.NickName = "Player_" + Random.Range(0, 1000).ToString("0000");
+        }
+
         nickNameInpuField.text = PhotonNetwork.NickName.ToString();
     }
 
@@ -64,8 +72,10 @@ public class Launcher : MonoBehaviourPunCallbacks
             Debug.Log("the new name is: " + PhotonNetwork.NickName.ToString());
 
         }
-
+        Save_Manager.saveM_instance.activeSave.nickname = PhotonNetwork.NickName;
+        Save_Manager.saveM_instance.Save();
     }
+
 
     public void CreateRoom()
     {
@@ -96,6 +106,22 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
 
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+        Player player = PhotonNetwork.LocalPlayer;
+        player.playerFace = m_Skin.face;
+        player.playerBody = m_Skin.pijama;
+        var skinset = new ExitGames.Client.Photon.Hashtable() { { "Body", m_Skin.pijama }, { "Face", m_Skin.face }, { "Boomerang", m_Skin.boomerang } };
+        player.SetCustomProperties(skinset);
+        print("my name is: " + player.NickName + " face: " + player.playerFace + " body: " + player.playerBody);
+    }
+
+    public void OnEditSkin()
+    {
+        Player player = PhotonNetwork.LocalPlayer;
+        player.playerFace = m_Skin.face;
+        player.playerBody = m_Skin.pijama;
+        var skinset = new ExitGames.Client.Photon.Hashtable() { { "Body", m_Skin.pijama }, { "Face", m_Skin.face }, { "Boomerang", m_Skin.boomerang } };
+        player.SetCustomProperties(skinset);
+        print("my name is: " + player.NickName + " face: " + player.playerFace + " body: " + player.playerBody);
     }
 
     public override void OnMasterClientSwitched(Player newMasterClient)
@@ -111,7 +137,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public void StartGame()
-    {  
+    {
         PhotonNetwork.LoadLevel(1);
     }
 
@@ -168,5 +194,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
     }
+
 
 }

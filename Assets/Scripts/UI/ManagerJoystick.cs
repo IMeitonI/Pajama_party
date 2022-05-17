@@ -47,12 +47,12 @@ public class ManagerJoystick : MonoBehaviour,IDragHandler,IPointerDownHandler,IP
 
    public float InputHorizontal()
     {
-        if (pos_input.x != 0) return pos_input.x;
+        if (pos_input.x != 0) return pos_input.normalized.x;
         else return Input.GetAxis("Horizontal");
     }
     public float InputVertical()
     {
-        if (pos_input.y != 0) return pos_input.y;
+        if (pos_input.y != 0) return pos_input.normalized.y;
         else return Input.GetAxis("Vertical");
     }
 }
