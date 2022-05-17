@@ -5,23 +5,11 @@ using UnityEngine;
 public class GeneradorPosicion : MonoBehaviour
 {
     [SerializeField] public Vector3[] nuevasPos= new Vector3[4];
-    InterpolacionBarrera interpolacion;
+    [SerializeField] InterpolacionBarrera[] interpolacionPos = new InterpolacionBarrera[4];
     float x, y, z;
     [SerializeField] [Tooltip(" VALOR POSITIVO.La diferencia entre las posiciones originales del linerenderer y a donde estara el campo de genaracion de " +
         "posicion central de la zona limitada")]int resta = 8;
     [SerializeField] int deCentralanuevaPos = 5;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void MiNuevaPosicionCentral(Transform[] limite) {
         //var = a==b?a:c;
@@ -37,10 +25,18 @@ public class GeneradorPosicion : MonoBehaviour
 
     public void GeneracionNuevasPos()
     {
-        nuevasPos[0]= new Vector3(transform.position.x + deCentralanuevaPos, transform.position.y, transform.position.z + deCentralanuevaPos);
-        nuevasPos[1] = new Vector3(-nuevasPos[0].x, transform.position.y, nuevasPos[0].z);
-        nuevasPos[2] = -nuevasPos[0];
-        nuevasPos[3] = new Vector3(nuevasPos[0].x, transform.position.y, -nuevasPos[0].z);
+        print("posicion" + transform.position);
+        nuevasPos[0]= new Vector3(transform.localPosition.x + deCentralanuevaPos, transform.localPosition.y, transform.localPosition.z + deCentralanuevaPos);
+        nuevasPos[1] = new Vector3(transform.localPosition.x - deCentralanuevaPos, transform.localPosition.y, nuevasPos[0].z);
+        nuevasPos[2] = new Vector3(transform.localPosition.x - deCentralanuevaPos, transform.localPosition.y, transform.localPosition.z - deCentralanuevaPos);
+        nuevasPos[3] = new Vector3(transform.localPosition.x + deCentralanuevaPos, transform.localPosition.y, transform.localPosition.z - deCentralanuevaPos);
+        AsignacionPos();
+    }
+
+    void AsignacionPos() {
+        for (int i = 0; i < interpolacionPos.Length; i++) {
+            interpolacionPos[i].AsignarNuevaPos(nuevasPos[i]);
+        }
     }
 
     
