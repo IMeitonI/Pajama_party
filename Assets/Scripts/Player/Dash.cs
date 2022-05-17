@@ -26,7 +26,6 @@ public class Dash : MonoBehaviour
         if (current_time >= cooldown)
         {
             dash_enable = true;
-            dash_used = false;
         }
         else current_time += Time.deltaTime;
         /*if (Input.GetButtonDown("Fire1"))
@@ -50,6 +49,7 @@ public class Dash : MonoBehaviour
             }
             yield return null;
         }
+        if (Time.time>= start_time+dash_time) dash_used = false;
 
     }
     public void Star_Dash()
