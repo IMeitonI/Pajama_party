@@ -22,6 +22,8 @@ public class Movement : MonoBehaviour
     [SerializeField] protected ParticleSystem ShieldPS;
     [SerializeField] protected ParticleSystem teleportPS;
     [SerializeField] protected ParticleSystem movement_trail;
+    [SerializeField] protected ParticleSystem splashPS;
+
     public Button TeleportButton;
 
     public float shieldtime = 5f;
@@ -94,6 +96,7 @@ public class Movement : MonoBehaviour
                 multiplier_speed = 0;
                 die = true;
                 falling = true;
+                splashPS.Play();
             }
         }
 
