@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour
         falling = false;
         firstTimeFalling = true;
         multiplier_speed = 1;
-        check.grounded = true;
+        if(check != null)check.grounded = true;
     }
     private void Update()
     {
