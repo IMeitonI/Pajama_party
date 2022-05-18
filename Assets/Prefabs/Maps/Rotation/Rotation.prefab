@@ -593,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7889973903535772891
 Transform:
   m_ObjectHideFlags: 0
@@ -853,6 +853,10 @@ PrefabInstance:
       value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: -2088169920679684025, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2088169920679684025, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
       propertyPath: m_TagString
       value: Obstacles
       objectReference: {fileID: 0}
@@ -861,12 +865,24 @@ PrefabInstance:
       value: New_Map3
       objectReference: {fileID: 0}
     - target: {fileID: 3678436425674508569, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678436425674508569, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
       propertyPath: m_TagString
       value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 3908329707396642658, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3908329707396642658, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110820914053330320, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6110820914053330320, guid: 6f0c279b1f8b54c229103d336831c322, type: 3}
       propertyPath: m_TagString
@@ -1036,6 +1052,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1c5fc5b96b3fb4e8698799250ab95024, type: 3}
       propertyPath: m_Name
       value: Rotating_Obj
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c5fc5b96b3fb4e8698799250ab95024, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c5fc5b96b3fb4e8698799250ab95024, type: 3}
       propertyPath: m_TagString
