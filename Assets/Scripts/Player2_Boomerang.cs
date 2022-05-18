@@ -73,13 +73,15 @@ public class Player2_Boomerang : MonoBehaviour {
         myCollider.enabled = true;
         rb.isKinematic = false;
         alive = true;
-        mov.firstTimeFalling = true;
-        mov.falling = false;
-        mov.die = false;
+        Movement.multiplier_speed = 1;
     }
     protected void DeactivateCol() {
         //rb.useGravity = false;
         rb.isKinematic = true;
         myCollider.enabled = false;
+        Movement.multiplier_speed = 0;
+        mov.firstTimeFalling = true;
+        mov.falling = false;
+        mov.die = false;
     }
 }

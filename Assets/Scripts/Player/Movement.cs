@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public static Action A_Move;
     [Header("Variables Movimiento")]
     [SerializeField] public float speed;
+    public static int multiplier_speed;
     [Range(-1, 1)]
     [SerializeField] protected float x_axis, z_axis;
     [SerializeField] protected ManagerJoystick manager_Joystick;
@@ -21,6 +22,8 @@ public class Movement : MonoBehaviour
     [SerializeField] protected ParticleSystem ShieldPS;
     [SerializeField] protected ParticleSystem teleportPS;
     [SerializeField] protected ParticleSystem movement_trail;
+    [SerializeField] protected ParticleSystem splashPS;
+
     public Button TeleportButton;
 
     public float shieldtime = 5f;
@@ -42,6 +45,7 @@ public class Movement : MonoBehaviour
     public bool falling, aiming;
     GroundCheckl check;
     Dash dash;
+    Rigidbody rg;
 
     public bool firstTimeFalling = true;
 
@@ -52,6 +56,8 @@ public class Movement : MonoBehaviour
     {
         check = GetComponent<GroundCheckl>();
         dash = GetComponent<Dash>();
+        rg = GetComponent<Rigidbody>();
+        multiplier_speed = 1;
     }
     void FixedUpdate()
     {
@@ -66,23 +72,40 @@ public class Movement : MonoBehaviour
             //managerSound.Instance.Play(MovimientoSound);
 
         }
-        else if (check.grounded == false)
-        {
-            if (!die)
-            {
-                Debug.Log(check.grounded);
-                die = true;
-                falling = true;
-            }
-        }
         else
         {
             running = false;
             movement_trail.Stop();
         }
+
+     
+    }
+    private void OnEnable()
+    {
+        die = false;
+        falling = false;
+        firstTimeFalling = true;
+        multiplier_speed = 1;
+        if(check != null)check.grounded = true;
     }
     private void Update()
     {
+
+        if (check.grounded == false && dash.dash_used == false)
+        {
+            if (!die)
+            {
+                multiplier_speed = 0;
+                die = true;
+                falling = true;
+                splashPS.Play();
+                rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                Collider temp = GetComponent<Collider>();
+                temp.enabled = false;
+                transform.rotation = Quaternion.Euler(0,180,0);
+                transform.parent = null;
+            }
+        }
 
         if (shieldActive)
         {
@@ -111,29 +134,23 @@ public class Movement : MonoBehaviour
     }
     public void Change_Pos(float x, float z)
     {
-        //Debug.Log(gameObject.name + check.grounded);
-        if (check.grounded == false && dash.dash_used == false)
-        { 
-            if (!die)
-            {
-                die = true;
-                falling = true;
-            }
-        }
-        else if (aiming == false)
+
+         if (aiming == false && multiplier_speed > 0 && check.grounded)
         {
             running = true;
             Vector3 force = new Vector3(x, 0, z);
-            Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
+            Vector3 target_pos = transform.position + force * speed * Time.deltaTime* multiplier_speed;
             target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
             RaycastHit raycastHit;
-            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
+            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime); rg.constraints = RigidbodyConstraints.FreezePosition;
             if (raycastHit.collider == null && Map_Manager.change_mp == false)
             {
                 transform.position = target_pos;
+                rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             }
             else
             {
+                rg.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                 //Cannot move horizontally
                 Vector3 second_move_dir = new Vector3(0, 0, z);
                 target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
