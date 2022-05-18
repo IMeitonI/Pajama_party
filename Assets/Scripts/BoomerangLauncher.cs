@@ -51,11 +51,11 @@ public class BoomerangLauncher : MonoBehaviour
             boomerangRef.ReCall();
         }
 
-        if (Input.GetAxis("Fire1") > 0)
-        {
+        // if (Input.GetAxis("Fire1") > 0)
+        // {
 
-            RotatePlayer();
-        }
+        //     RotatePlayer();
+        // }
 
 
         // if (Input.GetMouseButtonDown(1))
