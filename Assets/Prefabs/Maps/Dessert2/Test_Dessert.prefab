@@ -375,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5051002025121915520
 Transform:
   m_ObjectHideFlags: 0
@@ -565,6 +565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piramide
       objectReference: {fileID: 0}
+    - target: {fileID: 910695042742632961, guid: 98e89d823c91b784ea8b1334dc7e0015, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3806681000593853675, guid: 98e89d823c91b784ea8b1334dc7e0015, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -642,6 +646,18 @@ PrefabInstance:
     - target: {fileID: 1753111941425576, guid: 628ca882a5b7c144799112fa3339945c, type: 3}
       propertyPath: m_Name
       value: cactus03_m
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753111941425576, guid: 628ca882a5b7c144799112fa3339945c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753111941425576, guid: 628ca882a5b7c144799112fa3339945c, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949044754145288, guid: 628ca882a5b7c144799112fa3339945c, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1949044754145288, guid: 628ca882a5b7c144799112fa3339945c, type: 3}
       propertyPath: m_TagString
@@ -736,12 +752,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 5051002025121915520}
     m_Modifications:
     - target: {fileID: 1434523090610590, guid: e7bddad50f1e07247a818242d1afcf74, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434523090610590, guid: e7bddad50f1e07247a818242d1afcf74, type: 3}
       propertyPath: m_TagString
       value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 1577972444696848, guid: e7bddad50f1e07247a818242d1afcf74, type: 3}
       propertyPath: m_Name
       value: rock07_m
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577972444696848, guid: e7bddad50f1e07247a818242d1afcf74, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577972444696848, guid: e7bddad50f1e07247a818242d1afcf74, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 4170338360746998, guid: e7bddad50f1e07247a818242d1afcf74, type: 3}
       propertyPath: m_RootOrder
@@ -958,6 +986,10 @@ PrefabInstance:
     - target: {fileID: 910695042742632961, guid: 98e89d823c91b784ea8b1334dc7e0015, type: 3}
       propertyPath: m_Name
       value: Piramide (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 910695042742632961, guid: 98e89d823c91b784ea8b1334dc7e0015, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3806681000593853675, guid: 98e89d823c91b784ea8b1334dc7e0015, type: 3}
       propertyPath: m_RootOrder

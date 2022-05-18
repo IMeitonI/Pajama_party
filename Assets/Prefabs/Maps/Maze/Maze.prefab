@@ -1265,6 +1265,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube.002
       objectReference: {fileID: 0}
+    - target: {fileID: 7220946686882510542, guid: d3335bad03b02ef4588c00b9b0af1b69, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3335bad03b02ef4588c00b9b0af1b69, type: 3}
 --- !u!4 &7985515835107122630 stripped
@@ -1282,6 +1286,10 @@ PrefabInstance:
     - target: {fileID: 1134820388885856174, guid: 8af3d8b457730b74fa46d6604525f252, type: 3}
       propertyPath: m_Name
       value: Cube.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1134820388885856174, guid: 8af3d8b457730b74fa46d6604525f252, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6470783645032947235, guid: 8af3d8b457730b74fa46d6604525f252, type: 3}
       propertyPath: m_RootOrder
@@ -1344,6 +1352,10 @@ PrefabInstance:
     - target: {fileID: 384847554317787524, guid: 9f8739ad965257f4c9face57177bbc36, type: 3}
       propertyPath: m_Name
       value: Cube.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 384847554317787524, guid: 9f8739ad965257f4c9face57177bbc36, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6295825350934585354, guid: 9f8739ad965257f4c9face57177bbc36, type: 3}
       propertyPath: m_RootOrder
@@ -1451,6 +1463,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube.003
       objectReference: {fileID: 0}
+    - target: {fileID: 6485681895505219229, guid: 82ef85ea195972f45904e00620177c42, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82ef85ea195972f45904e00620177c42, type: 3}
 --- !u!4 &5662207664790545951 stripped
@@ -1468,6 +1484,10 @@ PrefabInstance:
     - target: {fileID: 3365588297024609110, guid: ddb919c2e7a0f8d4c8d44b6d4fb0a90b, type: 3}
       propertyPath: m_Name
       value: Cube.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365588297024609110, guid: ddb919c2e7a0f8d4c8d44b6d4fb0a90b, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3873895790851279859, guid: ddb919c2e7a0f8d4c8d44b6d4fb0a90b, type: 3}
       propertyPath: m_RootOrder

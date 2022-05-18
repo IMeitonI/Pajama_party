@@ -1242,6 +1242,10 @@ PrefabInstance:
       value: New_Map_2
       objectReference: {fileID: 0}
     - target: {fileID: 2779209453039182256, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2779209453039182256, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.38
       objectReference: {fileID: 0}
@@ -1263,9 +1267,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
---- !u!1 &4739408830440894709 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7892969601071194514, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
+--- !u!4 &3154222115879925388 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
   m_PrefabInstance: {fileID: 3192125453813502311}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &782792311666356439 stripped
@@ -1273,9 +1277,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2779209453039182256, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
   m_PrefabInstance: {fileID: 3192125453813502311}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &3154222115879925388 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
+--- !u!1 &4739408830440894709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7892969601071194514, guid: 9db568b6be3f94608b48a839a00d63b8, type: 3}
   m_PrefabInstance: {fileID: 3192125453813502311}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8689571989019721130 stripped
@@ -1314,6 +1318,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.018000009, y: 0.05049999, z: 0.00951408}
   m_Center: {x: 0.000000016970862, y: 0.000000010892174, z: -0.0031576965}
+--- !u!114 &2224058738689723415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739408830440894709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842f1232813e78243a97e1b8192550e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1368253626398662408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1339,8 +1355,16 @@ PrefabInstance:
       value: rock05_m (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
@@ -1443,8 +1467,16 @@ PrefabInstance:
       value: rock05_m (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
@@ -1547,8 +1579,16 @@ PrefabInstance:
       value: rock05_m (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
@@ -1651,8 +1691,16 @@ PrefabInstance:
       value: rock05_m (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
@@ -1755,8 +1803,16 @@ PrefabInstance:
       value: rock05_m
       objectReference: {fileID: 0}
     - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
@@ -1859,8 +1915,16 @@ PrefabInstance:
       value: rock05_m (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455819010161008, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
       value: Obstacles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1769472032279376, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
       propertyPath: m_TagString
