@@ -97,6 +97,7 @@ public class Movement : MonoBehaviour
                 die = true;
                 falling = true;
                 splashPS.Play();
+                transform.rotation = Quaternion.Euler(Vector3.zero);
             }
         }
 
