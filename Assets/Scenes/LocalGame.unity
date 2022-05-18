@@ -886,10 +886,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7364794804769279585, guid: 77f7163d267054f4387b44556c5eb3ed, type: 3}
-      propertyPath: m_TagString
-      value: Obstacles
-      objectReference: {fileID: 0}
     - target: {fileID: 7889973903535772891, guid: 77f7163d267054f4387b44556c5eb3ed, type: 3}
       propertyPath: m_RootOrder
       value: 9
