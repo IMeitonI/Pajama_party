@@ -9,11 +9,11 @@ public class HoldButton : MonoBehaviour
 {
     Movement mov;
     [SerializeField] GameObject aim_arrow;
-    [SerializeField]Test_boomerang boomerang;
+    [SerializeField]BoomerangLogic boomerang;
     float time, anim_time;
     float duration = 0.2f;
     bool hold;
-    float duration_anim = 0.5f;
+    float duration_anim = 0.35f;
 
     public void Aim(bool x)
     {
@@ -30,12 +30,12 @@ public class HoldButton : MonoBehaviour
     }
     private void Update()
     {
-        if (hold == true && boomerang.shooted == false)
+        if (hold == true && boomerang.IsWithPlayer())
         {
             time += Time.deltaTime;
             anim_time += Time.deltaTime;
             float temp = anim_time / duration_anim;
-            aim_arrow.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(0.3f,1,0.5f), temp);
+            aim_arrow.transform.localScale = Vector3.Lerp(new Vector3(0.1f,0.2f,0.1f), new Vector3(0.3f,1,0.5f), temp);
         }
 
         if (time >= duration)

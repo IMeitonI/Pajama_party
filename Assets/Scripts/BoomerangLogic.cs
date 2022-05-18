@@ -32,8 +32,9 @@ public class BoomerangLogic : MonoBehaviour
         countCollisions = 0;
         canReturn = false;
         playerLauncherRef.isReturning = false;
+        this.gameObject.transform.SetParent(playerLauncherRef.transform);
+        rb.isKinematic = true;
         playerLauncherRef.ButtonMagnet.SetActive(false);
-        this.gameObject.transform.SetParent(null);
         // Time.timeScale=0.2f;
     }
 
@@ -74,6 +75,7 @@ public class BoomerangLogic : MonoBehaviour
                     countCollisions = 0;
                     canReturn = false;
                     playerLauncherRef.isReturning = false;
+                    this.gameObject.transform.SetParent(playerLauncherRef.transform);
                     playerLauncherRef.ButtonMagnet.SetActive(false);
                 }
 
@@ -102,6 +104,7 @@ public class BoomerangLogic : MonoBehaviour
             countCollisions = 0;
             canReturn = false;
             playerLauncherRef.isReturning = false;
+            this.gameObject.transform.SetParent(playerLauncherRef.transform);
             playerLauncherRef.ButtonMagnet.SetActive(false);
         }
     }
@@ -135,6 +138,7 @@ public class BoomerangLogic : MonoBehaviour
         rb.velocity = Vector3.zero;
         transform.position = GetPlayerPos() + throwDir * (grabDis + 0.2f);
         rb.isKinematic = false;
+        this.gameObject.transform.SetParent(null);
         rb.AddForce(throwDir * throwForce, ForceMode.Impulse);
         state = State.Thrown;
         // playerLauncherRef.isReturning = false;

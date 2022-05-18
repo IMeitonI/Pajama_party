@@ -2252,7 +2252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8538301851130307435
 Transform:
   m_ObjectHideFlags: 0
@@ -2764,6 +2764,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8538301851130307435}
     m_Modifications:
+    - target: {fileID: 825952304647419431, guid: 43bf6a8ceff2de14ea26d627e2148eba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 827619484646956653, guid: 43bf6a8ceff2de14ea26d627e2148eba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 866173675829468772, guid: 43bf6a8ceff2de14ea26d627e2148eba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095265137218962928, guid: 43bf6a8ceff2de14ea26d627e2148eba, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1112524374778756393, guid: 43bf6a8ceff2de14ea26d627e2148eba, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -6587,6 +6603,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 911a7cd880c4a419f89c142221e85d23, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 911a7cd880c4a419f89c142221e85d23, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 911a7cd880c4a419f89c142221e85d23, type: 3}
