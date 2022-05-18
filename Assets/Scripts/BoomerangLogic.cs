@@ -19,32 +19,62 @@ public class BoomerangLogic : MonoBehaviour
     [SerializeField] float lookSpeed = 80f;
     [SerializeField] float timeToReturn = 2f;
     [SerializeField] int countCollisions;
+    [SerializeField] Vector3 boomerangVelocityVector;
+    [SerializeField] float boomerangVelocity;
+
+    [SerializeField] GameObject boomerangAnim;
+    public bool canReturn;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        state = State.Recalling;
+        state = State.WithPlayer;
         countCollisions = 0;
-        // Time.timeScale=0.1f;
+        canReturn = false;
+        playerLauncherRef.isReturning = false;
+        playerLauncherRef.ButtonMagnet.SetActive(false);
+        this.gameObject.transform.SetParent(null);
+        // Time.timeScale=0.2f;
     }
 
+    public void GiveBoomerang()
+    {
+        state = State.Thrown;
+
+    }
+
+    private void Update()
+    {
+        boomerangAnim.transform.eulerAngles = new Vector3(boomerangAnim.transform.eulerAngles.x, boomerangAnim.transform.eulerAngles.y + boomerangVelocity, boomerangAnim.transform.eulerAngles.z);
+        Debug.Log("state: " + state);
+    }
     private void FixedUpdate()
     {
+        boomerangVelocityVector = rb.velocity;
+        boomerangVelocity = boomerangVelocityVector.magnitude;
+
+
+
         switch (state)
         {
+            case State.Thrown:
+                TryGrabBoomerang();
+                break;
             case State.Recalling:
                 LookAtPlayer();
                 // Vector3 dirToPlayer = (playerLauncherRef.GetPosition() - transform.position).normalized;
                 Vector3 dirToPlayer = transform.forward;
                 rb.velocity = dirToPlayer * recallSpeed;
 
-                if (Vector3.Distance(transform.position, playerLauncherRef.GetPosition()) < grabDis)
+                if (Vector3.Distance(transform.position, GetPlayerPos()) < grabDis)
                 {
                     state = State.WithPlayer;
                     rb.velocity = Vector3.zero;
                     rb.isKinematic = true;
                     countCollisions = 0;
-
+                    canReturn = false;
+                    playerLauncherRef.isReturning = false;
+                    playerLauncherRef.ButtonMagnet.SetActive(false);
                 }
 
                 break;
@@ -54,42 +84,67 @@ public class BoomerangLogic : MonoBehaviour
     IEnumerator ReCallingCount()
     {
         yield return new WaitForSeconds(timeToReturn);
-        if (state == State.Thrown)
+        if (state == State.Thrown && countCollisions < 1)
         {
+            // recallSpeed = boomerangVelocity;
+            playerLauncherRef.isReturning = true;
             ReCall();
+        }
+    }
+
+    private void TryGrabBoomerang()
+    {
+        if (Vector3.Distance(transform.position, GetPlayerPos()) < grabDis)
+        {
+            state = State.WithPlayer;
+            rb.velocity = Vector3.zero;
+            rb.isKinematic = true;
+            countCollisions = 0;
+            canReturn = false;
+            playerLauncherRef.isReturning = false;
+            playerLauncherRef.ButtonMagnet.SetActive(false);
         }
     }
 
     void LookAtPlayer()
     {
-        Vector3 direction = playerLauncherRef.GetPosition() - transform.position;
+        Vector3 direction = GetPlayerPos() - transform.position;
         Quaternion toRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, lookSpeed * Time.deltaTime);
     }
 
     private void LateUpdate()
     {
+
+        // if(boomerangVelocity<=0&&state==State.Thrown)ReCall();
+
         switch (state)
         {
             case State.WithPlayer:
-                transform.position = playerLauncherRef.GetPosition();
+                transform.position = GetPlayerPos();
                 break;
         }
+    }
+
+    Vector3 GetPlayerPos()
+    {
+        return new Vector3(playerLauncherRef.transform.position.x, this.transform.position.y, playerLauncherRef.transform.position.z);
     }
     public void ThrowBoomerang(Vector3 throwDir, float throwForce)
     {
         rb.velocity = Vector3.zero;
-        transform.position = playerLauncherRef.gameObject.transform.position;
+        transform.position = GetPlayerPos() + throwDir * (grabDis + 0.2f);
         rb.isKinematic = false;
         rb.AddForce(throwDir * throwForce, ForceMode.Impulse);
         state = State.Thrown;
-        // StartCoroutine(ReCallingCount());
+        // playerLauncherRef.isReturning = false;
+        canReturn = true;
+        StartCoroutine(ReCallingCount());
     }
 
     public void ReCall()
     {
         state = State.Recalling;
-
     }
 
     public void Nothing()
@@ -105,11 +160,19 @@ public class BoomerangLogic : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        countCollisions += 1;
-        Debug.Log(countCollisions);
-        if (countCollisions >= 4)
+        if (other.gameObject.tag != "BoomerangGround")
         {
-            ReCall();
+
+            countCollisions += 1;
+            // Debug.Log(countCollisions);
+            // if (countCollisions == 3)
+            // {
+            //     ReCall();
+            // }
+            if (countCollisions >= 1 && state == State.Recalling)
+            {
+                state = State.Thrown;
+            }
         }
     }
 }
