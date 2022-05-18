@@ -896,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 984032961}
     - target: {fileID: 8764652063968869122, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8764652063968869122, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1833,13 +1833,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridges
       objectReference: {fileID: 0}
-    - target: {fileID: 7364794804769279585, guid: 296f9eb5884064b428f6116ed9427309, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7889973903535772891, guid: 296f9eb5884064b428f6116ed9427309, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7889973903535772891, guid: 296f9eb5884064b428f6116ed9427309, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2272,13 +2268,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maps:
   - {fileID: 889316643}
-  - {fileID: 1286000323943098308}
+  - {fileID: 1390846327}
   - {fileID: 304096808}
   - {fileID: 7951729960589207191}
   - {fileID: 3516797507325256242}
   - {fileID: 1717688671}
   - {fileID: 899740666}
-  - {fileID: 1390846327}
+  - {fileID: 1286000323943098308}
   current_map: 0
   score_panel: {fileID: 1568834045}
 --- !u!4 &1666029705
