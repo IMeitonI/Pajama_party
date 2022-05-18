@@ -45,11 +45,11 @@ ModelImporter:
       name: Jump
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 4.4
+      firstFrame: 0.5
       lastFrame: 26.8
       wrapMode: 0
       orientationOffsetY: 0
-      level: -0.54
+      level: -1.61
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
@@ -57,7 +57,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
