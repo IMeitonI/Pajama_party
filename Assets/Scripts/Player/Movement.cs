@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public static Action A_Move;
     [Header("Variables Movimiento")]
     [SerializeField] public float speed;
+    public static int multiplier_speed;
     [Range(-1, 1)]
     [SerializeField] protected float x_axis, z_axis;
     [SerializeField] protected ManagerJoystick manager_Joystick;
@@ -52,6 +53,7 @@ public class Movement : MonoBehaviour
     {
         check = GetComponent<GroundCheckl>();
         dash = GetComponent<Dash>();
+        multiplier_speed = 1;
     }
     void FixedUpdate()
     {
@@ -66,23 +68,34 @@ public class Movement : MonoBehaviour
             //managerSound.Instance.Play(MovimientoSound);
 
         }
-        else if (check.grounded == false)
-        {
-            if (!die)
-            {
-                Debug.Log(check.grounded);
-                die = true;
-                falling = true;
-            }
-        }
         else
         {
             running = false;
             movement_trail.Stop();
         }
+
+     
+    }
+    private void OnEnable()
+    {
+        die = false;
+        falling = false;
+        firstTimeFalling = true;
+        multiplier_speed = 1;
+        check.grounded = true;
     }
     private void Update()
     {
+
+        if (check.grounded == false && dash.dash_used == false)
+        {
+            if (!die)
+            {
+                multiplier_speed = 0;
+                die = true;
+                falling = true;
+            }
+        }
 
         if (shieldActive)
         {
@@ -112,19 +125,12 @@ public class Movement : MonoBehaviour
     public void Change_Pos(float x, float z)
     {
         //Debug.Log(gameObject.name + check.grounded);
-        if (check.grounded == false && dash.dash_used == false)
-        { 
-            if (!die)
-            {
-                die = true;
-                falling = true;
-            }
-        }
-        else if (aiming == false)
+
+         if (aiming == false && multiplier_speed > 0 && check.grounded)
         {
             running = true;
             Vector3 force = new Vector3(x, 0, z);
-            Vector3 target_pos = transform.position + force * speed * Time.deltaTime;
+            Vector3 target_pos = transform.position + force * speed * Time.deltaTime* multiplier_speed;
             target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
             RaycastHit raycastHit;
             Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
