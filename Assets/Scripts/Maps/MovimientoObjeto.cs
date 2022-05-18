@@ -13,7 +13,7 @@ public class MovimientoObjeto : MonoBehaviour
     
     private void Start()
     {
-        transform.position = p1.localPosition;
+        transform.localPosition = p1.localPosition;
         pp = p1;
     }
     
