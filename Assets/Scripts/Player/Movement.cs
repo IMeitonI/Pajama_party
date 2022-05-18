@@ -102,7 +102,7 @@ public class Movement : MonoBehaviour
                 rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
                 Collider temp = GetComponent<Collider>();
                 temp.enabled = false;
-                transform.rotation = Quaternion.Euler(Vector3.zero);
+                transform.rotation = Quaternion.Euler(0,180,0);
                 transform.parent = null;
             }
         }
