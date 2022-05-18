@@ -7,8 +7,9 @@ public class PowerUpsManager : MonoBehaviour
     Map_Manager map_manager;
     [SerializeField] GameObject power_up;
     [SerializeField] private float spawn_time;
-    private float time;
+    private static float time;
     private int rnd;
+    public static int pw_spawned;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +24,14 @@ public class PowerUpsManager : MonoBehaviour
         if (time >= spawn_time)
         {
             time = 0;
-            SpawnPowerUp();
+            if(pw_spawned<2)SpawnPowerUp();
         }
         if (Map_Manager.change_mp) time = 0;
     }
 
     private void SpawnPowerUp()
     {
+        pw_spawned++;
         int spawns = map_manager.maps[map_manager.current_map].transform.GetChild(1).transform.childCount;
         Transform[] spawnpoints = new Transform[spawns];
         for (int i = 0; i < spawnpoints.Length; i++)
@@ -40,7 +42,15 @@ public class PowerUpsManager : MonoBehaviour
         rnd =  Random.Range(0, spawns);
         while (past_rnd == rnd) rnd = Random.Range(0, spawns);
         Instantiate(power_up, spawnpoints[rnd]);
-        Debug.Log(rnd);
 
+    }
+    public static void PickUpPowerUp()
+    {
+        if (pw_spawned >= 2)
+        {
+            pw_spawned--;
+            time = 0;
+        }
+        else pw_spawned--;
     }
 }
