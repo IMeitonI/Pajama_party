@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InterpolacionBarrera : MonoBehaviour {
 
-    [SerializeField] float tiempoDeseado;
+    [SerializeField] float tiempoDeseado=5000;
     Vector3 miNuevaPos;
     float tiemporeal;
     float porcentajeTiempo;
@@ -25,7 +25,7 @@ public class InterpolacionBarrera : MonoBehaviour {
         porcentajeTiempo = tiemporeal / tiempoDeseado;
 
 
-        transform.position = Vector3.Lerp(transform.position, miNuevaPos, Mathf.SmoothStep(0, 1, porcentajeTiempo));
+        transform.position = Vector3.Lerp(transform.position, miNuevaPos, porcentajeTiempo);
 
         //  transform.localPosition = Vector3.Lerp(transform.localPosition, pp.localPosition, Mathf.SmoothStep(0, 1, porcentajeTiempo));
     }

@@ -32,7 +32,7 @@ public class GeneradorPosicion : MonoBehaviour
         nuevasPos[3] = new Vector3(transform.localPosition.x + deCentralanuevaPos, transform.localPosition.y, transform.localPosition.z - deCentralanuevaPos);
         AsignacionPos();
     }
-
+    
     void AsignacionPos() {
         for (int i = 0; i < interpolacionPos.Length; i++) {
             interpolacionPos[i].AsignarNuevaPos(nuevasPos[i]);
