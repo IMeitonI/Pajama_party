@@ -2194,6 +2194,7 @@ MonoBehaviour:
   boomerangRef: {fileID: 5524707755226061282}
   ButtonMagnet: {fileID: 0}
   isReturning: 0
+  boomerangCheckColicions: {fileID: 8280321128165171644}
 --- !u!1 &8572134214720256410
 GameObject:
   m_ObjectHideFlags: 0

@@ -66,12 +66,22 @@ public class BoomerangLogic : MonoBehaviour
         boomerangAnim.transform.eulerAngles = new Vector3(boomerangAnim.transform.eulerAngles.x, boomerangAnim.transform.eulerAngles.y + boomerangVelocity, boomerangAnim.transform.eulerAngles.z);
 
     }
+
+    private void OnEnable()
+    {
+        Map_Manager.Mapchanger += ReturnBoomerang;
+    }
+    private void OnDisable()
+    {
+        Map_Manager.Mapchanger -= ReturnBoomerang;
+
+    }
     private void FixedUpdate()
     {
         boomerangVelocityVector = rb.velocity;
         boomerangVelocity = boomerangVelocityVector.magnitude;
 
-        
+
 
 
         switch (state)
@@ -151,6 +161,8 @@ public class BoomerangLogic : MonoBehaviour
 
     }
 
+
+
     void LookAtPlayer()
     {
         Vector3 direction = GetPlayerPos() - transform.position;
@@ -170,11 +182,12 @@ public class BoomerangLogic : MonoBehaviour
                 break;
         }
 
-        if (boomerangVelocity < 3&&state==State.Thrown)
+        if (boomerangVelocity < 3 && state == State.Thrown)
         {
             trail.SetActive(false);
         }
-        else if(boomerangVelocity > 3&&state==State.Thrown){
+        else if (boomerangVelocity > 3 && state == State.Thrown)
+        {
             trail.SetActive(true);
         }
 

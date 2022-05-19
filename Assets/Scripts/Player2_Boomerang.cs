@@ -24,7 +24,7 @@ public class Player2_Boomerang : MonoBehaviour
         alive = true;
         // myBoomerang.target = transform;
         mov = GetComponent<Movement>();
-        map_Manager.Mapchanger += Activatecollider;
+        Map_Manager.Mapchanger += Activatecollider;
     }
 
     // public void Shoot() {
@@ -51,7 +51,7 @@ public class Player2_Boomerang : MonoBehaviour
             else
             {
                 BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
-                if (colBoomerang.boomerangVelocity == 0) return;
+                if (colBoomerang.boomerangVelocity < 3) return;
 
                 if (alive == true)
                 {
