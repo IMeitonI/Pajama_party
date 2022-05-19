@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public class BoomerangLogic : MonoBehaviour
 {
 
@@ -14,6 +16,9 @@ public class BoomerangLogic : MonoBehaviour
     private State state;
     private Rigidbody rb;
     [SerializeField] private BoomerangLauncher playerLauncherRef;
+    public GameObject colEfector;
+
+    private SphereCollider colliderBoomerang;
     [SerializeField] float grabDis = 10f;
     [SerializeField] float recallSpeed = 80f;
     [SerializeField] float lookSpeed = 80f;
@@ -25,9 +30,12 @@ public class BoomerangLogic : MonoBehaviour
     [SerializeField] GameObject boomerangAnim;
     [SerializeField] GameObject trail;
     public bool canReturn;
+    [SerializeField] public UnityEvent killEvent;
 
     void Awake()
     {
+        boomerangAnim.SetActive(false);
+        colliderBoomerang = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
         state = State.WithPlayer;
         countCollisions = 0;
@@ -37,7 +45,13 @@ public class BoomerangLogic : MonoBehaviour
         rb.isKinematic = true;
         playerLauncherRef.ButtonMagnet.SetActive(false);
         trail.SetActive(false);
+        colliderBoomerang.enabled = false;
         // Time.timeScale=0.2f;
+    }
+
+    public void KillSomeOne()
+    {
+        killEvent?.Invoke();
     }
 
     public void GiveBoomerang()
@@ -48,14 +62,16 @@ public class BoomerangLogic : MonoBehaviour
 
     private void Update()
     {
+
         boomerangAnim.transform.eulerAngles = new Vector3(boomerangAnim.transform.eulerAngles.x, boomerangAnim.transform.eulerAngles.y + boomerangVelocity, boomerangAnim.transform.eulerAngles.z);
-        Debug.Log("state: " + state);
+
     }
     private void FixedUpdate()
     {
         boomerangVelocityVector = rb.velocity;
         boomerangVelocity = boomerangVelocityVector.magnitude;
 
+        
 
 
         switch (state)
@@ -64,6 +80,7 @@ public class BoomerangLogic : MonoBehaviour
                 TryGrabBoomerang();
                 break;
             case State.Recalling:
+                trail.SetActive(true);
                 LookAtPlayer();
                 // Vector3 dirToPlayer = (playerLauncherRef.GetPosition() - transform.position).normalized;
                 Vector3 dirToPlayer = transform.forward;
@@ -71,6 +88,7 @@ public class BoomerangLogic : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, GetPlayerPos()) < grabDis)
                 {
+                    boomerangAnim.SetActive(false);
                     state = State.WithPlayer;
                     rb.velocity = Vector3.zero;
                     rb.isKinematic = true;
@@ -80,6 +98,8 @@ public class BoomerangLogic : MonoBehaviour
                     this.gameObject.transform.SetParent(playerLauncherRef.transform);
                     playerLauncherRef.ButtonMagnet.SetActive(false);
                     trail.SetActive(false);
+                    colliderBoomerang.enabled = false;
+
                 }
 
                 break;
@@ -101,6 +121,7 @@ public class BoomerangLogic : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, GetPlayerPos()) < grabDis)
         {
+            boomerangAnim.SetActive(false);
             state = State.WithPlayer;
             rb.velocity = Vector3.zero;
             rb.isKinematic = true;
@@ -110,12 +131,13 @@ public class BoomerangLogic : MonoBehaviour
             this.gameObject.transform.SetParent(playerLauncherRef.transform);
             playerLauncherRef.ButtonMagnet.SetActive(false);
             trail.SetActive(false);
+            colliderBoomerang.enabled = false;
         }
     }
 
     public void ReturnBoomerang()
     {
-
+        boomerangAnim.SetActive(false);
         state = State.WithPlayer;
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
@@ -125,6 +147,7 @@ public class BoomerangLogic : MonoBehaviour
         this.gameObject.transform.SetParent(playerLauncherRef.transform);
         playerLauncherRef.ButtonMagnet.SetActive(false);
         trail.SetActive(false);
+        colliderBoomerang.enabled = false;
 
     }
 
@@ -146,6 +169,15 @@ public class BoomerangLogic : MonoBehaviour
                 transform.position = GetPlayerPos();
                 break;
         }
+
+        if (boomerangVelocity < 3&&state==State.Thrown)
+        {
+            trail.SetActive(false);
+        }
+        else if(boomerangVelocity > 3&&state==State.Thrown){
+            trail.SetActive(true);
+        }
+
     }
 
     Vector3 GetPlayerPos()
@@ -154,6 +186,7 @@ public class BoomerangLogic : MonoBehaviour
     }
     public void ThrowBoomerang(Vector3 throwDir, float throwForce)
     {
+        boomerangAnim.SetActive(true);
         rb.velocity = Vector3.zero;
         transform.position = GetPlayerPos() + throwDir * (grabDis + 0.2f);
         rb.isKinematic = false;
@@ -164,6 +197,7 @@ public class BoomerangLogic : MonoBehaviour
         canReturn = true;
         StartCoroutine(ReCallingCount());
         trail.SetActive(true);
+        colliderBoomerang.enabled = true;
     }
 
     public void ReCall()
@@ -188,14 +222,12 @@ public class BoomerangLogic : MonoBehaviour
         {
 
             countCollisions += 1;
-            Debug.Log("countercols: " + countCollisions);
-            // if (countCollisions == 3)
-            // {
-            //     ReCall();
-            // }
+
             if (countCollisions >= 1 && state == State.Recalling)
             {
+                playerLauncherRef.isReturning = false;
                 state = State.Thrown;
+                // Debug.Log("countercols: " + countCollisions + "state: " + state);
             }
         }
     }

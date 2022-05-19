@@ -2197,6 +2197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLauncherRef: {fileID: 1844010009}
+  colEfector: {fileID: 0}
   grabDis: 1
   recallSpeed: 40
   lookSpeed: 10
