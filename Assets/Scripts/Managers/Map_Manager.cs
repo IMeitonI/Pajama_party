@@ -105,7 +105,7 @@ public class Map_Manager : MonoBehaviour
         }
         if (current_map >= maps.Length) current_map = 0;
         maps[current_map].SetActive(true);
-        barrera.CambiarUbicacionBarrera();
+        // barrera.CambiarUbicacionBarrera();
         Teleport_players(current_map);
     }
     private void Teleport_players(int rnd)
