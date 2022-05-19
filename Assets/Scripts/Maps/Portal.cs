@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
     {
         print("primera fase");
         jugBoom = other.gameObject;
-        if (jugBoom.CompareTag("Player") || jugBoom.CompareTag("Boomerang"));
+        if (jugBoom.CompareTag("Player"))
         {
             if (teleporting == false)
             {
@@ -34,7 +34,6 @@ public class Portal : MonoBehaviour
         Quaternion ttt = Quaternion.Inverse(transform.localRotation) * jugBoom.transform.localRotation;
         jugBoom.transform.localEulerAngles = Vector3.up * (otroPortal.transform.localEulerAngles.y - (transform.localEulerAngles.y - jugBoom.transform.localEulerAngles.y) + 180);      
         jugBoom.transform.position = otroPortal.miLugar.position;
-
 
         teleporting = true;
     }
