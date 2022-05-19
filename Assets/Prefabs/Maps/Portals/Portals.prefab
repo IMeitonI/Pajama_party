@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213340613093422590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Teletransportacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,9 +73,9 @@ GameObject:
   - component: {fileID: 213340613926236722}
   - component: {fileID: 213340613926236725}
   - component: {fileID: 213340613926236720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portal_2
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3227899824945417666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Teletransportacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,9 +463,9 @@ GameObject:
   - component: {fileID: 673890569419281854}
   - component: {fileID: 9028567370499094938}
   - component: {fileID: 9032712110967004414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portal_2 (1)
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1368,6 +1368,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 57653157444990638, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 57653157444990638, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
+      objectReference: {fileID: 0}
     - target: {fileID: 57653158340751719, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.37
@@ -1375,6 +1383,14 @@ PrefabInstance:
     - target: {fileID: 57653158340751719, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
       propertyPath: m_LocalPosition.z
       value: 3.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 57653158340751736, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054501639679178937, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
@@ -1696,6 +1712,10 @@ PrefabInstance:
     - target: {fileID: 3359563475128109810, guid: 27c3c8d941dce4705a13ad0fd309f550, type: 3}
       propertyPath: m_Name
       value: Portal2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359563475128109810, guid: 27c3c8d941dce4705a13ad0fd309f550, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5615633126074060204, guid: 27c3c8d941dce4705a13ad0fd309f550, type: 3}
       propertyPath: m_RootOrder
@@ -2063,6 +2083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal2
       objectReference: {fileID: 0}
+    - target: {fileID: 3359563475128109810, guid: 27c3c8d941dce4705a13ad0fd309f550, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5615633126074060204, guid: 27c3c8d941dce4705a13ad0fd309f550, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2387,9 +2411,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal_1
       objectReference: {fileID: 0}
+    - target: {fileID: 57653157444990638, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 57653157444990638, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
+      objectReference: {fileID: 0}
     - target: {fileID: 57653158340751719, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 57653158340751736, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054501639679178937, guid: 41c1e053f2a430149973737f6c630dca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41c1e053f2a430149973737f6c630dca, type: 3}

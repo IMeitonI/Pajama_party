@@ -6,13 +6,13 @@ public class Portal : MonoBehaviour
 {
     [SerializeField] Portal otroPortal;
     public Transform miLugar;
-    GameObject jugador;
+    GameObject jugBoom;
     bool teleporting = false;
     private void OnTriggerEnter(Collider other)
     {
         print("primera fase");
-        jugador = other.gameObject;
-        if (jugador.CompareTag("Player") || jugador.CompareTag("Boomerang"));
+        jugBoom = other.gameObject;
+        if (jugBoom.CompareTag("Player") || jugBoom.CompareTag("Boomerang"));
         {
             if (teleporting == false)
             {
@@ -31,9 +31,9 @@ public class Portal : MonoBehaviour
     void Teletransportacion()
     {// Vector3 fromPortal = transform.InverseTransformPoint(jugador.);
         print("Movioendome");
-        Quaternion ttt = Quaternion.Inverse(transform.localRotation) * jugador.transform.localRotation;
-        jugador.transform.localEulerAngles = Vector3.up * (otroPortal.transform.localEulerAngles.y - (transform.localEulerAngles.y - jugador.transform.localEulerAngles.y) + 180);      
-        jugador.transform.position = otroPortal.miLugar.position;
+        Quaternion ttt = Quaternion.Inverse(transform.localRotation) * jugBoom.transform.localRotation;
+        jugBoom.transform.localEulerAngles = Vector3.up * (otroPortal.transform.localEulerAngles.y - (transform.localEulerAngles.y - jugBoom.transform.localEulerAngles.y) + 180);      
+        jugBoom.transform.position = otroPortal.miLugar.position;
 
 
         teleporting = true;
