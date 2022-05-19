@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 8886737258321183074}
   m_Layer: 9
   m_Name: ColPlayer
-  m_TagString: Untagged
+  m_TagString: Boomerang
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4820541742559877589, guid: e508d2eec3d29e04b92701e53e588cb3, type: 3}
+  - {fileID: 2100000, guid: 311313efa011949e98b6761d652ad13c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -889,7 +889,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!114 &5524707755226061282
 MonoBehaviour:
@@ -912,6 +912,7 @@ MonoBehaviour:
   boomerangVelocityVector: {x: 0, y: 0, z: 0}
   boomerangVelocity: 0
   boomerangAnim: {fileID: 8701811046742807749}
+  trail: {fileID: 2656703269278087182}
   canReturn: 0
 --- !u!1 &5107249144498075680
 GameObject:
@@ -1659,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df80f6471f4d93740822413ba9d3d255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBoomerang: {fileID: 2771440226159791612}
+  myBoomerang: {fileID: 5524707755226061282}
   alive: 0
   DieSound: {fileID: 8300000, guid: 381c4a578cdea714997f7e5b406d8f43, type: 3}
   ShootSound: {fileID: 8300000, guid: 12b5798874111934786f3af3191722fd, type: 3}
@@ -1859,7 +1860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8526349119277062808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.88, z: -0.05}
+  m_LocalPosition: {x: 0.05, y: 0, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3730313939779352223}

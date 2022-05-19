@@ -20,9 +20,10 @@ public class BoomerangLogic : MonoBehaviour
     [SerializeField] float timeToReturn = 2f;
     [SerializeField] int countCollisions;
     [SerializeField] Vector3 boomerangVelocityVector;
-    [SerializeField] float boomerangVelocity;
+    [SerializeField] public float boomerangVelocity;
 
     [SerializeField] GameObject boomerangAnim;
+    [SerializeField] GameObject trail;
     public bool canReturn;
 
     void Awake()
@@ -35,6 +36,7 @@ public class BoomerangLogic : MonoBehaviour
         this.gameObject.transform.SetParent(playerLauncherRef.transform);
         rb.isKinematic = true;
         playerLauncherRef.ButtonMagnet.SetActive(false);
+        trail.SetActive(false);
         // Time.timeScale=0.2f;
     }
 
@@ -77,6 +79,7 @@ public class BoomerangLogic : MonoBehaviour
                     playerLauncherRef.isReturning = false;
                     this.gameObject.transform.SetParent(playerLauncherRef.transform);
                     playerLauncherRef.ButtonMagnet.SetActive(false);
+                    trail.SetActive(false);
                 }
 
                 break;
@@ -106,7 +109,23 @@ public class BoomerangLogic : MonoBehaviour
             playerLauncherRef.isReturning = false;
             this.gameObject.transform.SetParent(playerLauncherRef.transform);
             playerLauncherRef.ButtonMagnet.SetActive(false);
+            trail.SetActive(false);
         }
+    }
+
+    public void ReturnBoomerang()
+    {
+
+        state = State.WithPlayer;
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+        countCollisions = 0;
+        canReturn = false;
+        playerLauncherRef.isReturning = false;
+        this.gameObject.transform.SetParent(playerLauncherRef.transform);
+        playerLauncherRef.ButtonMagnet.SetActive(false);
+        trail.SetActive(false);
+
     }
 
     void LookAtPlayer()
@@ -131,7 +150,7 @@ public class BoomerangLogic : MonoBehaviour
 
     Vector3 GetPlayerPos()
     {
-        return new Vector3(playerLauncherRef.transform.position.x, this.transform.position.y, playerLauncherRef.transform.position.z);
+        return new Vector3(playerLauncherRef.transform.position.x, playerLauncherRef.transform.position.y, playerLauncherRef.transform.position.z);
     }
     public void ThrowBoomerang(Vector3 throwDir, float throwForce)
     {
@@ -144,6 +163,7 @@ public class BoomerangLogic : MonoBehaviour
         // playerLauncherRef.isReturning = false;
         canReturn = true;
         StartCoroutine(ReCallingCount());
+        trail.SetActive(true);
     }
 
     public void ReCall()
@@ -168,7 +188,7 @@ public class BoomerangLogic : MonoBehaviour
         {
 
             countCollisions += 1;
-            // Debug.Log(countCollisions);
+            Debug.Log("countercols: " + countCollisions);
             // if (countCollisions == 3)
             // {
             //     ReCall();
