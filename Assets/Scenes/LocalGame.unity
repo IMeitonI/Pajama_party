@@ -259,12 +259,12 @@ GameObject:
   m_Component:
   - component: {fileID: 38327179}
   m_Layer: 5
-  m_Name: RedWarning
+  m_Name: RedWarning_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &38327179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1015,12 +1015,12 @@ GameObject:
   m_Component:
   - component: {fileID: 174432522}
   m_Layer: 5
-  m_Name: RedWarning (1)
+  m_Name: RedWarning_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &174432522
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2010,6 +2010,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144892938, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: miRedWarning
+      value: 
+      objectReference: {fileID: 174432521}
     - target: {fileID: 5524707755226061282, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: boomerangHit
       value: 
@@ -2158,7 +2162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &752305735
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5746,6 +5750,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144892938, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: miRedWarning
+      value: 
+      objectReference: {fileID: 38327178}
     - target: {fileID: 8280321128165171634, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: TeleportButton
       value: 
