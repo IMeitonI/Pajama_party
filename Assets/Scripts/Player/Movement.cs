@@ -142,15 +142,13 @@ public class Movement : MonoBehaviour
             Vector3 target_pos = transform.position + force * speed * Time.deltaTime* multiplier_speed;
             target_pos = new Vector3(target_pos.x, transform.position.y, target_pos.z);
             RaycastHit raycastHit;
-            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime); rg.constraints = RigidbodyConstraints.FreezePosition;
+            Physics.Raycast(transform.position, force, out raycastHit, 4 * speed * Time.deltaTime);
             if (raycastHit.collider == null && Map_Manager.change_mp == false)
             {
                 transform.position = target_pos;
-                rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             }
             else
             {
-                rg.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                 //Cannot move horizontally
                 Vector3 second_move_dir = new Vector3(0, 0, z);
                 target_pos = transform.position + second_move_dir * speed * Time.deltaTime;
@@ -182,6 +180,14 @@ public class Movement : MonoBehaviour
         }
         else return;
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacles") && check.grounded)rg.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacles") || check.grounded == false) rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
     public IEnumerator SpeedPowerUp()
     {
