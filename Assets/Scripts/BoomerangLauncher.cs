@@ -11,10 +11,12 @@ public class BoomerangLauncher : MonoBehaviour
     public GameObject ButtonMagnet;
     public bool isReturning;
 
+    [SerializeField]Player2_Boomerang boomerangCheckColicions;
+
 
     public void ThrowBomerang()
     {
-        if (boomerangRef.IsWithPlayer() && !boomerangRef.canReturn)
+        if (boomerangRef.IsWithPlayer() && !boomerangRef.canReturn&&boomerangCheckColicions.alive)
         {
             ThrowBtn();
             ButtonMagnet.SetActive(true);
@@ -23,7 +25,7 @@ public class BoomerangLauncher : MonoBehaviour
 
     public void ReturnBoomerang()
     {
-        if (boomerangRef.canReturn)
+        if (boomerangRef.canReturn&&boomerangCheckColicions.alive)
         {
             boomerangRef.ReCall();
             isReturning=true;
@@ -33,7 +35,7 @@ public class BoomerangLauncher : MonoBehaviour
 
     public void GiveBoomerang()
     {
-        if (boomerangRef.canReturn)
+        if (boomerangRef.canReturn&&boomerangCheckColicions.alive)
         {
             boomerangRef.GiveBoomerang();
             isReturning=false;

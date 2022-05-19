@@ -7,7 +7,7 @@ public class Score : MonoBehaviour {
     public event ScoreEvents Substraction;
     [SerializeField] AnimatorController animatorController;
     [SerializeField] AnimatorController animatorControllerOnline;
-    [SerializeField] Test_boomerang test_Boomerang;
+    [SerializeField] BoomerangLogic my_Boomerang;
     public int myScore =0;
     int previus_score, current_map;
     Map_Manager map_mg;
@@ -16,7 +16,7 @@ public class Score : MonoBehaviour {
   
     private void Awake() {
        // test_Boomerang = GetComponentInChildren<Test_boomerang>();
-        test_Boomerang.Score += AddScore;
+        // my_Boomerang.killEvent += AddScore;
         animatorController.Fall += SubsScore;
     }
     private void Start()
@@ -40,7 +40,17 @@ public class Score : MonoBehaviour {
     }
     public void SubsScore() {
         if (myScore == 0) return;
-        myScore -= 1;
+        else if (current_map == map_mg.current_map)
+        {
+            if (previus_score == myScore + 1) return;
+            myScore -= 1;
+        }
+        else
+        {
+            current_map = map_mg.current_map;
+            previus_score = myScore;
+            SubsScore();
+        }
         if (Substraction != null) Substraction();
     }
 }

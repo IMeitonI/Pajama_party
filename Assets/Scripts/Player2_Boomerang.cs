@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player2_Boomerang : MonoBehaviour {
+public class Player2_Boomerang : MonoBehaviour
+{
     Map_Manager map_Manager;
-    [SerializeField] public Test_boomerang myBoomerang;
+    [SerializeField] public BoomerangLogic myBoomerang;
     protected int score;
     public bool alive;
     Text myText;
@@ -17,38 +18,47 @@ public class Player2_Boomerang : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody>();
-        myBoomerang.DeactiveColider += DeactivateCol;
+        // myBoomerang.DeactiveColider += DeactivateCol;
         map_Manager = FindObjectOfType<Map_Manager>();
         myCollider = GetComponent<CapsuleCollider>();
         alive = true;
-        myBoomerang.target = transform;
+        // myBoomerang.target = transform;
         mov = GetComponent<Movement>();
-        map_Manager.Mapchanger += Activatecollider;
+        Map_Manager.Mapchanger += Activatecollider;
     }
 
-    public void Shoot() {
-        if (myBoomerang.shooted || !gameObject.activeSelf || mov.die == true) return;
-        myBoomerang.gameObject.SetActive(true);
+    // public void Shoot() {
+    //     if (myBoomerang.shooted || !gameObject.activeSelf || mov.die == true) return;
+    //     myBoomerang.gameObject.SetActive(true);
+
+    //     myBoomerang.Throw();
+    //     //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+    //     managerSound.Instance.Play(ShootSound);
+
+    // }
+
+    private void OnTriggerEnter(Collider other)
+    {
         
-        myBoomerang.Throw();
-        //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-        managerSound.Instance.Play(ShootSound);
-
-    }
-    protected void OnCollisionEnter(Collision other) {
-        if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang")) {
+        if (other.gameObject != myBoomerang.colEfector && other.gameObject.CompareTag("Boomerang"))
+        {
             if (mov.shieldActive)
             {
-                myBoomerang.Return();
+                // myBoomerang.ReturnBoomerang();
                 mov.shieldActive = false;
                 return;
             }
             else
-            { if (other.gameObject.GetComponent<Test_boomerang>().speed == 0) return;
-                if(alive == true)
+            {
+                BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
+                if (colBoomerang.boomerangVelocity < 3) return;
+
+                if (alive == true)
                 {
                     DeactivateCol();
-
+                    alive = false;
+                    colBoomerang.KillSomeOne();
+                    myBoomerang.ReturnBoomerang();
                     AnimatorController anim = GetComponent<AnimatorController>();
                     if (anim == null)
                     {
@@ -56,7 +66,7 @@ public class Player2_Boomerang : MonoBehaviour {
                         animOn.Die();
                     }
                     else anim.Die();
-                    alive = false;
+
                     // Modificaci n Jose
                     //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
                     managerSound.Instance.Play(DieSound);
@@ -64,18 +74,54 @@ public class Player2_Boomerang : MonoBehaviour {
 
                 }
             }
-
         }
     }
+    protected void OnCollisionEnter(Collision other)
+    {
+        // if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang"))
+        // {
+        //     // if (mov.shieldActive)
+        //     // {
+        //     //     myBoomerang.Return();
+        //     //     mov.shieldActive = false;
+        //     //     return;
+        //     // }
+        //     else
+        //     {
+        //         if (other.gameObject.GetComponent<Test_boomerang>().speed == 0) return;
+        //         if (alive == true)
+        //         {
+        //             DeactivateCol();
 
-    protected void Activatecollider() {
+        //             AnimatorController anim = GetComponent<AnimatorController>();
+        //             if (anim == null)
+        //             {
+        //                 AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
+        //                 animOn.Die();
+        //             }
+        //             else anim.Die();
+        //             alive = false;
+        //             // Modificaci n Jose
+        //             //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+        //             managerSound.Instance.Play(DieSound);
+        //             //Hasta ac  
+
+        //         }
+        //     }
+
+        // }
+    }
+
+    protected void Activatecollider()
+    {
         //rb.useGravity = true;
         myCollider.enabled = true;
         rb.isKinematic = false;
         alive = true;
         Movement.multiplier_speed = 1;
     }
-    protected void DeactivateCol() {
+    protected void DeactivateCol()
+    {
         //rb.useGravity = false;
         rb.isKinematic = true;
         myCollider.enabled = false;

@@ -13,21 +13,21 @@ public class BoomerangOnline : Player2_Boomerang, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(myBoomerang.shooted);
+            stream.SendNext(!myBoomerang.IsWithPlayer());
         }
         else
         {
-            this.myBoomerang.shooted = (bool)stream.ReceiveNext();
+            // this.myBoomerang.shooted = (bool)stream.ReceiveNext();
         }
     }
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        myBoomerang.DeactiveColider += DeactivateCol;
+        // myBoomerang.DeactiveColider += DeactivateCol;
         //map_Manager = FindObjectOfType<Map_Manager>();
         myCollider = GetComponent<CapsuleCollider>();
         //alive = true;
-        myBoomerang.target = transform;
+        // myBoomerang.target = transform;
         mov = GetComponent<Movement>();
         //map_Manager.Mapchanger += Activatecollider;
     }
@@ -37,7 +37,7 @@ public class BoomerangOnline : Player2_Boomerang, IPunObservable
     {
         btn = GameObject.FindGameObjectWithTag("Shoot").GetComponent<Button>();
         //btn.OnPointerDown()
-        btn.onClick.AddListener(Shoot);
+        // btn.onClick.AddListener(Shoot);
         look_online = GetComponentInChildren<LookAtOnline>();
     }
     protected void OnCollisionEnter(Collision other)

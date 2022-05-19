@@ -5,7 +5,7 @@ using UnityEngine;
 public class Map_Manager : MonoBehaviour
 {
     public delegate void PickupE();
-    public event PickupE Mapchanger;
+    static public event PickupE Mapchanger;
     [SerializeField] public GameObject[] maps;
     GameObject[] players;
     public static bool winner;
@@ -95,7 +95,8 @@ public class Map_Manager : MonoBehaviour
 
     private void ChangeMap()
     {
-        if (Mapchanger != null) Mapchanger();
+        // if (Mapchanger != null) Mapchanger();
+        Mapchanger?.Invoke();
         score_panel?.SetActive(true);
         current_map++;
         for (int i = 0; i < maps.Length; i++)

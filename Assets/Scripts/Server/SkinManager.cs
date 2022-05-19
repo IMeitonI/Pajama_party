@@ -43,6 +43,7 @@ public class SkinManager : MonoBehaviour
     [SerializeField] bodyOBJ[] m_bodyList;
     [SerializeField] bodyOBJ[] m_tailList;
     [SerializeField] BoomerangOBJ[] m_BoomerangList;
+    [SerializeField] GameObject[] m_BoomerangListObjs;
 
     [Header("skin Vars")]
     [SerializeField] int faceVar, bodyVar;
@@ -53,7 +54,7 @@ public class SkinManager : MonoBehaviour
         LoadMesh();
     }
 
-    public void LoadMeshOnline(int face,int body)
+    public void LoadMeshOnline(int face, int body)
     {
 
         m_meshRend_face.sharedMesh = (m_faceList[face].m_mesh);
@@ -79,6 +80,13 @@ public class SkinManager : MonoBehaviour
         m_meshRend_face.materials = (m_faceList[m_skin.face].m_material);
         m_meshRend_body.materials = (m_bodyList[m_skin.pijama].m_material);
         m_meshRend_tail.materials = (m_tailList[m_skin.face].m_material);
+
+        for (int i = 0; i < m_BoomerangListObjs.Length; i++)
+        {
+            m_BoomerangListObjs[i].SetActive(false);
+        }
+        m_BoomerangListObjs[m_skin.boomerang].SetActive(true);
+
 
     }
 
