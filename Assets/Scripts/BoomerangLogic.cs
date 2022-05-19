@@ -32,6 +32,8 @@ public class BoomerangLogic : MonoBehaviour
     public bool canReturn;
     [SerializeField] public UnityEvent killEvent;
 
+    [SerializeField] AudioClip boomerangHit;
+
     void Awake()
     {
         boomerangAnim.SetActive(false);
@@ -235,6 +237,7 @@ public class BoomerangLogic : MonoBehaviour
         {
 
             countCollisions += 1;
+            managerSound.Instance.Play(boomerangHit);
 
             if (countCollisions >= 1 && state == State.Recalling)
             {
