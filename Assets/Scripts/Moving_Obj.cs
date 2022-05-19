@@ -23,18 +23,18 @@ public class Moving_Obj : MonoBehaviour
             collision.transform.SetParent(null);
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.SetParent(movingObject);
-        }
-    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.SetParent(null);
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.transform.SetParent(movingObject);
         }
     }
 }
