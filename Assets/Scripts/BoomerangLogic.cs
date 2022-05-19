@@ -203,7 +203,7 @@ public class BoomerangLogic : MonoBehaviour
     {
         boomerangAnim.SetActive(true);
         rb.velocity = Vector3.zero;
-        transform.position = GetPlayerPos() + throwDir * (grabDis + 0.2f);
+        transform.position = GetPlayerPos() + throwDir * (grabDis + 0.5f);
         rb.isKinematic = false;
         this.gameObject.transform.SetParent(null);
         rb.AddForce(throwDir * throwForce, ForceMode.Impulse);
