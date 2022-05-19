@@ -16,7 +16,8 @@ public class Player2_Boomerang : MonoBehaviour
     [SerializeField] protected AudioClip DieSound;
     [SerializeField] protected AudioClip ShootSound;
 
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         // myBoomerang.DeactiveColider += DeactivateCol;
         map_Manager = FindObjectOfType<Map_Manager>();
@@ -39,10 +40,11 @@ public class Player2_Boomerang : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject != myBoomerang.colEfector && other.gameObject.CompareTag("Boomerang"))
         {
-            if (mov.shieldActive)
+            BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
+            if (mov.shieldActive&&colBoomerang.boomerangVelocity > 3)
             {
                 // myBoomerang.ReturnBoomerang();
                 mov.shieldActive = false;
@@ -50,7 +52,6 @@ public class Player2_Boomerang : MonoBehaviour
             }
             else
             {
-                BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
                 if (colBoomerang.boomerangVelocity < 3) return;
 
                 if (alive == true)
