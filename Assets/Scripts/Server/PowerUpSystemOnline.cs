@@ -9,12 +9,13 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
 {
     private const byte CureEventCode = 1;
     [SerializeField] GameObject prefab;
-    float time;
+    static float time;
     float cooldown = 10;
     int current_pos, counter;
     Transform[] spawns;
     MapManagerOnline map_manager;
     int current_map;
+    public static int pw_spawned;
 
     private void OnEnable()
     {
@@ -35,7 +36,6 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
 
     private void GenerateCure()
     {
-
         RaiseEventOptions eventOptions = new RaiseEventOptions { Receivers = ReceiverGroup.All, CachingOption = EventCaching.AddToRoomCache };
 
         PhotonNetwork.RaiseEvent(CureEventCode, null, eventOptions, SendOptions.SendReliable);
@@ -47,7 +47,7 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
         if (time >= cooldown && counter == 1)
         {
             counter = 0;
-            GenerateCure();
+            if(pw_spawned<2)GenerateCure();
         }
     }
 
@@ -57,7 +57,8 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
         if (photonEvent.Code == CureEventCode)
         {
             time = 0;
-            if(current_map != map_manager.current_map)
+            pw_spawned++;
+            if (current_map != map_manager.current_map)
             {
                 int length_spawns = map_manager.maps[map_manager.current_map].transform.GetChild(1).transform.childCount;
                 spawns = new Transform[length_spawns];
@@ -73,5 +74,13 @@ public class PowerUpSystemOnline : MonoBehaviour, IOnEventCallback
             counter = 1;
         }
     }
-
+    public static void PickUpPowerUp()
+    {
+        if (pw_spawned >= 2)
+        {
+            pw_spawned--;
+            time = 0;
+        }
+        else pw_spawned--;
+    }
 }
