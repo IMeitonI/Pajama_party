@@ -42,8 +42,8 @@ public class MovementOnline : MonoBehaviour, IPunObservable
     private bool isShieldActive = false;
 
     public bool falling, aiming;
-    GroundCheckl check;
-    Dash dash;
+    [SerializeField] GroundCheckl check;
+    DashOnline dash;
     Rigidbody rg;
 
     public bool firstTimeFalling = true;
@@ -57,12 +57,12 @@ public class MovementOnline : MonoBehaviour, IPunObservable
     private void Start()
     {
         multiplier_speed = 1;
+        check = GetComponentInChildren<GroundCheckl>();
+        dash = GetComponent<DashOnline>();
+        rg = GetComponent<Rigidbody>();
         if (pv.IsMine)
         {
             manager_Joystick = GameObject.FindGameObjectWithTag("MyJoy").GetComponent<ManagerJoystick>();
-            check = GetComponent<GroundCheckl>();
-            dash = GetComponent<Dash>();
-            rg = GetComponent<Rigidbody>();
         }
     }
     void FixedUpdate()
@@ -112,22 +112,18 @@ public class MovementOnline : MonoBehaviour, IPunObservable
     }
     private void Update()
     {
-
-        if (check.grounded == false && dash.dash_used == false)
+        if (!die)
         {
-            if (!die)
-            {
-                multiplier_speed = 0;
-                die = true;
-                falling = true;
-                managerSound.Instance.Play(splashSFX);
-                splashPS.Play();
-                rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-                Collider temp = GetComponent<Collider>();
-                temp.enabled = false;
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                transform.parent = null;
-            }
+            multiplier_speed = 0;
+            die = true;
+            falling = true;
+            managerSound.Instance.Play(splashSFX);
+            splashPS.Play();
+            rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+            Collider temp = GetComponent<Collider>();
+            temp.enabled = false;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.parent = null;
         }
 
         if (shieldActive)

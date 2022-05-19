@@ -9,6 +9,7 @@ public class DashOnline : MonoBehaviour, IPunObservable
     [SerializeField] private float dash_time, dash_speed, initial_speed, cooldown, current_time;
     Transform player;
     protected bool dash_enable;
+    public bool dash_used;
 
     Button btn;
     MovementOnline mov;
@@ -75,14 +76,16 @@ public class DashOnline : MonoBehaviour, IPunObservable
             }
             yield return null;
         }
+        if (Time.time > start_time + dash_time) dash_used = false;
 
     }
     public void Star_Dash()
     {
-        if (dash_enable)
+        if (dash_enable && dash_used == false)
         {
             current_time = 0;
             dash_enable = false;
+            dash_used = true;
             StartCoroutine(Dash_coroutine());
         }
 
