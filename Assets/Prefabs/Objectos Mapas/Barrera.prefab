@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2074392602}
   - component: {fileID: 2074392601}
+  - component: {fileID: 2067446152}
   m_Layer: 0
   m_Name: GeneradorAleatorio
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
   - {fileID: 7753426076642182575}
   resta: 12
   deCentralanuevaPos: 5
+--- !u!114 &2067446152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074392600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d2c47d1f145b34cad4815a1c9bdd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoBarrera: 60
 --- !u!1 &7753426075487823294
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,6 +81,8 @@ GameObject:
   - component: {fileID: 7753426075487823289}
   - component: {fileID: 7753426075487823288}
   - component: {fileID: 7753426075487823290}
+  - component: {fileID: 578585526}
+  - component: {fileID: 578585527}
   m_Layer: 0
   m_Name: LineRenderer
   m_TagString: Untagged
@@ -107,7 +123,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e81e50d1065dd4e439bd944fc79d3658, type: 2}
+  - {fileID: 2100000, guid: f172eb2467a2c8945a39185f98cbd474, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,13 +149,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 20
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.11428261
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -199,11 +215,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textures:
-  - {fileID: 2800000, guid: 8597dd09ca9b83c4380a45dd00026e99, type: 3}
-  - {fileID: 2800000, guid: d58bb5cfb2e58314d8994a776c8d512d, type: 3}
-  - {fileID: 2800000, guid: 386680fd033db974fa197a2e57b3448a, type: 3}
-  - {fileID: 2800000, guid: 54f2b2ee146e1e64d8bf567a894bdcf9, type: 3}
-  fps: 12
+  - {fileID: 2800000, guid: f4498f6e47ee073479a98995a65024f7, type: 3}
+  - {fileID: 2800000, guid: 95e7541b9bf1fcc4aa6333ee4005639a, type: 3}
+  - {fileID: 2800000, guid: f23cb4388786e1d4eabc375ad9e8fcdf, type: 3}
+  - {fileID: 2800000, guid: c435c6f67a63d424ab286529546809c2, type: 3}
+  fps: 8
 --- !u!114 &7753426075487823290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +233,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 7753426075487823289}
+--- !u!68 &578585526
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426075487823294}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -6.96, y: 0}
+  - {x: 13.04, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &578585527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426075487823294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 670ffe1bb9093584ba822c5934a51aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  edgeCollider: {fileID: 578585526}
+  myLine: {fileID: 7753426075487823289}
 --- !u!1 &7753426075711064913
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753426075846139195}
   - component: {fileID: 7753426075846139188}
+  - component: {fileID: 1488860648}
   m_Layer: 0
   m_Name: Punto_2
   m_TagString: Untagged
@@ -297,7 +350,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  moving: 0
+--- !u!65 &1488860648
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426075846139194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 69.462845, y: 3.22, z: 1}
+  m_Center: {x: 34.231422, y: 0.99, z: 0}
 --- !u!1 &7753426076375192825
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753426076375192826}
   - component: {fileID: 7753426076375192827}
+  - component: {fileID: 1822478180}
   m_Layer: 0
   m_Name: Punto_3
   m_TagString: Untagged
@@ -342,7 +408,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  moving: 0
+--- !u!65 &1822478180
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426076375192825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.22, z: 45.410027}
+  m_Center: {x: 0, y: 0.99, z: 22.205013}
 --- !u!1 &7753426076642182573
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753426076642182574}
   - component: {fileID: 7753426076642182575}
+  - component: {fileID: 1146207866}
   m_Layer: 0
   m_Name: Punto_4
   m_TagString: Untagged
@@ -387,7 +466,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  moving: 0
+--- !u!65 &1146207866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426076642182573}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 69.939835, y: 3.22, z: 1}
+  m_Center: {x: -34.469917, y: 0.99, z: 0}
 --- !u!1 &7753426076731800844
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753426076731800845}
   - component: {fileID: 7753426076731800846}
+  - component: {fileID: 892416056}
   m_Layer: 0
   m_Name: Punto_1
   m_TagString: Untagged
@@ -432,4 +524,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  moving: 0
+--- !u!65 &892416056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426076731800844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.22, z: 41.530697}
+  m_Center: {x: 0, y: 0.99, z: -20.265348}
