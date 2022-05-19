@@ -7,6 +7,7 @@ public class Player2_Boomerang : MonoBehaviour
     [SerializeField] public BoomerangLogic myBoomerang;
     protected int score;
     public bool alive;
+    public bool first_hit = false;
     Text myText;
     protected CapsuleCollider myCollider;
     protected Movement mov;
@@ -16,7 +17,8 @@ public class Player2_Boomerang : MonoBehaviour
     [SerializeField] protected AudioClip DieSound;
     [SerializeField] protected AudioClip ShootSound;
 
-    void Start() {
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
         // myBoomerang.DeactiveColider += DeactivateCol;
         map_Manager = FindObjectOfType<Map_Manager>();
@@ -39,24 +41,26 @@ public class Player2_Boomerang : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.gameObject != myBoomerang.colEfector && other.gameObject.CompareTag("Boomerang"))
         {
-            if (mov.shieldActive)
+            BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
+            if (mov.shieldActive && colBoomerang.boomerangVelocity > 3 && first_hit == false)
             {
                 // myBoomerang.ReturnBoomerang();
+                first_hit = true;
                 mov.shieldActive = false;
                 return;
             }
             else
             {
-                BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
                 if (colBoomerang.boomerangVelocity < 3) return;
 
-                if (alive == true)
+                if (alive == true && first_hit == false)
                 {
                     DeactivateCol();
                     alive = false;
+                    first_hit = true;
                     colBoomerang.KillSomeOne();
                     myBoomerang.ReturnBoomerang();
                     AnimatorController anim = GetComponent<AnimatorController>();
@@ -75,6 +79,10 @@ public class Player2_Boomerang : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject != myBoomerang.colEfector && other.gameObject.CompareTag("Boomerang")) first_hit = false;
     }
     protected void OnCollisionEnter(Collision other)
     {

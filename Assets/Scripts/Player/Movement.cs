@@ -82,11 +82,25 @@ public class Movement : MonoBehaviour
     }
     private void OnEnable()
     {
+        Map_Manager.Mapchanger += SetConstraints;
         die = false;
         falling = false;
         firstTimeFalling = true;
         multiplier_speed = 1;
         if(check != null)check.grounded = true;
+    }
+    private void OnDisable()
+    {
+        Map_Manager.Mapchanger -= SetConstraints;
+    }
+    void SetConstraints()
+    {
+        die = false;
+        falling = false;
+        firstTimeFalling = true;
+        multiplier_speed = 1;
+        if (check != null) check.grounded = true;
+        rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
     private void Update()
     {

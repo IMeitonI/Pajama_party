@@ -23,6 +23,18 @@ public class PowerUps : MonoBehaviour
 
     private bool speedBool = true;
 
+    private void OnEnable()
+    {
+        Map_Manager.Mapchanger += Delete;
+    }
+    private void OnDestroy()
+    {
+        Map_Manager.Mapchanger -= Delete;
+    }
+    public void Delete()
+    {
+        Destroy(gameObject);
+    }
 
     private void Awake()
     {
@@ -31,7 +43,7 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerUpID = Random.Range(1, 2);
+        powerUpID = Random.Range(0, 3);
     }
 
     // Update is called once per frame
