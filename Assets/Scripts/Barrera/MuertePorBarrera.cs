@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class MuertePorBarrera : MonoBehaviour
 {
+    [SerializeField] GameObject miRedWarning;
    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Barrier")) {
             print("Hola mamasita");
-            Map_Manager.change_mp = true;
+            miRedWarning.SetActive(true);
+            Movement.freezed = true;
+            print("Como estoy: " + Movement.freezed);
+           
+            Invoke("CambiarMapa", 2);
         }
+    }
+    void CambiarMapa() {
+        miRedWarning.SetActive(false);
+        Movement.freezed = false;
+        Map_Manager.change_mp = true;
     }
 }
