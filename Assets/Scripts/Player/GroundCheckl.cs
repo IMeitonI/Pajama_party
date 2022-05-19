@@ -21,6 +21,7 @@ public class GroundCheckl : MonoBehaviour
     void FixedUpdate()
     {
         grounded = CheckGround();
+        Debug.Log(hits[0].collider.gameObject.tag);
     }
     public bool CheckGround()
     {
