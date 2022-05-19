@@ -43,7 +43,7 @@ public class PowerUps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        powerUpID = Random.Range(1, 2);
+        powerUpID = Random.Range(0, 3);
     }
 
     // Update is called once per frame
