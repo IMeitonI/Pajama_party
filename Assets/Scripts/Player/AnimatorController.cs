@@ -17,6 +17,10 @@ public class AnimatorController : MonoBehaviour
     {
         Map_Manager.Mapchanger += Disable;
     }
+    private void OnDisable()
+    {
+        Map_Manager.Mapchanger -= Disable;
+    }
     void Start()
     {
         mov = GetComponent<Movement>();
@@ -52,7 +56,7 @@ public class AnimatorController : MonoBehaviour
     }
     void Disable()
     {
-        gameObject.SetActive(false);
+        if(gameObject != null)gameObject.SetActive(false);
         if (anim.GetBool("Falling")) anim.SetBool("Falling", false);
         if (Mov_Camera.local && Map_Manager.players_deaths ==1)
         {
