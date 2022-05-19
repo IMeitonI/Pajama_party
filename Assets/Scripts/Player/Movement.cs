@@ -93,6 +93,7 @@ public class Movement : MonoBehaviour
     }
     private void OnDisable()
     {
+        transform.parent = null;
         Map_Manager.Mapchanger -= SetConstraints;
     }
     void SetConstraints()
