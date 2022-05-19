@@ -9,6 +9,7 @@ public class BoomerangOnline : Player2_Boomerang, IPunObservable
     Button btn;
     bool active_col;
     LookAtOnline look_online;
+    MovementOnline mov;
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -28,7 +29,7 @@ public class BoomerangOnline : Player2_Boomerang, IPunObservable
         myCollider = GetComponent<CapsuleCollider>();
         //alive = true;
         // myBoomerang.target = transform;
-        mov = GetComponent<Movement>();
+        mov = GetComponent<MovementOnline>();
         //map_Manager.Mapchanger += Activatecollider;
     }
 
