@@ -83,6 +83,7 @@ public class Movement : MonoBehaviour
     private void OnEnable()
     {
         Map_Manager.Mapchanger += SetConstraints;
+        transform.parent = null;
         die = false;
         falling = false;
         firstTimeFalling = true;
