@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Screen.unity
     guid: b6ed337346c05a241be3a814641ffadc
   - enabled: 1
-    path: Assets/Scenes/FindMatch.unity
-    guid: 10e240302924e194e819d53c97d33896
-  - enabled: 1
     path: Assets/Scenes/Main_Game.unity
     guid: d232dca4f68b2d2428b04f5893e85bb6
+  - enabled: 1
+    path: Assets/Scenes/FindMatch.unity
+    guid: 10e240302924e194e819d53c97d33896
   - enabled: 1
     path: Assets/Scenes/LocalGame.unity
     guid: b567be9491344794c95a5ae857c145aa
