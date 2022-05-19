@@ -27,7 +27,6 @@ public class TiempoParaBarrera : MonoBehaviour
             if (tiempoReal >= advertenciaAmarilla && !advertenciaActiva) {
                 amarillo.SetActive(true);
                 advertenciaActiva= true;
-                Movement.freezed = true;
                 Invoke("DesactivarAdver", 2f);
             }
             if (tiempoReal >= tiempoBarrera) {
@@ -39,7 +38,7 @@ public class TiempoParaBarrera : MonoBehaviour
         }
     }
     void DesactivarAdver() {
-        Movement.freezed = false;
+     
         amarillo.SetActive(false);
     }
 }
