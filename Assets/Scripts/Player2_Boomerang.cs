@@ -26,6 +26,14 @@ public class Player2_Boomerang : MonoBehaviour
         alive = true;
         // myBoomerang.target = transform;
         mov = GetComponent<Movement>();
+
+    }
+    private void OnEnable()
+    {
+        Map_Manager.Mapchanger -= Activatecollider;
+    }
+    private void OnDisable()
+    {
         Map_Manager.Mapchanger += Activatecollider;
     }
 
@@ -123,8 +131,8 @@ public class Player2_Boomerang : MonoBehaviour
     protected void Activatecollider()
     {
         //rb.useGravity = true;
-        myCollider.enabled = true;
-        rb.isKinematic = false;
+        if(myCollider != null)myCollider.enabled = true;
+        if(rb !=null)rb.isKinematic = false;
         alive = true;
         Movement.multiplier_speed = 1;
     }

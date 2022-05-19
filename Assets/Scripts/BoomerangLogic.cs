@@ -32,8 +32,6 @@ public class BoomerangLogic : MonoBehaviour
     public bool canReturn;
     [SerializeField] public UnityEvent killEvent;
 
-    [SerializeField] AudioClip boomerangHit;
-
     void Awake()
     {
         boomerangAnim.SetActive(false);
@@ -203,7 +201,7 @@ public class BoomerangLogic : MonoBehaviour
     {
         boomerangAnim.SetActive(true);
         rb.velocity = Vector3.zero;
-        transform.position = GetPlayerPos() + throwDir * (grabDis + 0.2f);
+        transform.position = GetPlayerPos() + throwDir * (grabDis + 0.5f);
         rb.isKinematic = false;
         this.gameObject.transform.SetParent(null);
         rb.AddForce(throwDir * throwForce, ForceMode.Impulse);
@@ -237,7 +235,6 @@ public class BoomerangLogic : MonoBehaviour
         {
 
             countCollisions += 1;
-            managerSound.Instance.Play(boomerangHit);
 
             if (countCollisions >= 1 && state == State.Recalling)
             {

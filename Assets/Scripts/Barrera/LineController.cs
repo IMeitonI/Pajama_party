@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class LineController : MonoBehaviour
 {
-    [SerializeField]LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
     Transform[] points;
-   
-    // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < points.Length; i++) {
@@ -17,8 +15,11 @@ public class LineController : MonoBehaviour
     }
     public void SetUpLine(Transform[] points)
     {
-        
         lineRenderer.positionCount = points.Length;
         this.points = points;
+    }
+
+    public void Activar() {
+        lineRenderer.enabled=true;
     }
 }
