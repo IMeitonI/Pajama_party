@@ -20,13 +20,19 @@ public class PowerUpsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Time: "+time);
+        Debug.Log(pw_spawned);
         time += Time.deltaTime;
         if (time >= spawn_time)
         {
             time = 0;
             if(pw_spawned<2)SpawnPowerUp();
         }
-        if (Map_Manager.change_mp) time = 0;
+        if (Map_Manager.change_mp)
+        {
+            time = 0;
+            pw_spawned = 0;
+        }
     }
 
     private void SpawnPowerUp()

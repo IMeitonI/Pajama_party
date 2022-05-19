@@ -23,6 +23,18 @@ public class PowerUps : MonoBehaviour
 
     private bool speedBool = true;
 
+    private void OnEnable()
+    {
+        Map_Manager.Mapchanger += Delete;
+    }
+    private void OnDestroy()
+    {
+        Map_Manager.Mapchanger -= Delete;
+    }
+    public void Delete()
+    {
+        Destroy(gameObject);
+    }
 
     private void Awake()
     {
