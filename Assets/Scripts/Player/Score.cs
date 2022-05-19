@@ -40,7 +40,17 @@ public class Score : MonoBehaviour {
     }
     public void SubsScore() {
         if (myScore == 0) return;
-        myScore -= 1;
+        else if (current_map == map_mg.current_map)
+        {
+            if (previus_score == myScore + 1) return;
+            myScore -= 1;
+        }
+        else
+        {
+            current_map = map_mg.current_map;
+            previus_score = myScore;
+            SubsScore();
+        }
         if (Substraction != null) Substraction();
     }
 }
