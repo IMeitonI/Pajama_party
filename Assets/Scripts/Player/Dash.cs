@@ -11,6 +11,10 @@ public class Dash : MonoBehaviour
     public bool dash_used;
     protected bool dash_enable;
 
+    [SerializeField] protected ParticleSystem dashPs;
+
+    [SerializeField] Transform dashSpot;
+
     private void Start()
     {
         player = GetComponent<Transform>();
@@ -57,8 +61,10 @@ public class Dash : MonoBehaviour
         if (Movement.freezed==false&&dash_enable && mov.die == false)
         {
             dash_used = true;
+            Instantiate(dashPs, dashSpot);
             current_time = 0;
             dash_enable = false;
+            dashPs.transform.SetParent(null);
             StartCoroutine(Dash_coroutine());
         }
   
