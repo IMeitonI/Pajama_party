@@ -39,7 +39,8 @@ public class Player2_Boomerang : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject != myBoomerang.gameObject && other.gameObject.CompareTag("Boomerang"))
+        
+        if (other.gameObject != myBoomerang.colEfector && other.gameObject.CompareTag("Boomerang"))
         {
             if (mov.shieldActive)
             {
@@ -49,11 +50,14 @@ public class Player2_Boomerang : MonoBehaviour
             }
             else
             {
-                if (other.gameObject.GetComponent<BoomerangLogic>().boomerangVelocity == 0) return;
+                BoomerangLogic colBoomerang = other.gameObject.GetComponentInParent<BoomerangLogic>();
+                if (colBoomerang.boomerangVelocity == 0) return;
 
                 if (alive == true)
                 {
                     DeactivateCol();
+                    alive = false;
+                    colBoomerang.KillSomeOne();
                     myBoomerang.ReturnBoomerang();
                     AnimatorController anim = GetComponent<AnimatorController>();
                     if (anim == null)
@@ -62,7 +66,7 @@ public class Player2_Boomerang : MonoBehaviour
                         animOn.Die();
                     }
                     else anim.Die();
-                    alive = false;
+
                     // Modificaci n Jose
                     //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
                     managerSound.Instance.Play(DieSound);
