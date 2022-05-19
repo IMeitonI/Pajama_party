@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074392600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06, y: 2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7753426075711064914}
@@ -54,8 +54,8 @@ MonoBehaviour:
   - {fileID: 7753426075846139188}
   - {fileID: 7753426076375192827}
   - {fileID: 7753426076642182575}
-  resta: 12
-  deCentralanuevaPos: 5
+  resta: 20
+  deCentralanuevaPos: 7
 --- !u!114 &2067446152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +68,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d2c47d1f145b34cad4815a1c9bdd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineController: {fileID: 0}
-  tiempoBarrera: 60
+  lineController: {fileID: 7753426075487823290}
+  amarillo: {fileID: 0}
+  tiempoBarrera: 2
 --- !u!1 &7753426075487823294
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78e9474dca958e439c7c382ab6b2754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
+  lineRenderer: {fileID: 7753426075487823289}
   textures:
   - {fileID: 2800000, guid: f4498f6e47ee073479a98995a65024f7, type: 3}
   - {fileID: 2800000, guid: 95e7541b9bf1fcc4aa6333ee4005639a, type: 3}
@@ -265,6 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7753426075711064914}
+  - component: {fileID: 4057530}
   m_Layer: 0
   m_Name: Barrera
   m_TagString: Untagged
@@ -292,6 +294,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4057530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753426075711064913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6814fa7a3859b479c9fbe342f95da0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapMana: {fileID: 0}
+  inter:
+  - {fileID: 7753426076731800846}
+  - {fileID: 7753426075846139188}
+  - {fileID: 7753426076375192827}
+  - {fileID: 7753426076642182575}
 --- !u!1 &7753426075846139194
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +325,7 @@ GameObject:
   - component: {fileID: 1488860648}
   m_Layer: 0
   m_Name: Punto_2
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
+  miPosInicial: {fileID: 0}
 --- !u!65 &1488860648
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -348,8 +369,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 130.10896, y: 3.2199998, z: 1}
-  m_Center: {x: 64.55447, y: 0.99, z: 0}
+  m_Size: {x: 135.85698, y: 3.2199998, z: 1}
+  m_Center: {x: 64.574, y: 0.99, z: 3}
 --- !u!1 &7753426076375192825
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +384,7 @@ GameObject:
   - component: {fileID: 1822478180}
   m_Layer: 0
   m_Name: Punto_3
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,6 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
+  miPosInicial: {fileID: 0}
 --- !u!65 &1822478180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -406,8 +428,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.2199998, z: 73.54118}
-  m_Center: {x: 0, y: 0.99, z: 36.27059}
+  m_Size: {x: 1, y: 3.2199998, z: 78.49802}
+  m_Center: {x: -3, y: 0.99, z: 36.37754}
 --- !u!1 &7753426076642182573
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +443,7 @@ GameObject:
   - component: {fileID: 1146207866}
   m_Layer: 0
   m_Name: Punto_4
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -453,6 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
+  miPosInicial: {fileID: 0}
 --- !u!65 &1146207866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -464,8 +487,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 129.00766, y: 3.2199998, z: 1}
-  m_Center: {x: -64.00383, y: 0.99, z: 0}
+  m_Size: {x: 138.05235, y: 3.2199998, z: 1}
+  m_Center: {x: -62.888096, y: 0.99, z: -3}
 --- !u!1 &7753426076731800844
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,7 +502,7 @@ GameObject:
   - component: {fileID: 892416056}
   m_Layer: 0
   m_Name: Punto_1
-  m_TagString: Untagged
+  m_TagString: Barrier
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
+  miPosInicial: {fileID: 0}
 --- !u!65 &892416056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -522,5 +546,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.2199998, z: 75.58663}
-  m_Center: {x: 0, y: 0.99, z: -37.293316}
+  m_Size: {x: 1.02, y: 3.2199998, z: 80.86981}
+  m_Center: {x: 3, y: 0.99, z: -35.90056}

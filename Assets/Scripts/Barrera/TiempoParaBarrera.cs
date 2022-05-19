@@ -12,7 +12,7 @@ public class TiempoParaBarrera : MonoBehaviour
     bool advertenciaActiva =false;
     float advertenciaAmarilla;
     static public bool activarBarrera = false;
-    bool enMapa = true;
+    public static bool enMapa = true;
 
 
     private void Start() {
@@ -21,14 +21,15 @@ public class TiempoParaBarrera : MonoBehaviour
     void Update()
     {
         if (enMapa) {
-
+            if (activarBarrera == true) return;
             tiempoReal += Time.deltaTime;
-
+           
             if (tiempoReal >= advertenciaAmarilla && !advertenciaActiva) {
                 amarillo.SetActive(true);
                 advertenciaActiva= true;
                 Invoke("DesactivarAdver", 2f);
             }
+           
             if (tiempoReal >= tiempoBarrera) {
                 activarBarrera = true;
                 lineController.Activar();

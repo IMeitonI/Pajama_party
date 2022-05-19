@@ -8,14 +8,13 @@ public class InterpolacionBarrera : MonoBehaviour {
     Vector3 miNuevaPos;
     float tiemporeal;
     float porcentajeTiempo;
-   
-    
+    [SerializeField]Transform miPosInicial;
 
-   
-    // Update is called once per frame
+    private void Start() {
+       // miPosInicial = transform;
+    }
     void Update() {
-
-
+        
         if (TiempoParaBarrera.activarBarrera == true) { MoverNuevaPos(); }
     }
     public void MoverNuevaPos() {
@@ -24,10 +23,13 @@ public class InterpolacionBarrera : MonoBehaviour {
         transform.position = Vector3.Lerp(transform.position, miNuevaPos, porcentajeTiempo);
         //  transform.localPosition = Vector3.Lerp(transform.localPosition, pp.localPosition, Mathf.SmoothStep(0, 1, porcentajeTiempo));
     }
-   
 
     public void AsignarNuevaPos(Vector3 nuevaPos) {
         miNuevaPos = nuevaPos;
+    }
+
+    public void IrAPosInicial() {
+        transform.position = miPosInicial.position;
     }
   
 }

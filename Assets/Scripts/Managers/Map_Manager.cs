@@ -15,7 +15,7 @@ public class Map_Manager : MonoBehaviour
     public int current_map;
     public static int players_deaths;
     [SerializeField] private GameObject score_panel;
-
+    [SerializeField] CambioMapaBarrera barrera; //Majo
     private void Start()
     {
         //Instantiate(Save_Manager.saveManager.activeSave.character_1);
@@ -105,6 +105,7 @@ public class Map_Manager : MonoBehaviour
         }
         if (current_map >= maps.Length) current_map = 0;
         maps[current_map].SetActive(true);
+        barrera.CambiarUbicacionBarrera();
         Teleport_players(current_map);
     }
     private void Teleport_players(int rnd)
