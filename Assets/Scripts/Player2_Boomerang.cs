@@ -26,6 +26,14 @@ public class Player2_Boomerang : MonoBehaviour
         alive = true;
         // myBoomerang.target = transform;
         mov = GetComponent<Movement>();
+
+    }
+    private void OnEnable()
+    {
+        Map_Manager.Mapchanger -= Activatecollider;
+    }
+    private void OnDisable()
+    {
         Map_Manager.Mapchanger += Activatecollider;
     }
 
