@@ -26,7 +26,11 @@ public class PowerUpsManager : MonoBehaviour
             time = 0;
             if(pw_spawned<2)SpawnPowerUp();
         }
-        if (Map_Manager.change_mp) time = 0;
+        if (Map_Manager.change_mp)
+        {
+            time = 0;
+            pw_spawned = 0;
+        }
     }
 
     private void SpawnPowerUp()
