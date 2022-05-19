@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35d2c47d1f145b34cad4815a1c9bdd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineController: {fileID: 0}
   tiempoBarrera: 60
 --- !u!1 &7753426075487823294
 GameObject:
@@ -82,7 +83,6 @@ GameObject:
   - component: {fileID: 7753426075487823288}
   - component: {fileID: 7753426075487823290}
   - component: {fileID: 578585526}
-  - component: {fileID: 578585527}
   m_Layer: 0
   m_Name: LineRenderer
   m_TagString: Untagged
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78e9474dca958e439c7c382ab6b2754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
   textures:
   - {fileID: 2800000, guid: f4498f6e47ee073479a98995a65024f7, type: 3}
   - {fileID: 2800000, guid: 95e7541b9bf1fcc4aa6333ee4005639a, type: 3}
@@ -255,20 +256,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &578585527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7753426075487823294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670ffe1bb9093584ba822c5934a51aee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  edgeCollider: {fileID: 578585526}
-  myLine: {fileID: 7753426075487823289}
 --- !u!1 &7753426075711064913
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7753426075846139194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.9, y: 0, z: 21.9}
+  m_LocalPosition: {x: -66.3, y: 0, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7753426075711064914}
@@ -361,8 +348,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 69.462845, y: 3.22, z: 1}
-  m_Center: {x: 34.231422, y: 0.99, z: 0}
+  m_Size: {x: 130.10896, y: 3.2199998, z: 1}
+  m_Center: {x: 64.55447, y: 0.99, z: 0}
 --- !u!1 &7753426076375192825
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7753426076375192825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.9, y: 0, z: -18.39}
+  m_LocalPosition: {x: -66.3, y: 0, z: -38.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7753426075711064914}
@@ -419,8 +406,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.22, z: 45.410027}
-  m_Center: {x: 0, y: 0.99, z: 22.205013}
+  m_Size: {x: 1, y: 3.2199998, z: 73.54118}
+  m_Center: {x: 0, y: 0.99, z: 36.27059}
 --- !u!1 &7753426076642182573
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7753426076642182573}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.8, y: 0, z: -18.39}
+  m_LocalPosition: {x: 62.6, y: 0, z: -38.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7753426075711064914}
@@ -477,8 +464,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 69.939835, y: 3.22, z: 1}
-  m_Center: {x: -34.469917, y: 0.99, z: 0}
+  m_Size: {x: 129.00766, y: 3.2199998, z: 1}
+  m_Center: {x: -64.00383, y: 0.99, z: 0}
 --- !u!1 &7753426076731800844
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7753426076731800844}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.8, y: 0, z: 21.9}
+  m_LocalPosition: {x: 62.6, y: 0, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7753426075711064914}
@@ -535,5 +522,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.22, z: 41.530697}
-  m_Center: {x: 0, y: 0.99, z: -20.265348}
+  m_Size: {x: 1, y: 3.2199998, z: 75.58663}
+  m_Center: {x: 0, y: 0.99, z: -37.293316}

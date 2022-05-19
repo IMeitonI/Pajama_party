@@ -69,6 +69,7 @@ public class Player2_Boomerang : MonoBehaviour
                     DeactivateCol();
                     alive = false;
                     first_hit = true;
+                    Movement.multiplier_speed = 0;
                     colBoomerang.KillSomeOne();
                     myBoomerang.ReturnBoomerang();
                     AnimatorController anim = GetComponent<AnimatorController>();

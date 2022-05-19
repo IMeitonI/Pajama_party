@@ -8,7 +8,7 @@ public class InterpolacionBarrera : MonoBehaviour {
     Vector3 miNuevaPos;
     float tiemporeal;
     float porcentajeTiempo;
-    bool activeMesh;
+   
     
 
    
@@ -19,11 +19,9 @@ public class InterpolacionBarrera : MonoBehaviour {
         if (TiempoParaBarrera.activarBarrera == true) { MoverNuevaPos(); }
     }
     public void MoverNuevaPos() {
-     
         tiemporeal += Time.deltaTime;
         porcentajeTiempo = tiemporeal / tiempoDeseado;
         transform.position = Vector3.Lerp(transform.position, miNuevaPos, porcentajeTiempo);
-        activeMesh = true;
         //  transform.localPosition = Vector3.Lerp(transform.localPosition, pp.localPosition, Mathf.SmoothStep(0, 1, porcentajeTiempo));
     }
    
