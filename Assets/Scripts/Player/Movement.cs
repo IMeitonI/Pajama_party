@@ -87,7 +87,9 @@ public class Movement : MonoBehaviour
         falling = false;
         firstTimeFalling = true;
         multiplier_speed = 1;
-        if(check != null)check.grounded = true;
+        Collider temp = GetComponent<Collider>();
+        temp.enabled = true;
+        if (check != null)check.grounded = true;
     }
     private void OnDisable()
     {
