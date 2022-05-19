@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     public GameObject playerBoomerang;
     [SerializeField] public Test_boomerang myBoomerang;
-    [SerializeField] AudioClip MovimientoSound;
+    [SerializeField] AudioClip splashSFX;
 
     private float teleportTimer = 0f;
 
@@ -112,6 +112,7 @@ public class Movement : MonoBehaviour
                 multiplier_speed = 0;
                 die = true;
                 falling = true;
+                managerSound.Instance.Play(splashSFX);
                 splashPS.Play();
                 rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
                 Collider temp = GetComponent<Collider>();
