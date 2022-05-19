@@ -13,6 +13,7 @@ public class CheckPlayersReady : MonoBehaviour
     bool allReady;
     private void Start()
     {
+        Save_Manager.saveM_instance.Save();
         allReady = false;
         loadSprite.fillAmount = 0;
         for (int i = 0; i < readySprites.Length; i++)
