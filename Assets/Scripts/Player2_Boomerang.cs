@@ -69,6 +69,7 @@ public class Player2_Boomerang : MonoBehaviour
                     DeactivateCol();
                     alive = false;
                     first_hit = true;
+                    Movement.multiplier_speed = 0;
                     colBoomerang.KillSomeOne();
                     myBoomerang.ReturnBoomerang();
                     AnimatorController anim = GetComponent<AnimatorController>();
@@ -131,8 +132,8 @@ public class Player2_Boomerang : MonoBehaviour
     protected void Activatecollider()
     {
         //rb.useGravity = true;
-        myCollider.enabled = true;
-        rb.isKinematic = false;
+        if(myCollider != null)myCollider.enabled = true;
+        if(rb !=null)rb.isKinematic = false;
         alive = true;
         Movement.multiplier_speed = 1;
     }

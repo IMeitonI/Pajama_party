@@ -20,6 +20,13 @@ public class backgroundMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (audioSource.isPlaying)
+        {
+            return;
+        }
+        else
+        {
+            audioSource.PlayOneShot(RandomClip());
+        }
     }
 }
