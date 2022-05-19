@@ -175,3 +175,4 @@ MonoBehaviour:
   soundtrackArray:
   - {fileID: 8300000, guid: d458524d666c09e4f8ed6a07b5b52cab, type: 3}
   - {fileID: 8300000, guid: cdbe9b6ccffa39e4e9e0bf2f23a63df0, type: 3}
+  - {fileID: 8300000, guid: 1fb6f5a9e103ed8488780056d299a35b, type: 3}

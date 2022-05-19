@@ -1922,6 +1922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBoomerang: {fileID: 5524707755226061282}
   alive: 0
+  first_hit: 0
   DieSound: {fileID: 8300000, guid: 381c4a578cdea714997f7e5b406d8f43, type: 3}
   ShootSound: {fileID: 8300000, guid: 12b5798874111934786f3af3191722fd, type: 3}
 --- !u!114 &8280321128165171647
@@ -2195,6 +2196,7 @@ MonoBehaviour:
   ButtonMagnet: {fileID: 0}
   isReturning: 0
   boomerangCheckColicions: {fileID: 8280321128165171644}
+  mov: {fileID: 8280321128165171634}
 --- !u!1 &8572134214720256410
 GameObject:
   m_ObjectHideFlags: 0

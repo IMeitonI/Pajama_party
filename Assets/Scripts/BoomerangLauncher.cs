@@ -12,11 +12,12 @@ public class BoomerangLauncher : MonoBehaviour
     public bool isReturning;
 
     [SerializeField]Player2_Boomerang boomerangCheckColicions;
+    [SerializeField] Movement mov;
 
 
     public void ThrowBomerang()
     {
-        if (boomerangRef.IsWithPlayer() && !boomerangRef.canReturn&&boomerangCheckColicions.alive)
+        if (boomerangRef.IsWithPlayer() && !boomerangRef.canReturn&&boomerangCheckColicions.alive && mov.falling == false)
         {
             ThrowBtn();
             ButtonMagnet.SetActive(true);
