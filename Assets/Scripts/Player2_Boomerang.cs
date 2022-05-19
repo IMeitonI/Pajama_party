@@ -47,8 +47,26 @@ public class Player2_Boomerang : MonoBehaviour
 
     // }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
+        if (alive == true && other.gameObject.CompareTag("Barrier")) {
+            DeactivateCol();
+            alive = false;
+            first_hit = true;
+            Movement.multiplier_speed = 0;
+           
+            myBoomerang.ReturnBoomerang();
+            AnimatorController anim = GetComponent<AnimatorController>();
+            if (anim == null) {
+                AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
+                animOn.Die();
+            } else anim.Die();
+
+            // Modificaci n Jose
+            //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
+            managerSound.Instance.Play(DieSound);
+            //Hasta ac  
+
+        }
 
         if (other.gameObject != myBoomerang.colEfector && other.gameObject.CompareTag("Boomerang"))
         {
@@ -64,28 +82,7 @@ public class Player2_Boomerang : MonoBehaviour
             {
                 if (colBoomerang.boomerangVelocity < 3) return;
 
-                if (alive == true && first_hit == false)
-                {
-                    DeactivateCol();
-                    alive = false;
-                    first_hit = true;
-                    Movement.multiplier_speed = 0;
-                    colBoomerang.KillSomeOne();
-                    myBoomerang.ReturnBoomerang();
-                    AnimatorController anim = GetComponent<AnimatorController>();
-                    if (anim == null)
-                    {
-                        AnimatorControllerOnline animOn = GetComponentInChildren<AnimatorControllerOnline>();
-                        animOn.Die();
-                    }
-                    else anim.Die();
-
-                    // Modificaci n Jose
-                    //managerSound manager = GameObject.Find("MainSound").GetComponent<managerSound>();
-                    managerSound.Instance.Play(DieSound);
-                    //Hasta ac  
-
-                }
+               
             }
         }
     }

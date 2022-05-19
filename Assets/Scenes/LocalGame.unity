@@ -1559,7 +1559,6 @@ GameObject:
   m_Component:
   - component: {fileID: 424666640}
   - component: {fileID: 424666639}
-  - component: {fileID: 424666638}
   m_Layer: 0
   m_Name: Camera UI
   m_TagString: Untagged
@@ -1567,14 +1566,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &424666638
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424666637}
-  m_Enabled: 1
 --- !u!20 &424666639
 Camera:
   m_ObjectHideFlags: 0
@@ -4999,7 +4990,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7753426076445759475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -6005,7 +5996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  miPosInicial: {fileID: 0}
+  miPosInicial: {fileID: 1435402705}
 --- !u!1 &7753426075424073396
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,7 +6028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  miPosInicial: {fileID: 0}
+  miPosInicial: {fileID: 1319198491}
 --- !u!4 &7753426075424073399
 Transform:
   m_ObjectHideFlags: 0
@@ -6083,7 +6074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoDeseado: 5000
-  miPosInicial: {fileID: 0}
+  miPosInicial: {fileID: 1109934305}
 --- !u!4 &7753426075693955043
 Transform:
   m_ObjectHideFlags: 0

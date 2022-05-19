@@ -72,7 +72,7 @@ public class Map_Manager : MonoBehaviour
 
     }
 
-    private void DisableCanvas()
+    public void DisableCanvas()
     {
         if (winner == false)
         {
