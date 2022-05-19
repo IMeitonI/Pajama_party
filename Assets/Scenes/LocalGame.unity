@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66621685, g: 0.8827709, b: 0.8857476, a: 1}
+  m_IndirectSpecularColor: {r: 0.66621673, g: 0.8827709, b: 0.8857476, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1225,6 +1225,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1894512596740070117, guid: 526765e35b4389e4fa0a36770c446ecf, type: 3}
   m_PrefabInstance: {fileID: 1704549927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &306041741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306041742}
+  m_Layer: 0
+  m_Name: dashSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &306041742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306041741}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.24, z: -0.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1258921967}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308241662
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,6 +1928,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631378603}
   m_CullTransparentMesh: 1
+--- !u!4 &633755021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8764652063968869122, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+  m_PrefabInstance: {fileID: 8173378455030510410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &645074364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2030,6 +2065,14 @@ PrefabInstance:
       propertyPath: manager_Joystick
       value: 
       objectReference: {fileID: 984032961}
+    - target: {fileID: 8280321128165171635, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: dashPs
+      value: 
+      objectReference: {fileID: 4265450036255529257, guid: c68fe004c32aec34180118d17ab7ff9f, type: 3}
+    - target: {fileID: 8280321128165171635, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: dashSpot
+      value: 
+      objectReference: {fileID: 306041742}
     - target: {fileID: 8280321128165171640, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_Name
       value: P2
@@ -2296,6 +2339,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &773109177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773109178}
+  m_Layer: 0
+  m_Name: dashSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &773109178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773109177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.17, z: -0.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 633755021}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792232405
 GameObject:
@@ -3541,6 +3614,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1258921967 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8764652063968869122, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+  m_PrefabInstance: {fileID: 692080660}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1266627149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5762,6 +5840,14 @@ PrefabInstance:
       propertyPath: manager_Joystick
       value: 
       objectReference: {fileID: 865633035}
+    - target: {fileID: 8280321128165171635, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: dashPs
+      value: 
+      objectReference: {fileID: 4265450036255529257, guid: c68fe004c32aec34180118d17ab7ff9f, type: 3}
+    - target: {fileID: 8280321128165171635, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
+      propertyPath: dashSpot
+      value: 
+      objectReference: {fileID: 773109178}
     - target: {fileID: 8280321128165171640, guid: 2905e92d5a9bf0740bd8a0d9e72ab05f, type: 3}
       propertyPath: m_Name
       value: P1
