@@ -13,6 +13,7 @@ TagManager:
   - Shoot
   - Dash
   - Ground
+  - BoomerangGround
   layers:
   - Default
   - TransparentFX
@@ -20,10 +21,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - boomerang
+  - boomerangGround
+  - obstacles
+  - PlayerCol
   - 
   - 
   - 

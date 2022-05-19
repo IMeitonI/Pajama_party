@@ -46,6 +46,7 @@ public class PowerUps : MonoBehaviour
             _player = collision.gameObject.GetComponent<Movement>();
             if (_player != null)
             {
+                PowerUpsManager.PickUpPowerUp();
                 switch (powerUpID)
                 {
                     case 0:

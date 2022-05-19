@@ -45,6 +45,7 @@ public class Movement : MonoBehaviour
     public bool falling, aiming;
     GroundCheckl check;
     Dash dash;
+    Rigidbody rg;
 
     public bool firstTimeFalling = true;
 
@@ -55,6 +56,7 @@ public class Movement : MonoBehaviour
     {
         check = GetComponent<GroundCheckl>();
         dash = GetComponent<Dash>();
+        rg = GetComponent<Rigidbody>();
         multiplier_speed = 1;
     }
     void FixedUpdate()
@@ -84,7 +86,7 @@ public class Movement : MonoBehaviour
         falling = false;
         firstTimeFalling = true;
         multiplier_speed = 1;
-        check.grounded = true;
+        if(check != null)check.grounded = true;
     }
     private void Update()
     {
@@ -97,6 +99,11 @@ public class Movement : MonoBehaviour
                 die = true;
                 falling = true;
                 splashPS.Play();
+                rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                Collider temp = GetComponent<Collider>();
+                temp.enabled = false;
+                transform.rotation = Quaternion.Euler(0,180,0);
+                transform.parent = null;
             }
         }
 
@@ -127,7 +134,6 @@ public class Movement : MonoBehaviour
     }
     public void Change_Pos(float x, float z)
     {
-        //Debug.Log(gameObject.name + check.grounded);
 
          if (aiming == false && multiplier_speed > 0 && check.grounded)
         {
@@ -174,6 +180,14 @@ public class Movement : MonoBehaviour
         }
         else return;
 
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacles") && check.grounded)rg.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacles") || check.grounded == false) rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
     public IEnumerator SpeedPowerUp()
     {
