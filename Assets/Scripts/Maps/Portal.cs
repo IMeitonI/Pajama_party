@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
     {
         print("primera fase");
         jugador = other.gameObject;
-        if (jugador.CompareTag("Player"))
+        if (jugador.CompareTag("Player") || jugador.CompareTag("Boomerang"));
         {
             if (teleporting == false)
             {
@@ -29,10 +29,13 @@ public class Portal : MonoBehaviour
         }
     }
     void Teletransportacion(GameObject jug)
-    {
+    {// Vector3 fromPortal = transform.InverseTransformPoint(jugador.);
         print("Movioendome");
         print(otroPortal.miLugar.position);
         jugador.transform.position = otroPortal.miLugar.position;
+        
+
+
         teleporting = true;
     }
 }
