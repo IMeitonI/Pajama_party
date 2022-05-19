@@ -54,7 +54,7 @@ public class Dash : MonoBehaviour
     }
     public void Star_Dash()
     {
-        if (dash_enable && mov.die == false)
+        if (Movement.freezed==false&&dash_enable && mov.die == false)
         {
             dash_used = true;
             current_time = 0;

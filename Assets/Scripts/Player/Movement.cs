@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
     [SerializeField] protected ParticleSystem teleportPS;
     [SerializeField] protected ParticleSystem movement_trail;
     [SerializeField] protected ParticleSystem splashPS;
-
+    static public bool freezed;
     public Button TeleportButton;
 
     public float shieldtime = 5f;
@@ -87,7 +87,9 @@ public class Movement : MonoBehaviour
         falling = false;
         firstTimeFalling = true;
         multiplier_speed = 1;
-        if(check != null)check.grounded = true;
+        Collider temp = GetComponent<Collider>();
+        temp.enabled = true;
+        if (check != null)check.grounded = true;
     }
     private void OnDisable()
     {
@@ -150,7 +152,7 @@ public class Movement : MonoBehaviour
     public void Change_Pos(float x, float z)
     {
 
-         if (aiming == false && multiplier_speed > 0 && check.grounded)
+         if (aiming == false &&freezed ==false && multiplier_speed > 0 && check.grounded)
         {
             running = true;
             Vector3 force = new Vector3(x, 0, z);

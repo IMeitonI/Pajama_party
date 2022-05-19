@@ -17,7 +17,7 @@ public class BoomerangLauncher : MonoBehaviour
 
     public void ThrowBomerang()
     {
-        if (boomerangRef.IsWithPlayer() && !boomerangRef.canReturn&&boomerangCheckColicions.alive && mov.falling == false)
+        if (Movement.freezed==false &&boomerangRef.IsWithPlayer() && !boomerangRef.canReturn&&boomerangCheckColicions.alive && mov.falling == false)
         {
             ThrowBtn();
             ButtonMagnet.SetActive(true);

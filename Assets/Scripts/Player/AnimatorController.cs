@@ -13,6 +13,10 @@ public class AnimatorController : MonoBehaviour
     Dash dash;
     LookAt look;
     // Start is called before the first frame update
+    private void OnEnable()
+    {
+        Map_Manager.Mapchanger += Disable;
+    }
     void Start()
     {
         mov = GetComponent<Movement>();
@@ -39,18 +43,24 @@ public class AnimatorController : MonoBehaviour
         anim.SetTrigger("Die");
         mov.die = true;
         look.death = true;
-        Invoke("Disable", 2f);
+        if (Map_Manager.players_deaths == 0)
+        {         
+            Map_Manager.players_deaths++;
+            Invoke("Disable", 2f);
+        }
+  
     }
     void Disable()
     {
         gameObject.SetActive(false);
         if (anim.GetBool("Falling")) anim.SetBool("Falling", false);
-        if (Mov_Camera.local)
+        if (Mov_Camera.local && Map_Manager.players_deaths ==1)
         {
+            Map_Manager.players_deaths = 0;
             Map_Manager.change_mp = true;
             Invoke("Change_Map", 5);
         }
-        else ++Map_Manager.players_deaths;
+        //else ++Map_Manager.players_deaths;
 
     }
     void Change_Map()
@@ -65,12 +75,14 @@ public class AnimatorController : MonoBehaviour
     }
     public void Falling()
     {
-
         if (Fall != null) Fall();
         anim.SetBool("Falling", true);
         mov.die = true;
-        Invoke("Disable", 2f);
-
+        if (Map_Manager.players_deaths == 0)
+        {
+            Map_Manager.players_deaths++;
+            Invoke("Disable", 2f);
+        }
     }
     public void Dash()
     {
