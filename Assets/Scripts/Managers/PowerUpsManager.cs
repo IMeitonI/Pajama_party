@@ -20,8 +20,6 @@ public class PowerUpsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Time: "+time);
-        Debug.Log(pw_spawned);
         time += Time.deltaTime;
         if (time >= spawn_time)
         {
