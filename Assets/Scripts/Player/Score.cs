@@ -17,7 +17,14 @@ public class Score : MonoBehaviour {
     private void Awake() {
        // test_Boomerang = GetComponentInChildren<Test_boomerang>();
         // my_Boomerang.killEvent += AddScore;
+    }
+    private void OnEnable()
+    {
         animatorController.Fall += SubsScore;
+    }
+    private void OnDisable()
+    {
+        animatorController.Fall -= SubsScore;
     }
     private void Start()
     {

@@ -10,6 +10,7 @@ public class ScoreUI : MonoBehaviour {
     [SerializeField] Sprite circle;
     [SerializeField] Score scoreScript;
     [SerializeField] GameObject winner, buttoms;
+    [SerializeField] ParticleSystem confetti;
    
     private void Start() {
         scoreScript.Substraction += SubstractionScore;
@@ -33,6 +34,7 @@ public class ScoreUI : MonoBehaviour {
             if (scoreScript.myScore >= 5) {
                 Map_Manager.winner = true;
                 winner.SetActive(true);
+                confetti.Play();
                 buttoms.SetActive(true);
             }
         }

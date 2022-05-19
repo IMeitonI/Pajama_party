@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     public GameObject playerBoomerang;
     [SerializeField] public Test_boomerang myBoomerang;
-    [SerializeField] AudioClip MovimientoSound;
+    [SerializeField] AudioClip splashSFX;
 
     private float teleportTimer = 0f;
 
@@ -82,11 +82,25 @@ public class Movement : MonoBehaviour
     }
     private void OnEnable()
     {
+        Map_Manager.Mapchanger += SetConstraints;
         die = false;
         falling = false;
         firstTimeFalling = true;
         multiplier_speed = 1;
         if(check != null)check.grounded = true;
+    }
+    private void OnDisable()
+    {
+        Map_Manager.Mapchanger -= SetConstraints;
+    }
+    void SetConstraints()
+    {
+        die = false;
+        falling = false;
+        firstTimeFalling = true;
+        multiplier_speed = 1;
+        if (check != null) check.grounded = true;
+        rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
     }
     private void Update()
     {
@@ -98,6 +112,7 @@ public class Movement : MonoBehaviour
                 multiplier_speed = 0;
                 die = true;
                 falling = true;
+                managerSound.Instance.Play(splashSFX);
                 splashPS.Play();
                 rg.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
                 Collider temp = GetComponent<Collider>();
